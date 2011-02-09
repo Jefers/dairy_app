@@ -137,8 +137,9 @@ footer nav {
 }
 
 
-#flash_notice, #flash_error {
+#flash_notice, #flash_error, #flash_alert {
   padding: 0;
+  padding-left:10px;
   margin: 0;
   width: 400px;
 }
@@ -150,6 +151,11 @@ footer nav {
 
 #flash_error {
   background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+#flash_alert {
+  background-color: #FFAB56;
   border: solid 1px #C66;
 }
 

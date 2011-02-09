@@ -1,5 +1,7 @@
 DairyApp::Application.routes.draw do
 
+  resources :products
+
   devise_for :customers
 
   get "users/new"
