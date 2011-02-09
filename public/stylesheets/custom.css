@@ -1,9 +1,25 @@
+/*
+http://colorschemedesigner.com/#4K325tgNTg0jF
+Primary Color:
+green 
+50F015  57D22A  3FC60D  6AF437  7EF453
+Secondary Color A:
+blue
+19AED8  2B9CBD  0F8EB2  39BEE4  52C4E4
+Secondary Color B:
+orange
+FF8C16  DF872D  D2710E  FF9D3A  FFAB56
+Complementary Color:
+red
+F91539  DA2C47  CE0D2C  FB3957  FB556F
+  */
+
 .container {
-  width: 710px;
+  width: 950px;
 }
 
 body {
-  background: #cff;
+  background: #52C4E4;
 }
 
 header {
@@ -96,14 +112,14 @@ a.signup_button {
 /* Round corners */
 
 .round {
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;
+  -moz-border-radius:    5px;
+  -webkit-border-radius: 5px;
+  border-radius:         5px;
 }
 footer {
   text-align: center;
   margin-top: 10px;
-  width: 710px;
+  width: 950px;
   margin-left: auto;
   margin-right: auto;
 }
