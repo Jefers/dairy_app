@@ -9,3 +9,11 @@
   </nav>
 </header>
 
+<nav id="user_nav">
+  <% if customer_signed_in? %>
+    Signed in as <%= current_customer.email %>. Not you?
+    <%= link_to "Sign out", destroy_customer_session_path %>
+  <% else %>
+    <%= link_to "Sign up", new_customer_registration_path %> or <%= link_to "sign in", new_customer_session_path %>
+  <% end %>
+</nav>

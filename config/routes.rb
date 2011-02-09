@@ -1,5 +1,7 @@
 DairyApp::Application.routes.draw do
 
+  devise_for :customers
+
   get "users/new"
   match '/signup',  :to => 'users#new'
   match '/contact', :to => 'pages#contact'
