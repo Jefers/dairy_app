@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th></th>
     <th>Item</th>
     <th>Price</th>
     <th></th>
@@ -11,6 +12,7 @@
 
 <% @products.each do |product| %>
   <tr>
+    <td><%= image_tag product.picture.url(:thumb) %></td>
     <td><%= product.name %></td>
     <td><%= product.price %></td>
    <%- if customer_signed_in? -%>
