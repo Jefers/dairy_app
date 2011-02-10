@@ -6,6 +6,7 @@ gem 'mysql2'
 gem 'devise',  '~>1.1.5'
 gem "paperclip", "~> 2.3"
 gem 'will_paginate'
+gem 'jquery-rails'
 
 
 group :development do

@@ -247,3 +247,33 @@ footer nav {
     height: 1%; }
   *:first-child+html .digg_pagination {
     overflow: hidden; }
+
+/*Pretty table*/
+table.pretty {
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.pretty td, .pretty th {
+  padding: 4px 10px;
+  border: solid 1px #AAA;
+}
+
+.pretty .price {
+  text-align: right;
+}
+
+.pretty th .current {
+  padding-right: 18px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url(/images/up_arrow.png);
+}
+
+.pretty th .desc {
+  background-image: url(/images/down_arrow.png);
+}
+
