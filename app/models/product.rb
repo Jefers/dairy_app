@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  attr_accessible :name, :price
+#  attr_accessible :name, :price   this broke paperclip!!!
   
   def self.search(search)
     if search
@@ -9,7 +9,7 @@ class Product < ActiveRecord::Base
     end
   end
     
-  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "98x98#" },
+  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "98x98#", :tiny => "49x49#" },
     :url => "/assets/products/:id/:style/:basename.:extension",  
     :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension" 
 
