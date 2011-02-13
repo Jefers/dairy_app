@@ -12,7 +12,7 @@ $('form[data-remote=true]').livequery('submit', function() {
 });
 
 $(function() {
-  $(".alert").click(function() {
+  $(".balert").click(function() {
     alert(this.getAttribute("data-confirm"));
     return false;
   })

@@ -45,7 +45,9 @@ class ProductsController < ApplicationController
   # POST /products.xml
   def create
     @product = Product.new(params[:product])
-    @product = Product.create( params[:product] )
+    @product = Product.create( params[:product] )  #TODO why is this line here???
+    #@product.accessible = :all if admin?
+    #@product.attributes = params[:product]
     respond_to do |format|
       if @product.save
         format.html { redirect_to(@product, :notice => 'Product was successfully created.') }
@@ -61,6 +63,7 @@ class ProductsController < ApplicationController
   # PUT /products/1.xml
   def update
     @product = Product.find(params[:id])
+    #@product.accessible = :all if admin?
     respond_to do |format|
       if @product.update_attributes(params[:product])
         format.html { redirect_to(@product, :notice => 'Product was successfully updated.') }

@@ -2,8 +2,8 @@
 
 <%= form_tag products_path, :method => 'get', :id => "products_search" do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= search_field_tag :search, params[:search] %>
+    <%= image_submit_tag("lgo.png", :class => "go_button") %>
   </p>
   <div id="products"><%= render 'products' %></div>
 <% end %>
