@@ -1,3 +1,7 @@
+$(function() { 
+  $('#date').datepicker();
+});
+
 $('a[data-remote=true]').livequery('click', function() {
     $.ajax({ 
       url: this.href, 
@@ -28,4 +32,5 @@ $(function() {
     return false;
   });
 });
+
 
