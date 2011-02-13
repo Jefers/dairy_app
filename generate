@@ -1,0 +1,19 @@
+Script started on Sun Feb 13 12:37:33 2011
+uninitialized constant Object::ActionController (NameError)
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/gems/rspec-expectations-2.4.0/lib/rspec/expectations/backward_compatibility.rb:6:in `const_missing'
+/Users/Jeff/code/3Rails_3/dairy_app/app/controllers/application_controller.rb:1:in `<top (required)>'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/gems/cucumber-0.10.0/lib/cucumber/rb_support/rb_language.rb:143:in `load'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/gems/cucumber-0.10.0/lib/cucumber/rb_support/rb_language.rb:143:in `load_code_file'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/gems/cucumber-0.10.0/lib/cucumber/runtime/support_code.rb:176:in `load_file'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/gems/cucumber-0.10.0/lib/cucumber/runtime/support_code.rb:78:in `block in load_files!'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/gems/cucumber-0.10.0/lib/cucumber/runtime/support_code.rb:77:in `each'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/gems/cucumber-0.10.0/lib/cucumber/runtime/support_code.rb:77:in `load_files!'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/gems/cucumber-0.10.0/lib/cucumber/runtime.rb:137:in `load_step_definitions'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/gems/cucumber-0.10.0/lib/cucumber/runtime.rb:39:in `run!'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/gems/cucumber-0.10.0/lib/cucumber/cli/main.rb:43:in `execute!'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/gems/cucumber-0.10.0/lib/cucumber/cli/main.rb:20:in `execute'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/gems/cucumber-0.10.0/bin/cucumber:14:in `<top (required)>'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/bin/cucumber:19:in `load'
+/Users/Jeff/.rvm/gems/ruby-1.9.2-rc2/bin/cucumber:19:in `<main>'
+
+Script done on Sun Feb 13 12:37:36 2011

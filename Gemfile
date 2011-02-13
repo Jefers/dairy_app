@@ -16,8 +16,13 @@ end
 group :test do
   gem 'rspec', '2.4.0'
   gem 'webrat', '0.7.1'
+  gem "capybara", '~>0.3.9'
+  gem "cucumber-rails", "~>0.3.2"
+  gem 'database_cleaner'
+  gem 'pickle'
+  gem "factory_girl", '~>1.3.1'
+  gem "launchy"
 end
-
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

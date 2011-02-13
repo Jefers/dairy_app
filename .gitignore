@@ -31,4 +31,6 @@ public/assets/*
 # Vendor Cache
 vendor/cache
 
+#testing
+capybara*
 .autotest
