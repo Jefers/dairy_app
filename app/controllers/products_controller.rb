@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
+  autocomplete :search, :name, :full => true
   before_filter :authenticate_customer!, :except => [:show, :index]
   helper_method :sort_column, :sort_direction
-
+  respond_to :js
   # GET /products
   # GET /products.xml
   def index

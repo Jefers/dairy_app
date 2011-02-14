@@ -1,7 +1,7 @@
 DairyApp::Application.routes.draw do
 
   resources :products
-
+  get 'products/autocomplete_product_name'
   devise_for :customers
 
   get "users/new"

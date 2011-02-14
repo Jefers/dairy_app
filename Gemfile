@@ -7,6 +7,7 @@ gem 'devise',  '~>1.1.5'
 gem "paperclip", "~> 2.3"
 gem 'will_paginate'
 gem 'jquery-rails'
+gem 'rails3-jquery-autocomplete'
 
 
 group :development do

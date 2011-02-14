@@ -101,6 +101,8 @@ GEM
       activesupport (= 3.0.4)
       bundler (~> 1.0)
       railties (= 3.0.4)
+    rails3-jquery-autocomplete (0.6.2)
+      rails (~> 3.0.0)
     railties (3.0.4)
       actionpack (= 3.0.4)
       activesupport (= 3.0.4)
@@ -155,6 +157,7 @@ DEPENDENCIES
   paperclip (~> 2.3)
   pickle
   rails (= 3.0.4)
+  rails3-jquery-autocomplete
   rspec (= 2.4.0)
   rspec-rails (= 2.4.1)
   webrat (= 0.7.1)

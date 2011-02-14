@@ -1,13 +1,11 @@
-<h1>Price List</h1> <input type="text" name="date" id="date" />
-
-<%= form_tag products_path, :method => 'get', :id => "products_search" do %>
+<h1>Price List</h1> <!-- <input type="text" name="date" id="date" /> -->
+<%= form_tag products_path, :method => 'get' do %>
   <p>
-    <%= search_field_tag :search, params[:search] %>
+    <%= autocomplete_field_tag :search, params[:search], products_autocomplete_product_name_path %>
     <%= image_submit_tag("lgo.png", :class => "go_button", :id => "go_button") %>
   </p>
   <div id="products"><%= render 'products' %></div>
 <% end %>
-
 <br />
 
  <%= link_to 'New Product', new_product_path %> 
