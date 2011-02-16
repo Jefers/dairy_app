@@ -11,7 +11,12 @@
   <b>Price:</b>
   <%= quid(@product.price) %>
 </p>
-
+<% unless @product.category.nil? %>
+<p>
+  <b>Category:</b>
+  <%= link_to h(@product.category.name), @product.category %>
+</p>
+<% end %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

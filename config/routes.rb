@@ -1,5 +1,7 @@
 DairyApp::Application.routes.draw do
 
+  resources :categories
+
   resources :products
   get 'products/autocomplete_product_name'
   devise_for :customers

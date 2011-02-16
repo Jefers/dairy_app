@@ -2,6 +2,12 @@ $(function() {
   $('#date').datepicker();
 });
 
+$(document).ready(function(){
+  $("button").click(function(){
+    $(".productImage").toggle();
+  });
+});
+
 $('a[data-remote=true]').livequery('click', function() {
     $.ajax({ 
       url: this.href, 

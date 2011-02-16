@@ -23,6 +23,14 @@
     <label for="product_picture">Picture</label><br />
     <%= f.file_field :picture %>
   </div>
+  <div class="field">
+    <%= f.label :discontinued %><br />
+    <%= f.check_box :discontinued %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

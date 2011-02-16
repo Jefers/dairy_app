@@ -1,5 +1,13 @@
 class Product < ActiveRecord::Base
 #  attr_accessible :name, :price   this broke paperclip!!!
+  belongs_to :category
+  scope :discontinued, where(:discontinued => true)
+
+  def self.cheaper_than(price)
+    where("products.price < ?", price)
+  end
+  
+  scope :cheap, cheaper_than(5)
   
   def self.search(search)
     if search

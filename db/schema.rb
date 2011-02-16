@@ -10,7 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110209191439) do
+ActiveRecord::Schema.define(:version => 20110214145254) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "customers", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -40,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20110209191439) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "category_id"
+    t.boolean  "discontinued"
   end
 
 end
