@@ -15,7 +15,7 @@ red
 F91539  DA2C47  CE0D2C  FB3957  FB556F
   */
 $sitewidth: 950px;
-$site: #c5e4f8;
+$site: #52c4e4;
 $font: $fb-color;
 $background: lighten($site, 20%);
 $border: darken($site, 20%);
@@ -51,6 +51,8 @@ $visited: $font;
 @mixin grey_glow {
   -moz-box-shadow:0 0 8px rgba(78, 78, 78, 0.5);
 }
+
+
 body {background: $site;color:$font ;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:$font;}
 h1 {text-shadow: #aaaaaa 1px 1px 1px;}
@@ -307,7 +309,7 @@ input[type="text"]#per_page {
 
 button {@include fancy-button($site, 11px); }
 input[type="submit"]#go_button {@include fancy-button($site, 14px, 1em, 2px);  margin-bottom: -6px }
-input[type="submit"]#product_submit {@include fancy-button($site, 14px, 1em, 1px) }
+input[type="submit"]#product_submit {@include fancy-button($site, 19px, 1em, 1px) }
 input[type="submit"]#save_button {@include fancy-button($site, 11px);  margin-bottom: -6px }
 input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margin-bottom: -6px }
 
@@ -318,5 +320,30 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 #logo {
     @include rounded;
     @include grey_glow;
+} 
+
+.file_input_textbox
+{ 
+  width: 400px; 
+  float: left;
 }
- 
+
+.file_input_button {@include fancy-button($site, 15px);  margin-bottom: 30px; margin-top: 7px; }
+
+.file_input_div
+{
+  position: relative; 
+  width: 100px; 
+  height: 2.1em; 
+  overflow: hidden;
+  display: inline
+}
+
+.file_input_hidden
+{
+  font-size: 45px;
+  position: absolute; 
+  right: 0px; 
+  top: 0px;
+  @include transparent
+} 
