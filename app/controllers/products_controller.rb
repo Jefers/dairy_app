@@ -9,16 +9,11 @@ class ProductsController < ApplicationController
   # GET /products.xml
   def index
     if params[:per_page]
-      cookies[:perPage] = params[:per_page]
+      cookies.permanent[:perPage] = params[:per_page]
     else
       cookies[:perPage] = 7
     end
 
-    if params[:show_pictures]
-      cookies.permanent[:show_pictures] = params[:show_pictures]
-    else
-      cookies[:show_pictures] = false
-    end
     # @products = Product.all.paginate(:per_page => 3, :page => params[:page])
     # cookies.permanent[:perPage] = params[:per_page] ||= 7
     # @products = Product.all.paginate(:per_page => 3, :page => params[:page])

@@ -8,7 +8,8 @@ gem "paperclip", "~> 2.3"
 gem 'will_paginate'
 gem 'jquery-rails'
 gem 'rails3-jquery-autocomplete'
-
+gem 'compass'
+gem 'fancy-buttons'
 
 group :development do
   gem 'rspec-rails', '2.4.1'

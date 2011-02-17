@@ -21,7 +21,9 @@
   </div>
   <div class="field">
     <label for="product_picture">Picture</label><br />
-    <%= f.file_field :picture %>
+      <div id="upload">
+         <%= f.file_field :picture %>
+      </div>
   </div>
   <div class="field">
     <%= f.label :discontinued %><br />

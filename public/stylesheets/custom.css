@@ -291,8 +291,4 @@ table.pretty {
 /*fancy input search*/
 input#search[type="text"] {width:149px;height:16px;padding:4px 10px 2px 21px;font-size:15px;color:navy;border:none;background:url(/images/search_field.png) 0 -22px no-repeat;/*TODO replace -22 with 0*/}
 input#search[type="text"]:focus {background:url(/images/search_field.png) 0 -22px no-repeat;}
-.go_button {height: 23px;  width: 4em;  margin-bottom: -6px;/*to make the rest of the search stuff behave*/}   
-
-/*input#search[type="search"] {width:337px;height:18px;padding:4px 10px 2px 21px;font-size:16px;color:navy;border:none;background:url(/images/lsearch_field.png) 0 0px no-repeat;}
-input#search[type="search"]:focus {width:337px;height:18px;background:url(/images/lsearch_field.png) 0 -25px no-repeat;}
-.go_button {height: 25px;  width: 4em;  margin-bottom: -6px;/*to make the rest of the search stuff behave*/}  */
+.go_button {height: 23px;  width: 4em;  margin-bottom: -6px;/*to make the rest of the search stuff behave*/}
