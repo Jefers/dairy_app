@@ -13,8 +13,8 @@
       <% end %>
     </tr>
     <% for product in @products %>
-        <td class="productImage"><%= image_tag product.picture.url(:tiny) %> </td>
-        <td><%= product.name %></td>
+        <td class="productImage"><%= link_to (image_tag product.picture.url(:tiny)), product  %> </td>
+        <td><%= link_to product.name, product %></td>
         <td class="price"><%= quid(product.price) %></td>
         <% if customer_signed_in? %>
          <td><%= link_to 'Show', product %></td>

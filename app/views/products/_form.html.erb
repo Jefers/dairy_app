@@ -31,11 +31,11 @@
 
   <div class="field">
     <%= f.label :discontinued %><br />
-    <%= f.check_box :discontinued %>
+    <%= f.check_box :discontinued, :class => "checkbox" %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br />
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, :include_blank => true) %>
   </div>
   <div class="actions">
     <%= f.submit %>

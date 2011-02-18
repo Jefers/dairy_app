@@ -1,4 +1,6 @@
 @import "fancy-buttons";
+@import blueprint.sass
+
 /*
 http://colorschemedesigner.com/#4K325tgNTg0jF
 Primary Color:
@@ -14,10 +16,11 @@ Complementary Color:
 red
 F91539  DA2C47  CE0D2C  FB3957  FB556F
   */
-$sitewidth: 950px;
-$site: #52c4e4;
+$sitewidth: 1024px;
+$site: #7EF453;
 $font: $fb-color;
 $background: lighten($site, 20%);
+$bg: $background;
 $border: darken($site, 20%);
 $fontb: darken(#52C4E4, 10);
 $paginate: darken($site, 20%);
@@ -45,12 +48,16 @@ $visited: $font;
 @mixin rounded {
   @include border-radius(0.5em);
   margin:1px; 
-//  background: $background;
+  background: $bg;
 }
 
 @mixin grey_glow {
   -moz-box-shadow:0 0 8px rgba(78, 78, 78, 0.5);
 }
+
+#sidebar
+  +column(5)
+  +prepend(1)
 
 
 body {background: $site;color:$font ;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
@@ -91,9 +98,11 @@ a {
 /* Navigation */
 
 nav {
+  @include rounded;
   @include grey_glow;
   float: right;
   background-color: $background;
+  margin: 0;
   padding: 0 0.7em;
   white-space: nowrap;
   ul {
@@ -110,6 +119,10 @@ nav {
           color: $visited; }
         &:hover {
           text-decoration: underline; } } } } }
+          
+#login_nav {
+    margin-top: -2em;
+}
 
 /* Sign up button */
 
@@ -346,4 +359,13 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
   right: 0px; 
   top: 0px;
   @include transparent
-} 
+}
+
+.checkbox {
+  color:$font;
+  background:$bg;
+  width:2em;
+  height:2em;
+}
+
+ 
