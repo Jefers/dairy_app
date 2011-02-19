@@ -15,7 +15,7 @@ red
 F91539  DA2C47  CE0D2C  FB3957  FB556F
   */
 $sitewidth: 1024px;
-$site: #7EF453;
+$site: #52c4e4;
 $font: $fb-color;
 $background: lighten($site, 20%);
 $bg: $background;
@@ -53,11 +53,27 @@ $visited: $font;
   -moz-box-shadow:0 0 8px rgba(78, 78, 78, 0.5);
 }
 
-
-
-body {background: $site;color:$font ;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
+//body {background: $site;color:$font ;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
+body {background:url(/images/main_background.png) -20% -23px repeat-x;;color:$font ;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:$font;}
 h1 {text-shadow: #aaaaaa 1px 1px 1px;}
+header h1 {
+  -x-system-font: none;
+  color: white;
+  font-family: "Museo Slab","Helvetica","Arial",sans-serif;
+  font-size: 65px;
+  font-size-adjust: none;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-shadow: 0 -1px 0 black;
+  position: absolute;
+  top: 0.5em;
+  right: 10em;
+}
+
 .container {
   width: $sitewidth; }
 
@@ -136,7 +152,11 @@ nav#left_bar {
         &:visited {
           color: $visited; }
         &:hover {
-          text-decoration: underline; } } } } }
+          text-decoration: none;
+          background: orange;
+          border-style:solid; 
+          border-color:$border; 
+          border-width:2px; } } } } }
           
 #login_nav {
     margin-top: -2em;
@@ -337,7 +357,7 @@ input[type="text"]#search {
 input[type="text"]#per_page {
   width:20px;
 }
-
+.button {@include fancy-button($site, 11px); }
 button {@include fancy-button($site, 11px); }
 input[type="submit"]#go_button {@include fancy-button($site, 14px, 1em, 2px);  margin-bottom: -6px }
 input[type="submit"]#product_submit {@include fancy-button($site, 19px, 1em, 1px) }

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   autocomplete :search, :name, :full => true
-  before_filter :authenticate_customer!, :except => [:show, :index]
+  before_filter :authenticate_customer!, :except => [:show, :index, :for_category]
   helper_method :sort_column, :sort_direction
   respond_to :js    #autocomplete - needed? needs respond_with in method
   attr_accessor :perPage, :show_pictures
@@ -18,8 +18,8 @@ class ProductsController < ApplicationController
     # cookies.permanent[:perPage] = params[:per_page] ||= 7
     # @products = Product.all.paginate(:per_page => 3, :page => params[:page])
     @categories = Category.all
-    # @products = Product.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => cookies[:perPage], :page => params[:page])
-    @products = Product.search(params[:search]).order(sort_column + " " + sort_direction)
+    @products = Product.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => cookies[:perPage], :page => params[:page])
+    # @products = Product.search(params[:search]).order(sort_column + " " + sort_direction)
 
     # Would have been nice to have this integrated in but pagination doesn't play well with it!
     if params[:discontinued]

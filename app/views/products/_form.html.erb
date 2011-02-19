@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+    <%= image_tag @product.picture.url(:tiny) %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>

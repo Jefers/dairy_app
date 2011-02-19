@@ -1,13 +1,12 @@
 <nav id="left_bar">
 <h3>Shop</h3>
-
 <ul>
   <li>
-    <%= link_to "All", products_path %>
+    <%= link_to "All Products", products_path %>
   </li>
     <% @categories.each do |category| %>
   <li>
-    <%= link_to category.name, for_category_category_products_path(category) %>
+    <%= link_to category.title, for_category_category_products_path(category) %>
   </li>
 <% end %>
 </ul>
