@@ -1,6 +1,4 @@
 @import "fancy-buttons";
-@import blueprint.sass
-
 /*
 http://colorschemedesigner.com/#4K325tgNTg0jF
 Primary Color:
@@ -55,9 +53,6 @@ $visited: $font;
   -moz-box-shadow:0 0 8px rgba(78, 78, 78, 0.5);
 }
 
-#sidebar
-  +column(5)
-  +prepend(1)
 
 
 body {background: $site;color:$font ;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
@@ -111,6 +106,29 @@ nav {
     li {
       list-style-type: none;
       display: inline-block;
+      padding: 0.2em 0;
+      a {
+        padding: 0 5px;
+        font-weight: bold;
+        &:visited {
+          color: $visited; }
+        &:hover {
+          text-decoration: underline; } } } } }
+
+
+nav#left_bar {
+  @include rounded;
+  @include grey_glow;
+  float: right;
+  background-color: $background;
+  margin-top: 7em;
+  padding: 0 0.7em;
+  white-space: normal;
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style-type: none;
       padding: 0.2em 0;
       a {
         padding: 0 5px;
@@ -210,7 +228,7 @@ footer {
 #userPreferences {
   float: right;
   font-size: 12px;
-  width: 250px;
+  width: 180px;
   border: 2px solid $border;
   padding: 5px;
   margin-top: -50px;
@@ -333,6 +351,7 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 #logo {
     @include rounded;
     @include grey_glow;
+    margin-top: -2em;
 } 
 
 .file_input_textbox

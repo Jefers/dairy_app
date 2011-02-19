@@ -1,0 +1,25 @@
+<h1>Price List</h1> <!-- <input type="text" name="date" id="date" /> -->
+<!-- <form action="setPerPage">
+  Items per page: <input type="text" name="perPage" id="perPage" size="1" />
+</form>      -->
+<fieldset id="userPreferences">
+  <legend>Display Preferences</legend>
+<%= form_tag products_path, :method => 'get' do %>
+  <%= label_tag 'Items per page:' %>
+  <%= text_field_tag 'per_page', cookies[:perPage], :size => '1' %>
+  <%= submit_tag "save", :id => "save_button" %>
+<% end %>
+<button>Toggle Pictures</button>
+</fieldset>
+<%= form_tag products_path, :method => 'get' do %>
+  <p>
+    Search for a product:
+    <%= autocomplete_field_tag :search, params[:search], products_autocomplete_product_name_path %>
+    <%= submit_tag "GO", :class => "go_button", :id => "go_button" %>
+  </p>
+  <div id="products"><%= render 'products' %></div>
+<% end %>
+<br />
+
+ <%= link_to 'New Product', new_product_path %> 
+                                                      

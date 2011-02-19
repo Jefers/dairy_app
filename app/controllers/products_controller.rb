@@ -18,22 +18,47 @@ class ProductsController < ApplicationController
     # cookies.permanent[:perPage] = params[:per_page] ||= 7
     # @products = Product.all.paginate(:per_page => 3, :page => params[:page])
     @categories = Category.all
-    @products = Product.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => cookies[:perPage], :page => params[:page])
+    # @products = Product.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => cookies[:perPage], :page => params[:page])
+    @products = Product.search(params[:search]).order(sort_column + " " + sort_direction)
 
     # Would have been nice to have this integrated in but pagination doesn't play well with it!
-    # if params[:discontinued]
-    #   @products = @products.where(:discontinued => (params[:discontinued] == "1"))
-    # end   
+    if params[:discontinued]
+      @products = @products.where(:discontinued => (params[:discontinued] == "1"))
+    end   
+
+    if params[:category_id]
+      @products = @products.where(:category_id => (params[:category_id] == "1"))    
+    end 
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @products }
     end
   end
+  
+  def for_category
+    if params[:per_page]
+      cookies.permanent[:perPage] = params[:per_page]
+    else
+      cookies[:perPage] = 7
+    end
+
+    @categories = Category.all
+    @category = Category.find(params[:category_id])
+    @products = Product.search(params[:search]).order(sort_column + " " + sort_direction)
+    @products = @products.select{ |product| product.category == @category }
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @products }
+    end
+    
+  end
 
   # GET /products/1
   # GET /products/1.xml
   def show
+    @categories = Category.all
     @product = Product.find(params[:id])
 
     respond_to do |format|
@@ -45,6 +70,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.xml
   def new
+    @categories = Category.all
     @product = Product.new
 
     respond_to do |format|
@@ -55,6 +81,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @categories = Category.all
     @product = Product.find(params[:id])
   end
 
@@ -95,6 +122,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.xml
   def destroy
+    @categories = Category.all
     @product = Product.find(params[:id])
     @product.destroy
 
@@ -103,7 +131,7 @@ class ProductsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
+  
   
   private
   

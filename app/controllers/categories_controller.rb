@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.xml
   def show
+    @categories = Category.all
     @category = Category.find(params[:id])
 
     respond_to do |format|
@@ -24,6 +25,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   # GET /categories/new.xml
   def new
+    @categories = Category.all
     @category = Category.new
 
     respond_to do |format|
@@ -34,6 +36,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+    @categories = Category.all
     @category = Category.find(params[:id])
   end
 
@@ -78,6 +81,15 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(categories_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def list
+    @categories = Category.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @categories }
     end
   end
 end

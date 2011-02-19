@@ -2,6 +2,8 @@ class Product < ActiveRecord::Base
 #  attr_accessible :name, :price   this broke paperclip!!!
   belongs_to :category
   scope :discontinued, where(:discontinued => true)
+  
+  scope :category, proc {|category| where(:category_id => category) }
 
   def self.cheaper_than(price)
     where("products.price < ?", price)
