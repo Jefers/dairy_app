@@ -14,25 +14,26 @@ Complementary Color:
 red
 F91539  DA2C47  CE0D2C  FB3957  FB556F
   */
-/* line 57, ../../../src/custom.scss */
+/* Total width = (columns * 40) - 10 */
+/* line 63, ../../../src/custom.scss */
 body {
   background: url(/images/main_background.png) -20% -23px repeat-x;
   color: #444444;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-/* line 58, ../../../src/custom.scss */
+/* line 64, ../../../src/custom.scss */
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   color: #444444;
 }
 
-/* line 59, ../../../src/custom.scss */
+/* line 65, ../../../src/custom.scss */
 h1 {
   text-shadow: #aaaaaa 1px 1px 1px;
 }
 
-/* line 60, ../../../src/custom.scss */
+/* line 66, ../../../src/custom.scss */
 header h1 {
   -x-system-font: none;
   color: white;
@@ -47,44 +48,49 @@ header h1 {
   text-shadow: 0 -1px 0 black;
   position: absolute;
   top: 0.5em;
-  right: 10em;
+  right: 9em;
 }
 
-/* line 77, ../../../src/custom.scss */
-.container {
-  width: 1024px;
-}
-
-/* line 80, ../../../src/custom.scss */
+/* line 86, ../../../src/custom.scss */
 header {
   padding-top: 20px;
 }
-/* line 82, ../../../src/custom.scss */
+/* line 88, ../../../src/custom.scss */
 header img {
   padding: 1em;
   background: #aae2f2;
 }
 
-/* line 86, ../../../src/custom.scss */
-section {
-  -moz-box-shadow: 0 0 8px rgba(78, 78, 78, 0.5);
-  margin-top: 1em;
-  font-size: 120%;
-  padding: 20px;
-  background: #aae2f2;
-}
 /* line 92, ../../../src/custom.scss */
+section {
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -khtml-border-radius: 0.5em;
+  border-radius: 0.5em;
+  margin: 0.25em;
+  padding: 0.5em;
+  background: #aae2f2;
+  -moz-box-shadow: 0 0 8px rgba(78, 78, 78, 0.5);
+  font-size: 120%;
+}
+/* line 96, ../../../src/custom.scss */
 section h1 {
   font-size: 200%;
 }
-/* line 94, ../../../src/custom.scss */
+/* line 98, ../../../src/custom.scss */
 section#flash {
   height: 18px;
-  margin-top: 1em;
-  padding-top: 1em;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -khtml-border-radius: 0.5em;
+  border-radius: 0.5em;
+  margin: 0.25em;
+  padding: 0.5em;
+  background: #aae2f2;
 }
 
 /* Links */
@@ -112,78 +118,74 @@ nav {
   -ms-border-radius: 0.5em;
   -khtml-border-radius: 0.5em;
   border-radius: 0.5em;
-  margin: 1px;
+  margin: 0.25em;
+  padding: 0.5em;
   background: #aae2f2;
   -moz-box-shadow: 0 0 8px rgba(78, 78, 78, 0.5);
   float: right;
-  background-color: #aae2f2;
-  margin: 0;
-  padding: 0 0.7em;
   white-space: nowrap;
 }
-/* line 119, ../../../src/custom.scss */
+/* line 116, ../../../src/custom.scss */
 nav ul {
   margin: 0;
   padding: 0;
 }
-/* line 122, ../../../src/custom.scss */
+/* line 119, ../../../src/custom.scss */
 nav ul li {
   list-style-type: none;
   display: inline-block;
   padding: 0.2em 0;
 }
-/* line 126, ../../../src/custom.scss */
+/* line 123, ../../../src/custom.scss */
 nav ul li a {
   padding: 0 5px;
   font-weight: bold;
 }
-/* line 129, ../../../src/custom.scss */
+/* line 126, ../../../src/custom.scss */
 nav ul li a:visited {
   color: #444444;
 }
-/* line 131, ../../../src/custom.scss */
+/* line 128, ../../../src/custom.scss */
 nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* line 135, ../../../src/custom.scss */
-nav#left_bar {
+/* line 132, ../../../src/custom.scss */
+#left_bar {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
   -o-border-radius: 0.5em;
   -ms-border-radius: 0.5em;
   -khtml-border-radius: 0.5em;
   border-radius: 0.5em;
-  margin: 1px;
+  margin: 0.25em;
+  padding: 0.5em;
   background: #aae2f2;
   -moz-box-shadow: 0 0 8px rgba(78, 78, 78, 0.5);
   float: right;
-  background-color: #aae2f2;
-  margin-top: 7em;
-  padding: 0 0.7em;
   white-space: normal;
 }
-/* line 143, ../../../src/custom.scss */
-nav#left_bar ul {
+/* line 137, ../../../src/custom.scss */
+#left_bar ul {
   margin: 0;
   padding: 0;
 }
-/* line 146, ../../../src/custom.scss */
-nav#left_bar ul li {
+/* line 140, ../../../src/custom.scss */
+#left_bar ul li {
   list-style-type: none;
   padding: 0.2em 0;
 }
-/* line 149, ../../../src/custom.scss */
-nav#left_bar ul li a {
+/* line 143, ../../../src/custom.scss */
+#left_bar ul li a {
   padding: 0 5px;
   font-weight: bold;
 }
-/* line 152, ../../../src/custom.scss */
-nav#left_bar ul li a:visited {
+/* line 146, ../../../src/custom.scss */
+#left_bar ul li a:visited {
   color: #444444;
 }
-/* line 154, ../../../src/custom.scss */
-nav#left_bar ul li a:hover {
+/* line 148, ../../../src/custom.scss */
+#left_bar ul li a:hover {
   text-decoration: none;
   background: orange;
   border-style: solid;
@@ -191,13 +193,40 @@ nav#left_bar ul li a:hover {
   border-width: 2px;
 }
 
-/* line 161, ../../../src/custom.scss */
+/* line 155, ../../../src/custom.scss */
+#right_bar {
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -khtml-border-radius: 0.5em;
+  border-radius: 0.5em;
+  margin: 0.25em;
+  padding: 0.5em;
+  background: #aae2f2;
+  -moz-box-shadow: 0 0 8px rgba(78, 78, 78, 0.5);
+  float: right;
+  background-color: #aae2f2;
+  white-space: normal;
+  overflow: hidden;
+  clear: both;
+}
+
+/* line 164, ../../../src/custom.scss */
 #login_nav {
+  padding: 2px;
   margin-top: -2em;
 }
 
+/* line 169, ../../../src/custom.scss */
+#help_nav {
+  margin: 0;
+  overflow: hidden;
+  clear: both;
+}
+
 /* Sign up button */
-/* line 167, ../../../src/custom.scss */
+/* line 176, ../../../src/custom.scss */
 a.signup_button {
   margin-left: auto;
   margin-right: auto;
@@ -212,28 +241,28 @@ a.signup_button {
 }
 
 /* Round corners */
-/* line 181, ../../../src/custom.scss */
+/* line 190, ../../../src/custom.scss */
 .round {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
 
-/* line 186, ../../../src/custom.scss */
+/* line 195, ../../../src/custom.scss */
 footer {
-  -moz-box-shadow: 0 0 8px rgba(78, 78, 78, 0.5);
   text-align: center;
   margin-top: 10px;
-  width: 1024px;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
+  clear: both;
 }
-/* line 193, ../../../src/custom.scss */
+/* line 200, ../../../src/custom.scss */
 footer nav {
   float: none;
 }
 
-/* line 196, ../../../src/custom.scss */
+/* line 204, ../../../src/custom.scss */
 #flash_notice, #flash_error, #flash_alert {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -241,48 +270,49 @@ footer nav {
   -ms-border-radius: 0.5em;
   -khtml-border-radius: 0.5em;
   border-radius: 0.5em;
-  margin: 1px;
+  margin: 0.25em;
+  padding: 0.5em;
   background: #aae2f2;
   -moz-box-shadow: 0 0 8px rgba(78, 78, 78, 0.5);
   padding: 0;
   padding-left: 10px;
   margin: 0;
-  width: 400px;
+  width: 500px;
 }
 
-/* line 204, ../../../src/custom.scss */
+/* line 212, ../../../src/custom.scss */
 #flash_notice {
   background-color: #CFC;
   border: solid 1px #6C6;
 }
 
-/* line 208, ../../../src/custom.scss */
+/* line 216, ../../../src/custom.scss */
 #flash_error {
   background-color: #FCC;
   border: solid 1px #C66;
 }
 
-/* line 212, ../../../src/custom.scss */
+/* line 220, ../../../src/custom.scss */
 #flash_alert {
   background-color: #FFAB56;
   border: solid 1px #C66;
 }
 
-/* line 216, ../../../src/custom.scss */
+/* line 224, ../../../src/custom.scss */
 .fieldWithErrors {
   display: inline;
 }
 
-/* line 219, ../../../src/custom.scss */
+/* line 227, ../../../src/custom.scss */
 #errorExplanation {
-  width: 400px;
+  width: 500px;
   border: 2px solid #CF0000;
   padding: 0px;
   padding-bottom: 12px;
   margin-bottom: 20px;
   background-color: #f0f0f0;
 }
-/* line 226, ../../../src/custom.scss */
+/* line 234, ../../../src/custom.scss */
 #errorExplanation h2 {
   text-align: left;
   font-weight: bold;
@@ -292,29 +322,29 @@ footer nav {
   background-color: #c00;
   color: #fff;
 }
-/* line 234, ../../../src/custom.scss */
+/* line 242, ../../../src/custom.scss */
 #errorExplanation p {
   color: #333;
   margin-bottom: 0;
   padding: 8px;
 }
-/* line 238, ../../../src/custom.scss */
+/* line 246, ../../../src/custom.scss */
 #errorExplanation ul {
   margin: 2px 24px;
 }
-/* line 240, ../../../src/custom.scss */
+/* line 248, ../../../src/custom.scss */
 #errorExplanation ul li {
   font-size: 12px;
   list-style: disc;
 }
 
-/* line 244, ../../../src/custom.scss */
+/* line 252, ../../../src/custom.scss */
 #user_nav {
   float: right;
   font-size: 12px;
 }
 
-/* line 248, ../../../src/custom.scss */
+/* line 256, ../../../src/custom.scss */
 #userPreferences {
   float: right;
   font-size: 12px;
@@ -326,49 +356,49 @@ footer nav {
 }
 
 /*Pagination*/
-/* line 259, ../../../src/custom.scss */
+/* line 267, ../../../src/custom.scss */
 .digg_pagination {
   background: #aae2f2;
   /* self-clearing method: */
 }
-/* line 262, ../../../src/custom.scss */
+/* line 270, ../../../src/custom.scss */
 .digg_pagination a {
   padding: .2em .5em;
   display: block;
   float: left;
   margin-right: 1px;
 }
-/* line 267, ../../../src/custom.scss */
+/* line 275, ../../../src/custom.scss */
 .digg_pagination span {
   padding: .2em .5em;
   display: block;
   float: left;
   margin-right: 1px;
 }
-/* line 272, ../../../src/custom.scss */
+/* line 280, ../../../src/custom.scss */
 .digg_pagination span.disabled {
   color: #999;
   border: 1px solid #DDD;
 }
-/* line 275, ../../../src/custom.scss */
+/* line 283, ../../../src/custom.scss */
 .digg_pagination span.current {
   font-weight: bold;
   background: #1c93b4;
   color: white;
   border: 1px solid #1c93b4;
 }
-/* line 280, ../../../src/custom.scss */
+/* line 288, ../../../src/custom.scss */
 .digg_pagination a {
   text-decoration: none;
   color: #156f88;
   border: 1px solid #156f88;
 }
-/* line 284, ../../../src/custom.scss */
+/* line 292, ../../../src/custom.scss */
 .digg_pagination a:hover, .digg_pagination a:focus {
   color: #0e4b5c;
   border-color: #52c4e4;
 }
-/* line 287, ../../../src/custom.scss */
+/* line 295, ../../../src/custom.scss */
 .digg_pagination .page_info {
   background: #1c93b4;
   color: #aae2f2;
@@ -377,13 +407,13 @@ footer nav {
   margin-bottom: .3em;
   text-align: center;
 }
-/* line 294, ../../../src/custom.scss */
+/* line 302, ../../../src/custom.scss */
 .digg_pagination .page_info b {
   color: #156f88;
   background: #52c4e4;
   padding: .1em .25em;
 }
-/* line 298, ../../../src/custom.scss */
+/* line 306, ../../../src/custom.scss */
 .digg_pagination:after {
   content: ".";
   display: block;
@@ -392,57 +422,56 @@ footer nav {
   visibility: hidden;
 }
 
-/* line 306, ../../../src/custom.scss */
+/* line 314, ../../../src/custom.scss */
 * html .digg_pagination {
   height: 1%;
 }
-/* line 308, ../../../src/custom.scss */
+/* line 316, ../../../src/custom.scss */
 *:first-child + html .digg_pagination {
   overflow: hidden;
 }
 
 /*Pretty table*/
-/* line 313, ../../../src/custom.scss */
+/* line 321, ../../../src/custom.scss */
 table.pretty {
   border-collapse: collapse;
   margin-bottom: 10px;
 }
 
-/* line 318, ../../../src/custom.scss */
+/* line 326, ../../../src/custom.scss */
 .pretty td, .pretty th {
   padding: 4px 10px;
   border: solid 1px #1c93b4;
 }
-/* line 321, ../../../src/custom.scss */
+/* line 329, ../../../src/custom.scss */
 .pretty .price {
   text-align: right;
 }
-/* line 324, ../../../src/custom.scss */
+/* line 332, ../../../src/custom.scss */
 .pretty th .current {
   padding-right: 18px;
   background-repeat: no-repeat;
   background-position: right center;
 }
-/* line 328, ../../../src/custom.scss */
+/* line 336, ../../../src/custom.scss */
 .pretty th .asc:after {
   content: "\25B2 \ ";
   text-shadow: #aaaaaa 1px 1px 1px;
 }
-/* line 331, ../../../src/custom.scss */
+/* line 339, ../../../src/custom.scss */
 .pretty th .desc:after {
   content: "\25BC \ ";
   text-shadow: #aaaaaa 1px 1px 1px;
 }
 
-/* line 336, ../../../src/custom.scss */
+/* line 344, ../../../src/custom.scss */
 tbody tr:nth-child(even) td, tbody tr.even td {
   background: #94dbee;
 }
 
 /*fancy input search*/
-/* line 339, ../../../src/custom.scss */
+/* line 347, ../../../src/custom.scss */
 input[type="password"], input[type="text"], input[type="file"], textarea {
-  height: 1.5em;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
@@ -463,7 +492,7 @@ input[type="password"], input[type="text"], input[type="file"], textarea {
   -moz-box-shadow: 0 0 8px rgba(78, 78, 78, 0.5);
 }
 
-/* line 345, ../../../src/custom.scss */
+/* line 352, ../../../src/custom.scss */
 div#upload, select {
   height: 2em;
   -moz-border-radius: 5px;
@@ -485,7 +514,7 @@ div#upload, select {
   color: #444444;
 }
 
-/* line 350, ../../../src/custom.scss */
+/* line 357, ../../../src/custom.scss */
 input[type="text"]#search {
   padding-left: 1.5em;
   height: 1.5em;
@@ -509,12 +538,12 @@ input[type="text"]#search {
   background: url(/images/mag_glass.png) 0 -2px no-repeat;
 }
 
-/* line 357, ../../../src/custom.scss */
+/* line 364, ../../../src/custom.scss */
 input[type="text"]#per_page {
   width: 20px;
 }
 
-/* line 360, ../../../src/custom.scss */
+/* line 367, ../../../src/custom.scss */
 .button {
   font-family: "Lucida Grande", Lucida, Arial, sans_serif;
   background: url('../../images/button_bg.png?1297963111') repeat-x bottom left;
@@ -616,7 +645,109 @@ input[type="text"]#per_page {
   color: white;
 }
 
-/* line 361, ../../../src/custom.scss */
+/* line 368, ../../../src/custom.scss */
+input[type="submit"] {
+  font-family: "Lucida Grande", Lucida, Arial, sans_serif;
+  background: url('../../images/button_bg.png?1297963111') repeat-x bottom left;
+  margin: 0;
+  width: auto;
+  overflow: visible;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  border-style: solid;
+  font-weight: bold;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 13.2px;
+  padding: 2px 9px;
+  border-width: 1px;
+  background-color: #37d3ff;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #e4f6fb), color-stop(10%, #94dbee), color-stop(50%, #45bfe2), color-stop(50%, #38bbe0), color-stop(100%, #64cae7));
+  background-image: -moz-linear-gradient(top, #e4f6fb 0%, #94dbee 10%, #45bfe2 50%, #38bbe0 50%, #64cae7 100%);
+  background-image: linear-gradient(top, #e4f6fb 0%, #94dbee 10%, #45bfe2 50%, #38bbe0 50%, #64cae7 100%);
+  border-color: #20a5ca;
+  text-shadow: #008eb7 0px 1px 1px;
+}
+/* line 172, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"]::-moz-focus-inner {
+  border: none;
+  padding: 0;
+}
+/* line 175, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"]:focus {
+  outline: none;
+}
+/* line 178, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"].disabled, input[type="submit"][disabled] {
+  opacity: 0.7;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+}
+/* line 183, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"].disabled:hover, input[type="submit"].disabled:focus, input[type="submit"][disabled]:hover, input[type="submit"][disabled]:focus {
+  cursor: default;
+}
+/* line 152, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"]:active {
+  padding: 1px 8px;
+  border-width: 2px;
+}
+/* line 156, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"].disabled:active, input[type="submit"][disabled] {
+  padding: 2px 9px;
+  border-width: 1px;
+}
+/* line 98, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"], input[type="submit"]:visited {
+  color: white;
+}
+/* line 26, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"].disabled:active, input[type="submit"].disabled:hover, input[type="submit"][disabled]:active, input[type="submit"][disabled]:hover {
+  background-color: #37d3ff;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #e4f6fb), color-stop(10%, #94dbee), color-stop(50%, #45bfe2), color-stop(50%, #38bbe0), color-stop(100%, #64cae7));
+  background-image: -moz-linear-gradient(top, #e4f6fb 0%, #94dbee 10%, #45bfe2 50%, #38bbe0 50%, #64cae7 100%);
+  background-image: linear-gradient(top, #e4f6fb 0%, #94dbee 10%, #45bfe2 50%, #38bbe0 50%, #64cae7 100%);
+  border-color: #20a5ca;
+  text-shadow: #008eb7 0px 1px 1px;
+}
+/* line 98, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"].disabled:active, input[type="submit"].disabled:active:visited, input[type="submit"].disabled:hover, input[type="submit"].disabled:hover:visited, input[type="submit"][disabled]:active, input[type="submit"][disabled]:active:visited, input[type="submit"][disabled]:hover, input[type="submit"][disabled]:hover:visited {
+  color: white;
+}
+/* line 28, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"]:hover, input[type="submit"]:focus {
+  background-color: #28d0ff;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #d6f1f9), color-stop(10%, #87d6ec), color-stop(50%, #38bbe0), color-stop(50%, #2ab6de), color-stop(100%, #56c6e5));
+  background-image: -moz-linear-gradient(top, #d6f1f9 0%, #87d6ec 10%, #38bbe0 50%, #2ab6de 50%, #56c6e5 100%);
+  background-image: linear-gradient(top, #d6f1f9 0%, #87d6ec 10%, #38bbe0 50%, #2ab6de 50%, #56c6e5 100%);
+  border-color: #1d9abd;
+  text-shadow: #0083a7 0px 1px 1px;
+}
+/* line 98, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"]:hover, input[type="submit"]:hover:visited, input[type="submit"]:focus, input[type="submit"]:focus:visited {
+  color: white;
+}
+/* line 33, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"]:active {
+  background-color: #18ccff;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #38bbe0), color-stop(30%, #40bee1), color-stop(50%, #2fb8de), color-stop(50%, #22b3dc), color-stop(100%, #5bc7e5));
+  background-image: -moz-linear-gradient(top, #38bbe0 0%, #40bee1 30%, #2fb8de 50%, #22b3dc 50%, #5bc7e5 100%);
+  background-image: linear-gradient(top, #38bbe0 0%, #40bee1 30%, #2fb8de 50%, #22b3dc 50%, #5bc7e5 100%);
+  border-color: #1b8fb0;
+  text-shadow: #007798 0px -1px -1px;
+}
+/* line 98, ../../../../../../.rvm/gems/ruby-1.9.2-rc2/gems/fancy-buttons-0.5.5/lib/stylesheets/_fancy-buttons.sass */
+input[type="submit"]:active, input[type="submit"]:active:visited {
+  color: white;
+}
+
+/* line 369, ../../../src/custom.scss */
 button {
   font-family: "Lucida Grande", Lucida, Arial, sans_serif;
   background: url('../../images/button_bg.png?1297963111') repeat-x bottom left;
@@ -718,7 +849,7 @@ button:active, button:active:visited {
   color: white;
 }
 
-/* line 362, ../../../src/custom.scss */
+/* line 370, ../../../src/custom.scss */
 input[type="submit"]#go_button {
   font-family: "Lucida Grande", Lucida, Arial, sans_serif;
   background: url('../../images/button_bg.png?1297963111') repeat-x bottom left;
@@ -821,7 +952,7 @@ input[type="submit"]#go_button:active, input[type="submit"]#go_button:active:vis
   color: white;
 }
 
-/* line 363, ../../../src/custom.scss */
+/* line 371, ../../../src/custom.scss */
 input[type="submit"]#product_submit {
   font-family: "Lucida Grande", Lucida, Arial, sans_serif;
   background: url('../../images/button_bg.png?1297963111') repeat-x bottom left;
@@ -923,7 +1054,7 @@ input[type="submit"]#product_submit:active, input[type="submit"]#product_submit:
   color: white;
 }
 
-/* line 364, ../../../src/custom.scss */
+/* line 372, ../../../src/custom.scss */
 input[type="submit"]#save_button {
   font-family: "Lucida Grande", Lucida, Arial, sans_serif;
   background: url('../../images/button_bg.png?1297963111') repeat-x bottom left;
@@ -1026,7 +1157,7 @@ input[type="submit"]#save_button:active, input[type="submit"]#save_button:active
   color: white;
 }
 
-/* line 365, ../../../src/custom.scss */
+/* line 373, ../../../src/custom.scss */
 input[type="submit"]#customer_submit {
   font-family: "Lucida Grande", Lucida, Arial, sans_serif;
   background: url('../../images/button_bg.png?1297963111') repeat-x bottom left;
@@ -1129,12 +1260,12 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   color: white;
 }
 
-/* line 367, ../../../src/custom.scss */
+/* line 375, ../../../src/custom.scss */
 .productImage img {
   -moz-box-shadow: 0 0 8px rgba(78, 78, 78, 0.5);
 }
 
-/* line 371, ../../../src/custom.scss */
+/* line 379, ../../../src/custom.scss */
 #logo {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -1142,19 +1273,20 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   -ms-border-radius: 0.5em;
   -khtml-border-radius: 0.5em;
   border-radius: 0.5em;
-  margin: 1px;
+  margin: 0.25em;
+  padding: 0.5em;
   background: #aae2f2;
   -moz-box-shadow: 0 0 8px rgba(78, 78, 78, 0.5);
   margin-top: -2em;
 }
 
-/* line 378, ../../../src/custom.scss */
+/* line 386, ../../../src/custom.scss */
 .file_input_textbox {
   width: 400px;
   float: left;
 }
 
-/* line 383, ../../../src/custom.scss */
+/* line 391, ../../../src/custom.scss */
 .file_input_button {
   font-family: "Lucida Grande", Lucida, Arial, sans_serif;
   background: url('../../images/button_bg.png?1297963111') repeat-x bottom left;
@@ -1258,7 +1390,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   color: white;
 }
 
-/* line 386, ../../../src/custom.scss */
+/* line 394, ../../../src/custom.scss */
 .file_input_div {
   position: relative;
   width: 100px;
@@ -1267,7 +1399,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   display: inline;
 }
 
-/* line 395, ../../../src/custom.scss */
+/* line 403, ../../../src/custom.scss */
 .file_input_hidden {
   font-size: 45px;
   position: absolute;
@@ -1278,10 +1410,144 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 }
 
-/* line 403, ../../../src/custom.scss */
+/* line 411, ../../../src/custom.scss */
 .checkbox {
   color: #444444;
   background: #aae2f2;
   width: 2em;
   height: 2em;
 }
+
+/* An entry in the store catalog */
+/* line 419, ../../../src/custom.scss */
+#store .entry {
+  overflow: auto;
+  margin-top: 1em;
+  border-bottom: 1px dotted #77d;
+}
+
+/* line 425, ../../../src/custom.scss */
+#store .title {
+  font-size: 120%;
+  font-family: sans-serif;
+}
+
+/* line 430, ../../../src/custom.scss */
+#store .entry img {
+  width: 75px;
+  float: left;
+}
+
+/* line 436, ../../../src/custom.scss */
+#store .entry h3 {
+  margin-top: 0;
+  margin-bottom: 2px;
+  color: #227;
+}
+
+/* line 442, ../../../src/custom.scss */
+#store .entry p {
+  margin-top: 0.5em;
+  margin-bottom: 0.8em;
+}
+
+/* line 447, ../../../src/custom.scss */
+#store .entry .price-line {
+  clear: both;
+}
+
+/* line 451, ../../../src/custom.scss */
+#store .entry .add-to-cart {
+  position: relative;
+}
+
+/* line 455, ../../../src/custom.scss */
+#store .entry .price {
+  color: #44a;
+  font-weight: bold;
+  margin-right: 2em;
+}
+
+/* START:inline */
+/* line 462, ../../../src/custom.scss */
+#store .entry form, #store .entry form div {
+  display: inline;
+}
+
+/* END:inline */
+/* START:cartmain */
+/* Styles for the cart in the main page */
+/* line 470, ../../../src/custom.scss */
+.cart-title {
+  font: 120% bold;
+}
+
+/* line 474, ../../../src/custom.scss */
+.item-price, .total-line {
+  text-align: right;
+}
+
+/* line 478, ../../../src/custom.scss */
+.total-line .total-cell {
+  font-weight: bold;
+  border-top: 1px solid #1c93b4;
+}
+
+/* END:cartmain */
+/* START:cartside */
+/* Styles for the cart in the sidebar */
+/* line 487, ../../../src/custom.scss */
+#cart, #cart table {
+  font-size: smaller;
+  color: #444444;
+}
+
+/* line 492, ../../../src/custom.scss */
+#cart table {
+  border-top: 1px dotted #595;
+  border-bottom: 1px dotted #595;
+  margin-bottom: 10px;
+}
+
+/* END:cartside */
+/* START:form */
+/* Styles for order form */
+/* line 502, ../../../src/custom.scss */
+.depot-form fieldset {
+  background: #efe;
+}
+
+/* line 506, ../../../src/custom.scss */
+.depot-form legend {
+  color: #444444;
+  background: #aae2f2;
+  font-family: sans-serif;
+  padding: 0.2em 1em;
+}
+
+/* line 513, ../../../src/custom.scss */
+.depot-form label {
+  width: 5em;
+  float: left;
+  text-align: right;
+  padding-top: 0.2em;
+  margin-right: 0.1em;
+  display: block;
+}
+
+/* line 522, ../../../src/custom.scss */
+.depot-form select, .depot-form textarea, .depot-form input {
+  margin-left: 0.5em;
+}
+
+/* line 526, ../../../src/custom.scss */
+.depot-form .submit {
+  margin-left: 4em;
+}
+
+/* line 530, ../../../src/custom.scss */
+.depot-form div {
+  margin: 0.5em 0;
+}
+
+/* END:form */

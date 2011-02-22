@@ -1,7 +1,16 @@
 DairyApp::Application.routes.draw do
 
+# match "/foo", :to => proc {|env| [200, {}, ["Hello world"]] }
+# match '/news', :to => redirect("http://www.bbc.co.uk/")
+# match '/customer/:name', :to => redirect {|params| "/customer/#{params[:name].pluralize}" }
+# match "/categories/show/:id", :to => "categories#index", :constraints => {:id => /\d+/}
+
   resources :products
-  
+
+  resources :products do
+    resources :line_items
+  end
+    
   resources :categories do
     resource :products do
       member do
@@ -10,14 +19,31 @@ DairyApp::Application.routes.draw do
     end
   end
 
+  # resources :store
+  match 'products/checkout'    => 'products#checkout'
+  match 'products/empty_cart'  => 'products#empty_cart'
+  match 'products/add_to_cart' => 'products#add_to_cart'
+  match 'products/save_order'  => 'products#save_order'
+  # match 'products/cart' => 'store#cart', :as => :cart
+
+  resources :orders
+  resources :line_items
+
+  resources :orders do
+    resources :line_items
+  end
+
   get 'products/autocomplete_product_name'
   devise_for :customers
 
   get "users/new"
-  match '/signup',  :to => 'users#new'
-  match '/contact', :to => 'pages#contact'
-  match '/about',   :to => 'pages#about'
-  match '/help',    :to => 'pages#help'
+  match '/signup',     :to => 'users#new'
+  match '/contact',    :to => 'pages#contact'
+  match '/about',      :to => 'pages#about'
+  match '/help',       :to => 'pages#help'
+  match '/disclaimer', :to => 'pages#disclaimer'
+  match '/privacy',    :to => 'pages#privacy'
+  match '/security',   :to => 'pages#security'   
 
   root :to => "products#index"
   

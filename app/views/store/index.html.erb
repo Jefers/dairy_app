@@ -1,0 +1,13 @@
+<h1>Add Items to Cart</h1>
+
+<% @products.each do |product| -%>
+  <div class="entry">
+    <%= product.name %>
+    <div class="price-line">
+    <span class="price"><%= quid(product.price) %></span>
+    <%= form_tag({:action=>'add_to_cart', :id=>product.id}, :remote=>true) do %>
+      <%= button_to "Add to Cart" %>
+    <% end %>
+    </div>
+  </div>
+<% end %>

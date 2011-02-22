@@ -1,0 +1,27 @@
+<div class="depot-form">
+
+  <%#TODO see https://github.com/rails/dynamic_form  error_messages_for 'order' %>
+
+  <%= form_for :order, :url => { :action => :save_order } do |f| %>
+    <fieldset>
+      <legend><%= render :text => "Checkout" %></legend>
+      <div>
+        <%= f.label :name  %>
+        <%= f.text_field :name %>
+      </div>
+      <div>
+        <%= f.label :address %>
+        <%= f.text_area :address, :cols => 40, :rows => 15 %>
+      </div>
+      <div>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+      <div>
+        <%= f.label :pay_type %>
+        <%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt => 'Please select a payment method' %>
+      </div>
+      <%= submit_tag "Checkout", :class => "submit" %>
+    </fieldset>
+  <% end %>
+</div>

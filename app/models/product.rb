@@ -1,8 +1,11 @@
 class Product < ActiveRecord::Base
 #  attr_accessible :name, :price   this broke paperclip!!!
   belongs_to :category
+  has_many :orders, :through => :line_items
+  has_many :line_items
+  # default_scope :group => 'category_id'
   scope :discontinued, where(:discontinued => true)
-  
+  scope :available, where(:discontinued => false)  
   scope :category, proc {|category| where(:category_id => category) }
 
   def self.cheaper_than(price)

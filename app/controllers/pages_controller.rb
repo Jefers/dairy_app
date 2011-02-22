@@ -15,5 +15,18 @@ class PagesController < ApplicationController
   def help
     @title = "Help"
   end
+
+  def disclaimer
+    @title = "Disclaimer"
+  end
+
+  def privacy
+    @title = "Privacy"
+  end
+
+  def security
+    @title = "Security"
+  end
+
 end
 

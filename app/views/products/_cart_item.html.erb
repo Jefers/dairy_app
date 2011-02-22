@@ -1,0 +1,10 @@
+<% if cart_item == @current_item %>
+  <tr id="current_item">
+<% else %>
+  <tr>
+<% end %>
+
+  <td><%= cart_item.quantity %>&times;</td>
+  <td><%= cart_item.name %></td>
+  <td class="item-price"><%= quid(cart_item.price) %></td>
+</tr>
