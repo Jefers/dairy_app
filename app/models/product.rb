@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
   scope :discontinued, where(:discontinued => true)
   scope :available, where(:discontinued => false)  
   scope :category, proc {|category| where(:category_id => category) }
+  # scope :cat, where(:category_id => @cat)  
 
   def self.cheaper_than(price)
     where("products.price < ?", price)

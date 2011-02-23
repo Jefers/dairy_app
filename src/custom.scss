@@ -1,4 +1,9 @@
 @import "fancy-buttons";
+* {
+margin: 0;
+}
+
+
 /*
 http://colorschemedesigner.com/#4K325tgNTg0jF
 Primary Color:
@@ -60,6 +65,28 @@ $visited: $font;
 }
 
 //body {background: $site;color:$font ;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
+html, body {
+height: 100%;
+}
+footer {
+  text-align: center;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  nav {
+    float: none; }
+}
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -4em;
+}
+.footer, .push {
+  height: 4em;
+  clear: both;
+  width:99.5%; //TODO hack for footer
+}
 body {background:url(/images/main_background.png) -20% -23px repeat-x; color:$font; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:$font;}
 h1 {text-shadow: #aaaaaa 1px 1px 1px;}
@@ -191,15 +218,6 @@ a.signup_button {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px; }
-
-footer {
-  text-align: center;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  nav {
-    float: none; } 
-  @include clearfix;  }
 
 #flash_notice, #flash_error, #flash_alert {
   @include rounded;
@@ -531,4 +549,37 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
   margin: 0.5em 0;
 }
 /* END:form */
+
+.noscript  {
+  background-color:#AE0000;
+  color:#FFFFFF;
+  font-size:110%;
+  font-weight:bold;
+  left:0;
+  padding-bottom:5px;
+  padding-left:0;
+  padding-right:0;
+  padding-top:5px;
+  position:fixed;
+  text-align:center;
+  top:0;
+  width:100%;
+  z-index:4101;
+}
+
+.noscript .noscript-inner  { 
+  text-align:center;
+  background-image:url("/images/i_notice.png");
+  background-position:20px 50%;
+  background-repeat:no-repeat;
+  margin-bottom:0;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:0;
+  padding-bottom:12px;
+  padding-left:0;
+  padding-right:0;
+  padding-top:12px;
+  width:70%;
+}
  

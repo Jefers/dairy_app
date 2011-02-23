@@ -7,7 +7,7 @@
     <%= render 'layouts/stylesheets' %>
   </head>
   <body>
-    <div class="container">                     <!-- START: container -->
+    <div class="wrapper container">               <!-- START: container -->
       <div class="span-24 header">                <!-- START: header -->
       <%= render 'layouts/header' %>
       </div>                                      <!-- END: header -->
@@ -23,9 +23,12 @@
       <div class="span-4 last">                   <!-- START: right_bar -->
         <%= render 'layouts/right_bar' %>
       </div>                                      <!-- END: right_bar -->
-      <div class="span-24 footer">                <!-- START: footer -->
-        <%= render 'layouts/footer' %>
-      </div>                                      <!-- END: footer -->
-    </div>                                      <!-- END: container -->
+      <div class="push"></div>
+    </div>                                        <!-- END: container -->
+    <div class="span-24 footer">                  <!-- START: footer -->
+      <%= render 'layouts/noscript' %>
+      <%= render 'layouts/footer' %>
+    </div>                                        <!-- END: footer -->
+
   </body>
 </html>

@@ -21,12 +21,7 @@ class ProductsController < ApplicationController
     # @products = Product.all.paginate(:per_page => 3, :page => params[:page])
     @categories = Category.all
     # @products = Product.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => cookies[:perPage], :page => params[:page])
-    @products = Product.search(params[:search]).available.order(sort_column + " " + sort_direction)
-
-    # Would have been nice to have this integrated in but pagination doesn't play well with it!
-    # if params[:discontinued]
-    #   @products = @products.where(:discontinued => (params[:discontinued] == "1"))
-    # end   
+    @products = Product.search(params[:search]).available.order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
 
     if params[:category_id]
       @products = @products.where(:category_id => (params[:category_id] == "1"))    
@@ -45,8 +40,9 @@ class ProductsController < ApplicationController
 
     @categories = Category.all
     @category = Category.find(params[:category_id])
-    @products = Product.search(params[:search]).available.order(sort_column + " " + sort_direction)
-    @products = @products.select{ |product| product.category == @category }
+    @cat = params[:category_id]
+    @products = Product.search(params[:search]).available.where(:category_id => @cat).order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
+    # @products = @products.select{ |product| product.category == @category }
 
     respond_with(@products) 
     

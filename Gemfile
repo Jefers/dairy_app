@@ -5,7 +5,7 @@ gem 'mysql2'
 # gem 'sqlite3-ruby', '1.3.2', :require => 'sqlite3'
 gem 'devise',  '~>1.1.5'
 gem "paperclip", "~> 2.3"
-gem 'will_paginate'
+gem 'kaminari'
 gem 'jquery-rails'
 gem 'rails3-jquery-autocomplete'
 gem 'compass'
