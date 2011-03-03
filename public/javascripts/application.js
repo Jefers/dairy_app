@@ -5,7 +5,15 @@ $(function() {
 });
 
 $(document).ready(function(){
-  $("button").click(function(){
+  $("#preferences").hide(); // Hide div by default
+  $("button#preferenceButton").click(function(){
+    $("#preferences").toggle();
+  });
+});
+
+$(document).ready(function(){
+  $(".productImage").hide(); // Hide div by default
+  $("button#pictureButton").click(function(){
     $(".productImage").toggle();
   });
 });

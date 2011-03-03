@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     if params[:per_page]
       cookies.permanent[:perPage] = params[:per_page]
     else
-      cookies[:perPage] = 7
+      cookies[:perPage] = 20
     end
 
     # @products = Product.all.paginate(:per_page => 3, :page => params[:page])
@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
     if params[:per_page]
       cookies.permanent[:perPage] = params[:per_page]
     else
-      cookies[:perPage] = 7
+      cookies[:perPage] = 20
     end
 
     @categories = Category.all

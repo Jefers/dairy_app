@@ -32,10 +32,10 @@ test: &test
 #   adapter: mysql2
 #   encoding: utf8
 #   reconnect: false
-#   database: dairy_app_production
+#   database: saffronh_dairy
 #   pool: 5
-#   username: root
-#   password:
+#   username: cow
+#   password: fRAJf(OUQt0X
 #   socket: /tmp/mysql.sock 
 
 cucumber:
