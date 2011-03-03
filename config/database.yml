@@ -28,15 +28,7 @@ test: &test
   password:
   socket: /tmp/mysql.sock
 
-# production:
-#   adapter: mysql2
-#   encoding: utf8
-#   reconnect: false
-#   database: saffronh_dairy
-#   pool: 5
-#   username: cow
-#   password: fRAJf(OUQt0X
-#   socket: /tmp/mysql.sock 
+
 
 cucumber:
   <<: *test
