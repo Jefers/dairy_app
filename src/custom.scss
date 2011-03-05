@@ -20,7 +20,7 @@ red
 F91539  DA2C47  CE0D2C  FB3957  FB556F
   */
 $sitewidth: 950px;    /* Total width = (columns * 40) - 10 */
-$site: #52c4e4;
+$site: #74D52B;
 $font: $fb-color;
 $background: lighten($site, 20%);
 $bg: $background;
@@ -89,7 +89,7 @@ footer {
 }
 body {background:url(/images/main_background.png) -20% -23px repeat-x; color:$font; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:$font;}
-h1 {text-shadow: #aaaaaa 1px 1px 1px;}
+h1, h2, h3, h4 {text-shadow: #aaaaaa 1px 1px 1px;}
 header h1 {
   -x-system-font: none;
   color: white;

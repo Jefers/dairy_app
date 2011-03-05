@@ -1,10 +1,13 @@
 class CategoriesController < ApplicationController
+    before_filter :authenticate_customer!, :except => [:show, :index]
+
   # GET /categories
   # GET /categories.xml
   def index
     @categories = Category.all
 
     respond_to do |format|
+      format.js # index.html.erb
       format.html # index.html.erb
       format.xml  { render :xml => @categories }
     end

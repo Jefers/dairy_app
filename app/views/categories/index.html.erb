@@ -7,7 +7,6 @@
     <th></th>
     <th></th>
   </tr>
-
 <% @categories.each do |category| %>
   <tr>
     <td><%= category.name %></td>
@@ -19,5 +18,6 @@
 </table>
 
 <br />
-
-<%= link_to 'New Category', new_category_path %>
+ <% if customer_signed_in? %>
+    <%= link_to 'New Category', new_category_path %>
+ <% end %>

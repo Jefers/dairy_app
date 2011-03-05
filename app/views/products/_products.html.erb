@@ -6,8 +6,8 @@
     <tr>
       <th class="productImage"></th>
       <th><%= sortable "name" %></th>
-      <th><%= sortable "price" %></th>
       <% if customer_signed_in? %>
+      <th><%= sortable "price" %></th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,8 +17,8 @@
     <% for product in @products %>
         <td class="productImage"><%= link_to (image_tag product.picture.url(:tiny)), product  %> </td>
         <td><%= link_to product.name, product %></td>
-        <td class="price"><%= quid(product.price) %></td>
         <% if customer_signed_in? %>
+         <td class="price"><%= quid(product.price) %></td>
          <td>
          <%= form_tag({:action=>'add_to_cart', :id=>product.id}, :remote=>true) do %>
            <%= button_to "Add to Cart" %>

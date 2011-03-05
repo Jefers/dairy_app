@@ -10,7 +10,7 @@ DairyApp::Application.routes.draw do
   resources :products do
     resources :line_items
   end
-    
+
   resources :categories do
     resource :products do
       member do
@@ -18,6 +18,10 @@ DairyApp::Application.routes.draw do
       end    
     end
   end
+
+  # resources :categories do
+  #   get :autocomplete_product_name, :on => :collection
+  # end  
 
   # resources :store
   match 'products/checkout'    => 'products#checkout'

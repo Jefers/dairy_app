@@ -1,4 +1,4 @@
-<h1>Price List</h1> <!-- <input type="text" name="date" id="date" /> -->
+<h1>Products</h1> <!-- <input type="text" name="date" id="date" /> -->
 <!-- <form action="setPerPage">
   Items per page: <input type="text" name="perPage" id="perPage" size="1" />
 </form>      -->
@@ -18,13 +18,20 @@
       Search for a product:
       <%= autocomplete_field_tag :search, params[:search], products_autocomplete_product_name_path %>
       <%= submit_tag "GO", :class => "go_button", :id => "go_button" %>
-    </p>
+    </p> 
+  <% end %> 
+  <%= form_for @product do |f| %>
+    <%=f.label :product_name %>
+    <%=f.autocomplete_field :product_name, products_autocomplete_product_name_path %>
   <% end %>
+
 </div>
 
   <div id="products"><%= render 'products' %></div>
 <br />
 
- <%= link_to 'New Product', new_product_path %> 
- 
+ <% if customer_signed_in? %> 
+   <%= link_to 'New Product', new_product_path %> 
+ <% end %> 
+
 

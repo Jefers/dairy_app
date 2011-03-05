@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController 
-  respond_to :html, :xml, :json
-  autocomplete :search, :name, :full => true
+  respond_to :html, :xml, :json, :js
+  # autocomplete :search, :name, :full => true
+  autocomplete :product, :name , :full => true
   before_filter :authenticate_customer!, :except => [:show, :index, :for_category]
   before_filter :find_cart, :except => :empty_cart
   helper_method :sort_column, :sort_direction
-  respond_to :js    #autocomplete - needed? needs respond_with in method
+  # respond_to :js    #autocomplete - needed? needs respond_with in method
   attr_accessor :perPage, :show_pictures
   
   # GET /products
@@ -13,7 +14,7 @@ class ProductsController < ApplicationController
     if params[:per_page]
       cookies.permanent[:perPage] = params[:per_page]
     else
-      cookies[:perPage] = 20
+      cookies[:perPage] ||= 20
     end
 
     # @products = Product.all.paginate(:per_page => 3, :page => params[:page])
@@ -22,10 +23,12 @@ class ProductsController < ApplicationController
     @categories = Category.all
     # @products = Product.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => cookies[:perPage], :page => params[:page])
     @products = Product.search(params[:search]).available.order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
-
+    
     if params[:category_id]
       @products = @products.where(:category_id => (params[:category_id] == "1"))    
     end 
+    
+    # @products = Product.all.page(params[:page]).per(cookies[:perPage])
 
     respond_with(@products)
     
@@ -35,7 +38,7 @@ class ProductsController < ApplicationController
     if params[:per_page]
       cookies.permanent[:perPage] = params[:per_page]
     else
-      cookies[:perPage] = 20
+      cookies[:perPage] ||= 20
     end
 
     @categories = Category.all

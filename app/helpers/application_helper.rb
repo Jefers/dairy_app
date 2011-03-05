@@ -15,7 +15,7 @@ module ApplicationHelper
   end
   
   def logo
-    logo = image_tag("wdlogo.png", :alt => "Sample App", :id => "logo")
+    logo = image_tag("logo.png", :alt => "Walden Dairy", :id => "logo")
   end
 
   # Return a title on a per-page basis.

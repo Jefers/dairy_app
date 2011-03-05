@@ -22,7 +22,15 @@ class Product < ActiveRecord::Base
       scoped
     end
   end
-    
+
+  def self.find(find)
+    if search
+      where('name LIKE ?', "%#{find}%")
+    else
+      scoped
+    end
+  end
+      
   has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "98x98#", :tiny => "49x49#" },
     :url => "/assets/products/:id/:style/:basename.:extension",  
     :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension" 
