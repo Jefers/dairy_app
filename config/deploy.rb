@@ -8,9 +8,9 @@ set :user, "saffronh"
 
 # main details
 set :application, "dairy_app"
-role :web, "174.120.179.66"
-role :app, "174.120.179.66"
-role :db,  "174.120.179.66", :primary => true
+role :web, "83.222.240.223"
+role :app, "83.222.240.223"
+role :db,  "83.222.240.223", :primary => true
 
 # server details
 default_run_options[:pty] = true
@@ -48,7 +48,7 @@ namespace :deploy do
 
   desc "Symlink shared resources on each release"
   task :symlink_shared, :roles => :app do
-    #run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 end
 
