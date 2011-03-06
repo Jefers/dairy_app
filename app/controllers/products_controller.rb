@@ -1,13 +1,11 @@
 class ProductsController < ApplicationController 
   respond_to :html, :xml, :json, :js
-  # autocomplete :search, :name, :full => true
   autocomplete :product, :name , :full => true
-  before_filter :authenticate_customer!, :except => [:show, :index, :for_category]
+  before_filter :authenticate_customer!, :except => [:show, :index, :for_category, :autocomplete_product_name]
   before_filter :find_cart, :except => :empty_cart
   helper_method :sort_column, :sort_direction
-  # respond_to :js    #autocomplete - needed? needs respond_with in method
   attr_accessor :perPage, :show_pictures
-  
+
   # GET /products
   # GET /products.xml
   def index
@@ -17,18 +15,16 @@ class ProductsController < ApplicationController
       cookies[:perPage] ||= 20
     end
 
-    # @products = Product.all.paginate(:per_page => 3, :page => params[:page])
-    # cookies.permanent[:perPage] = params[:per_page] ||= 7
-    # @products = Product.all.paginate(:per_page => 3, :page => params[:page])
     @categories = Category.all
-    # @products = Product.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => cookies[:perPage], :page => params[:page])
-    @products = Product.search(params[:search]).available.order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
+    if params[:search]
+      @products = Product.search(params[:search]).available.order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
+    else
+      @products = Product.available.order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
+    end
     
     if params[:category_id]
       @products = @products.where(:category_id => (params[:category_id] == "1"))    
-    end 
-    
-    # @products = Product.all.page(params[:page]).per(cookies[:perPage])
+    end
 
     respond_with(@products)
     
@@ -83,7 +79,7 @@ class ProductsController < ApplicationController
     @product = Product.new(params[:product])
     @product = Product.create( params[:product] )  #TODO why is this line here???
     #@product.accessible = :all if admin?
-    #@product.attributes = params[:product]
+    # @product.attributes = params[:product]
     respond_to do |format|
       if @product.save
         format.html { redirect_to(@product, :notice => 'Product was successfully created.') }

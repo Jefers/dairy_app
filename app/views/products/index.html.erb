@@ -20,10 +20,6 @@
       <%= submit_tag "GO", :class => "go_button", :id => "go_button" %>
     </p> 
   <% end %> 
-  <%= form_for @product do |f| %>
-    <%=f.label :product_name %>
-    <%=f.autocomplete_field :product_name, products_autocomplete_product_name_path %>
-  <% end %>
 
 </div>
 

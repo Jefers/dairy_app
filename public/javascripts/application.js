@@ -1,5 +1,22 @@
 // $('.cart').replaceWith(<%= escape_javascript(render :partial => 'cart') %>)
 
+
+// $('.auto_search_complete').autocomplete({
+//     minLength: 3,
+//     delay: 600,
+//     source: function(request, response) {
+//         $.ajax({
+//             url: "/autocomplete.js",
+//             dataType: "json",
+//             data: {term: request.term},
+//             success: function( data ) {
+//                 response( data );
+//             }
+//         });
+//     }           
+// }); 
+
+
 $(function() { 
   $('#date').datepicker();
 });
@@ -51,6 +68,7 @@ $(function() {
   })
 });
 
+// TODO is this really needed?
 $(function() {
   $("#products th a, #products .pagination a").live("click", function() {
     $.getScript(this.href);

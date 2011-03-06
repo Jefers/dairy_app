@@ -1,0 +1,9 @@
+<div class="product_details">
+  <h2><%= product.name %></h2>
+  <dl>
+    <dt>details</dt>
+    <dd><%= product.price %></dd>
+  </dl>
+  <%= hidden_field_tag "category[product_ids][]", product.id %>
+  <%= content_tag(:p, link_to("Remove product", "#", :class => "remove_product")) %>
+</div>

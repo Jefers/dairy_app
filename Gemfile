@@ -3,6 +3,8 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.4'
 gem 'mysql2' 
 # gem 'sqlite3-ruby', '1.3.2', :require => 'sqlite3'
+gem "haml-rails"
+gem "haml", '3.0.25' #TODO is this really necessary? really?
 gem 'devise',  '~>1.1.5'
 gem "paperclip", "~> 2.3"
 gem 'kaminari'

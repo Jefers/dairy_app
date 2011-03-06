@@ -1,10 +1,11 @@
 DairyApp::Application.routes.draw do
-
+  # get "autocomplete_searches/Index"
+  # resources :autocomplete_searches, :only => [:index], :as => 'autocomplete'
 # match "/foo", :to => proc {|env| [200, {}, ["Hello world"]] }
 # match '/news', :to => redirect("http://www.bbc.co.uk/")
 # match '/customer/:name', :to => redirect {|params| "/customer/#{params[:name].pluralize}" }
 # match "/categories/show/:id", :to => "categories#index", :constraints => {:id => /\d+/}
-
+  get 'products/autocomplete_product_name' 
   resources :products
 
   resources :products do
@@ -18,10 +19,6 @@ DairyApp::Application.routes.draw do
       end    
     end
   end
-
-  # resources :categories do
-  #   get :autocomplete_product_name, :on => :collection
-  # end  
 
   # resources :store
   match 'products/checkout'    => 'products#checkout'
@@ -37,7 +34,7 @@ DairyApp::Application.routes.draw do
     resources :line_items
   end
 
-  get 'products/autocomplete_product_name'
+
   devise_for :customers
 
   get "users/new"
@@ -47,7 +44,7 @@ DairyApp::Application.routes.draw do
   match '/help',       :to => 'pages#help'
   match '/disclaimer', :to => 'pages#disclaimer'
   match '/privacy',    :to => 'pages#privacy'
-  match '/security',   :to => 'pages#security'   
+  match '/security',   :to => 'pages#security'  
 
   root :to => "products#index"
   

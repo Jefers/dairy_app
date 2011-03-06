@@ -48,6 +48,13 @@ $visited: $font;
   color:$font; 
 }
 
+@mixin shadow_box {
+  background-color:darken($bg, 20%);
+  -moz-box-shadow:    5px 5px 3px #888888; /* Firefox */
+  -webkit-box-shadow: 5px 5px 3px #888888; /* Safari and Chrome */
+  box-shadow:         5px 5px 3px #888888;
+}
+
 @mixin rounded {
   @include border-radius(0.5em);
   margin:0.25em;
@@ -279,6 +286,13 @@ a.signup_button {
   padding: 5px;
   margin-top: -50px;
   background-color: $background; }
+  
+div.pageHeading {
+  width:98%;
+  @include shadow_box;
+  padding:2px;
+  margin-bottom: 1em;
+}
 
 /*Pagination*/
 
@@ -582,4 +596,4 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
   padding-top:12px;
   width:70%;
 }
- 
+
