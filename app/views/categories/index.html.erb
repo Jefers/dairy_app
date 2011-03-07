@@ -3,21 +3,25 @@
 <table>
   <tr>
     <th>Name</th>
+    <% if current_customer.try(:admin?) %>
     <th></th>
     <th></th>
     <th></th>
+    <% end %>
   </tr>
 <% @categories.each do |category| %>
   <tr>
     <td><%= category.name %></td>
+    <% if current_customer.try(:admin?) %>
     <td><%= link_to 'Show', category %></td>
     <td><%= link_to 'Edit', edit_category_path(category) %></td>
     <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
- <% if customer_signed_in? %>
+ <% if current_customer.try(:admin?) %>
     <%= link_to 'New Category', new_category_path %>
  <% end %>

@@ -13,6 +13,8 @@
   <% end %>
   <button id="pictureButton">Toggle Pictures</button>
   </fieldset>
+</div>
+
   <%= form_tag products_path, :method => 'get' do %>
     <p>
       Search for a product:
@@ -21,12 +23,10 @@
     </p> 
   <% end %> 
 
-</div>
-
   <div id="products"><%= render 'products' %></div>
 <br />
 
- <% if customer_signed_in? %> 
+ <% if current_customer.try(:admin?) %> 
    <%= link_to 'New Product', new_product_path %> 
  <% end %> 
 
