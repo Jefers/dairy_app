@@ -388,7 +388,7 @@ a.signup_button {
 }
 
 /* line 274, ../../../src/custom.scss */
-div.pageHeading {
+.pageHeading {
   width: 98%;
   background-color: #74d52b;
   -moz-box-shadow: 5px 5px 3px #888888;

@@ -1,27 +1,4 @@
-<div class="pageHeading"><h3>Products ~ <%= @category.name %>
-<button id="preferenceButton">Preferences</button>
-<div id="preferences">
-  <fieldset id="userPreferences">
-    <legend>Display Preferences</legend>
-  <%= form_tag products_path, :method => 'get' do %>
-    <%= label_tag 'Items per page:' %>
-    <%= text_field_tag 'per_page', cookies[:perPage], :size => '1' %>
-    <%= submit_tag "save", :id => "save_button" %>
-  <% end %>
-  <button id="pictureButton">Toggle Pictures</button>
-  </fieldset>
-  <%= form_tag products_path, :method => 'get' do %>
-    <p>
-      Search for a product:
-      <%= autocomplete_field_tag :search, params[:search], products_autocomplete_product_name_path %>
-      <%= submit_tag "GO", :class => "go_button", :id => "go_button" %>
-    </p>
-  <% end %>
-</div>
-  <div id="products"><%= render 'products' %></div> 
-<br />
+<div class="pageHeading"><h3>Products ~ <%= @category.name %></div>
+<%= render :partial => 'preferences' %>
 
- <% if customer_signed_in? %>
-   <%= link_to 'New Product', new_product_path %>
- <% end %>
                                                       
