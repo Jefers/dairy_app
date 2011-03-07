@@ -50,6 +50,10 @@ $visited: $font;
   -moz-box-shadow:0 0 8px rgba(78, 78, 78, 0.5);
 }
 
+@mixin red_glow {
+  -moz-box-shadow:0 0 8px rgba(255, 22, 22, 0.5);
+}
+
 @mixin clearfix {
   overflow: hidden;
   clear: both; 
@@ -230,12 +234,16 @@ a.signup_button {
   background-color: #FFAB56;
   border: solid 1px #C66; }
 
-.fieldWithErrors {
+.field_with_errors {
+  @include rounded;
+  @include red_glow;
   display: inline; }
 
-#errorExplanation {
+#error_explanation {
+  @include rounded;
+  @include red_glow;
   width: 99%;
-  border: 2px solid #CF0000;
+  border: 2px solid #ff1616;
   padding: 0px;
   padding-bottom: 12px;
   margin-bottom: 20px;
@@ -246,7 +254,7 @@ a.signup_button {
     padding: 5px 5px 5px 15px;
     font-size: 12px;
     margin: 0;
-    background-color: #c00;
+    background-color: #ff1616;
     color: #fff; }
   p {
     color: #333;
