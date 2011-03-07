@@ -3,7 +3,8 @@
 <table>
   <%= render(:partial => "cart_item", :collection => @cart.items) %>
   <tr class="total-line">
-    <td colspan="2">Total</td>
+    <td>Total</td>
+    <td>&nbsp;</td>
     <td class="total-cell"><%= quid(@cart.total_price) %></td>
   </tr>
 </table>

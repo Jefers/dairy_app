@@ -8,12 +8,12 @@
       <th><%= sortable "name" %></th>
       <% if customer_signed_in? %>
       <th><%= sortable "price" %></th>
-      <th></th>
+      <th>&nbsp;</th>
       <% end %>
       <% if current_customer.try(:admin?) %>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
       <% end %>
     </tr>
     <% for product in @products %>
