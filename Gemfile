@@ -12,11 +12,11 @@ gem 'jquery-rails'
 gem 'rails3-jquery-autocomplete'
 gem 'compass'
 gem 'fancy-buttons'
+gem 'hpricot'
+gem 'ruby_parser'
 
 group :development do
   gem 'rspec-rails', '2.4.1'
-  gem 'hpricot'
-  gem 'ruby_parser'
 end
 
 group :test do

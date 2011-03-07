@@ -1,17 +1,14 @@
 <div id="right_bar">
 
-<div id="cart">
-  <% if @cart %>
-    <%= hidden_div_if(@cart.items.empty?, :id => "cart") do %>
-      <%= render(:partial => "cart", :object => @cart) %>
+  <div id="cart">
+    <% if @cart %>
+      <%= hidden_div_if(@cart.items.empty?, :id => "cart") do %>
+        <%= render(:partial => "cart", :object => @cart) %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
-
-<div id="finder">
+  </div>
   
-  
-</div>
+  <div id="finder"></div>
 
 </div>
     
