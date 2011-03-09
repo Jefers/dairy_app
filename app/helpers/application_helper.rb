@@ -32,5 +32,37 @@ module ApplicationHelper
     number_to_currency(price, :unit => "&pound;")
   end
 
+  # Format a float as £123.45
+  def format_sterling(amt)
+    sprintf("&pound;%0.2f", amt)
+  end
+
+  # Format a date as dd/mm/yy 
+  def format_date(date)
+    if date != nil
+      date.strftime("%d-%m-%Y")
+    end
+  end
+
+  def datedmy(date)
+    date.strftime(date, '%d/%m/%Y')
+  end
+
+  def link_to_show(record)
+    link_to image_tag("icon_view.gif", :title=>"view", :mouseover => "/images/icon_view.png"), :action => "show", :id => record.id
+  end  
+
+  def link_to_edit(record)
+    link_to image_tag("icon_edit.gif", :title=>"edit", :mouseover => "/images/icon_edit.png"), :action => "edit", :id => record.id
+  end  
+
+# :TODO must be able to come up with better than this? when you do remove the link_to_delete method
+  def destroy_img()
+    image_tag("icon_trash.gif", :title=>"delete", :mouseover => "/images/icon_trash.png")
+  end
+
+  def link_to_delete(record)
+    link_to image_tag("icon_trash.gif", :title=>"delete", :mouseover => "/images/icon_trash.png"), { :action => "destroy", :id => record.id }, :confirm => "Are you sure you want to delete this?" 
+  end
 end
 

@@ -7,10 +7,13 @@
   <%= @product.name %>
 </p>
 
-<p>
-  <b>Price:</b>
-  <%= quid(@product.price) %>
-</p>
+<% if customer_signed_in? %>
+  <p>
+    <b>Price:</b>
+    <%= quid(@product.price) %>
+  </p>
+<% end %>
+
 <% unless @product.category.nil? %>
 <p>
   <b>Category:</b>
@@ -20,10 +23,11 @@
 <% end %>
 
 <% if customer_signed_in? %>
- <%= form_tag({:action=>'add_to_cart', :id=>@product.id}, :remote=>true) do %>
-   <%= button_to "Add to Cart" %>
- <% end %>
+ <%= form_tag url_for(:action => "add_to_cart", :id=>@product.id), :id => "cart-form", :remote => true do %>
+   <%= button_to "Add to Basket" %>
+ <% end %> 
 <% end %> 
+
 
 <% if current_customer.try(:admin?) %>
   <%= link_to 'Edit', edit_product_path(@product) %> |

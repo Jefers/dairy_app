@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   has_many :orders, :through => :line_items
   has_many :line_items
   
-  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "98x98#", :tiny => "49x49#" },
+  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "98x98#", :tiny => "49x49#", :minute => "28x28#" },
     :url => "/assets/products/:id/:style/:basename.:extension",  
     :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension" 
 

@@ -1,5 +1,5 @@
 #server login
-set :user, "saffronh"
+set :user, "waldenda" 
 # RVM bootstrap
 ##$:.unshift(File.expand_path("~/.rvm/lib"))
 ##require 'rvm/capistrano'
@@ -8,16 +8,16 @@ set :user, "saffronh"
 
 # main details
 set :application, "dairy_app"
-role :web, "83.222.240.223"
-role :app, "83.222.240.223"
-role :db,  "83.222.240.223", :primary => true
+role :web, "waldendairy.com"
+role :app, "waldendairy.com"
+role :db,  "waldendairy.com", :primary => true
 
 # server details
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
-set :user, "saffronh"
+
 # Necessary to run on Site5
 set :use_sudo, false
 set :group_writable, false

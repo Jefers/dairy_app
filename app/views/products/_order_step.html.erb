@@ -1,0 +1,18 @@
+<div>
+  <%= f.label :name  %><br /><%= f.text_field :name, :value => current_customer.name %>
+</div>
+<div>
+  <%= f.label :address %><br /><div id="order_address"><%= current_customer.address %><br /><%= current_customer.post_code %></div><br /><%= f.text_area :address, :cols => 40, :rows => 3, :placeholder => 'current_customer.address'  %>
+</div>
+<div>
+  <%= f.label :email %><br /><%= f.text_field :email, :value => current_customer.email %>
+</div>
+<div>
+  <%= f.label :repeat %><br /><%= f.check_box :repeat %>
+</div>
+<div>
+  <%= f.label :required_date %><br /><%= f.text_field :required_date %>
+</div>
+<div>
+  <%= f.label :pay_type %><br /><%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt => 'Please select a payment method' %>
+</div>  

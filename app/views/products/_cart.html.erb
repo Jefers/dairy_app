@@ -1,0 +1,15 @@
+<div class="cart-title"><h3>Basket</h3></div>
+<div id="notice">notices:<div id="response"></div><%= image_tag 'ajax-loader.gif', :id => 'loading', :style => 'display: none' %></div>
+<table>
+  <%= render(:partial => "cart_item", :collection => cart.items) %>  
+  
+  <tr class="total_line">
+    <td colspan="2">Total</td>
+    <td class="total_cell"><%= quid(cart.total_price) %></td>
+  </tr>
+</table>
+
+<%= button_to "Checkout", :action => :checkout %>
+<br />
+<%= button_to "Empty cart", :action => :empty_cart %>
+

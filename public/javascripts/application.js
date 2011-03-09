@@ -1,3 +1,52 @@
+/* create an array of days which need to be disabled  :TODO ruby program to generate array of days */
+var disabledDays = ["2-21-2011","2-24-2011","2-27-2011","2-28-2011","3-3-2011","3-17-2011","4-2-2011","4-3-2011","4-4-2011","4-5-2011"];
+
+/* utility functions */
+function nationalDays(date) {
+  var m = date.getMonth(), d = date.getDate(), y = date.getFullYear();
+  //console.log('Checking (raw): ' + m + '-' + d + '-' + y);
+  for (i = 0; i < disabledDays.length; i++) {
+    if($.inArray((m+1) + '-' + d + '-' + y,disabledDays) != -1 || new Date() > date) {
+      //console.log('bad:  ' + (m+1) + '-' + d + '-' + y + ' / ' + disabledDays[i]);
+      return [false];
+    }
+  }
+  //console.log('good:  ' + (m+1) + '-' + d + '-' + y);
+  return [true];
+}
+function noWeekendsOrHolidays(date) {
+  var noWeekend = jQuery.datepicker.noWeekends(date);
+  return noWeekend[0] ? nationalDays(date) : noWeekend;
+}
+
+/* create datepicker */
+jQuery(document).ready(function() {
+  jQuery('#order_required_date').datepicker({
+    minDate: new Date(2011, 0, 1),
+    maxDate: new Date(2011, 5, 31),
+    dateFormat: 'DD, MM, d, yy',
+    constrainInput: true,
+    beforeShowDay: noWeekendsOrHolidays
+  });
+});
+
+
+// $(function() { 
+//   $('#date').datepicker({ dateFormat: 'dd MM, yy' });
+// }); 
+
+$(function() {
+  // create a convenient toggleLoading function
+  var toggleLoading = function() { $("#loading").toggle() };
+
+  $("#cart-form")
+    .bind("ajax:loading",  toggleLoading)
+    .bind("ajax:complete", toggleLoading)
+    .bind("ajax:success", function(evt, data, status, xhr) {
+      $("#response").html(status);
+    });
+});
+
 // $('.cart').replaceWith(<%= escape_javascript(render :partial => 'cart') %>)
 
 
@@ -17,9 +66,6 @@
 // }); 
 
 
-$(function() { 
-  $('#date').datepicker();
-});
 
 $(document).ready(function(){ 
   $("#per_page value").keyup(function() {

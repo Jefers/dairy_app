@@ -6,17 +6,19 @@ margin: 0;
 
 $sitewidth: 950px;    /* Total width = (columns * 40) - 10 */
 $site: #74D52B;
-$font: $fb-color;
+$font-color: $fb-color;
+$font-family: "Helvetica Neue", Arial, Helvetica, sans-serif ;
+$font-size: 120%;
 $background: lighten($site, 20%);
 $bg: $background;
 $border: darken($site, 20%);
 $fontb: darken(#52C4E4, 10);
 $paginate: darken($site, 20%);
 
-$linkcolor: $font;
-$hover: lighten($font, 20%);
-$active: $font;
-$visited: $font;
+$linkcolor: $font-color;
+$hover: lighten($font-color, 30%);
+$active: $font-color;
+$visited: $font-color;
 
 @mixin formInputs {
   @include border-radius(5px);
@@ -30,7 +32,7 @@ $visited: $font;
   border-color:$border; 
   border-width:2px;
   width: 280px; 
-  color:$font; 
+  color:$font-color; 
 }
 
 @mixin shadow_box {
@@ -60,9 +62,11 @@ $visited: $font;
   clear: both; 
 }
 
-//body {background: $site;color:$font ;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
+//body {background: $site;color:$font-color ;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
 html, body {
-height: 100%;
+  color:$font-color ;
+  font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
+  height: 100%;
 }
 footer {
   text-align: center;
@@ -81,10 +85,10 @@ footer {
 .footer, .push {
   height: 4em;
   clear: both;
-  width:99.5%; //TODO hack for footer
+  width:99.5%; // :TODO hack for footer
 }
-body {background:url(/images/main_background.png) -20% -23px repeat-x; color:$font; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
-h1, h2, h3, h4, h5, h6 {font-weight:normal;color:$font;}
+body {background:url(/images/main_background.png) -20% -23px repeat-x; color:$font-color; font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
+h1, h2, h3, h4, h5, h6 {font-weight:normal;color:$font-color;}
 h1, h2, h3, h4 {text-shadow: #aaaaaa 1px 1px 1px;}
 header h1 {
   -x-system-font: none;
@@ -372,6 +376,15 @@ tbody tr:nth-child(even) td, tbody tr.even td {background:lighten($site, 15%);}
 input[type="password"], input[type="text"], input[type="file"], textarea {
   @include formInputs;
   @include grey_glow;
+  font-family: $font-family;
+  font-size: $font-size;
+}
+textarea {
+  height: 4em;
+}
+
+#date {
+  width: 8em;
 }
 
 div#upload, select {
@@ -434,84 +447,37 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 }
 
 .checkbox {
-  color:$font;
+  color:$font-color;
   background:$bg;
   width:2em;
   height:2em;
 }
-/* An entry in the store catalog */
-
-#store  .entry {
-  overflow: auto;
-  margin-top: 1em;
-  border-bottom: 1px dotted #77d;
-}
-
-#store  .title {
-  font-size: 120%;
-  font-family: sans-serif;
-}
-
-#store .entry img {
-  width: 75px;
-  float: left;
-}
-
-
-#store .entry h3 {
- margin-top: 0;
- margin-bottom: 2px;
- color: #227;
-}
-
-#store .entry p {
- margin-top: 0.5em; 
- margin-bottom: 0.8em; 
-}
-
-#store .entry .price-line {
- clear: both;
-}
-
-#store .entry .add-to-cart {
-  position: relative;
-}
-
-#store .entry  .price {
-  color: #44a;
-  font-weight: bold;
-  margin-right: 2em;
-}
-
-/* START:inline */
-#store .entry form, #store .entry form div {
-  display: inline;
-}
-/* END:inline */
 
 /* START:cartmain */
 /* Styles for the cart in the main page */
 
-.cart-title {
-  font: 120% bold;
+.cart_title {
+  font: 150% bold;
 }
 
-.item-price, .total-line {
+.item_price, .total_line {
   text-align: right;
 }
 
-.total-line .total-cell {
+.total_line .total_cell {
   font-weight: bold;
   border-top: 1px solid $border;
 }
-/* END:cartmain */
 
 /* START:cartside */
 /* Styles for the cart in the sidebar */
 
+#response {
+  
+}
+
 #cart, #cart table {
-  font-size: smaller;
-  color:     $font;
+  font-size: 100%;
 }
 
 #cart table {
@@ -521,42 +487,7 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 }
 /* END:cartside */
 
-/* START:form */
-/* Styles for order form */
-
-.depot-form fieldset {
-  background: #efe;
-}
-
-.depot-form legend {
-  color: $font;
-  background: $bg;
-  font-family: sans-serif;
-  padding: 0.2em 1em;
-}
-
-.depot-form label {
-  width: 5em;
-  float: left;
-  text-align: right;
-  padding-top: 0.2em;
-  margin-right: 0.1em;
-  display: block;
-}
-
-.depot-form select, .depot-form textarea, .depot-form input {
-  margin-left: 0.5em;
-}
-
-.depot-form .submit {
-  margin-left: 4em;
-}
-
-.depot-form div {
-  margin: 0.5em 0;
-}
-/* END:form */
-
+/* START: no script warning */
 .noscript  {
   background-color:#AE0000;
   color:#FFFFFF;
@@ -589,4 +520,4 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
   padding-top:12px;
   width:70%;
 }
-
+/* END:form */
