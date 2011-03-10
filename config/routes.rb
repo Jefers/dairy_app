@@ -45,6 +45,8 @@ DairyApp::Application.routes.draw do
   match '/disclaimer', :to => 'pages#disclaimer'
   match '/privacy',    :to => 'pages#privacy'
   match '/security',   :to => 'pages#security'  
+  match '/news',       :to => 'pages#news'
+  match '/fun',        :to => 'pages#fun'
 
   root :to => "products#index"
   
