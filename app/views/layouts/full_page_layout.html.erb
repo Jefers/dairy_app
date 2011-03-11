@@ -12,18 +12,11 @@
       <div class="span-24 header">                <!-- START: header -->
       <%= render 'layouts/header' %>
       </div>                                      <!-- END: header -->
-      
-      <div class="span-4">                        <!-- START: left_bar -->
-        <%= render 'layouts/left_bar' %>
-      </div>                                      <!-- END: left_bar -->
-      <div class="span-13">                       <!-- START: main -->
+      <div class="span-24">                       <!-- START: main -->
         <section>
           <%= yield %>
         </section>
       </div>                                      <!-- END: main -->
-      <div class="span-7 last">                   <!-- START: right_bar -->
-        <%= render 'layouts/right_bar' %>
-      </div>                                      <!-- END: right_bar -->
       <div class="push"></div>
     </div>                                        <!-- END: container -->
     <div class="span-24 footer">                  <!-- START: footer -->
