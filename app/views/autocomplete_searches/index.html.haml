@@ -5,11 +5,8 @@
   %p
     = text_field_tag :term, params[:term], :class => "auto_search_complete"
     = submit_tag "search", :name => nil, :class => 'button', :id => "search_btn"
- 
+
 - data = []
 - @products.try(:each) do |p|
   - data << {:label => "#{h(p.name)}", :value => "#{h(p.name)}" }
 = data.to_json
-
-
-

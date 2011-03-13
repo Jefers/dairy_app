@@ -1,5 +1,5 @@
 <h2>Orders for <%= current_customer.email %></h2>
- 
+
 <% @orders.each do |order| %>
 <div class="order_header">
   <h5>Name :<strong><%= order.customer.try(:name) %></strong>&#160;&#160;
@@ -25,7 +25,7 @@
       <th>Product</th>
       <th>Quantity</th>
       <th>Total Price</th>
-    </tr> 
+    </tr>
   <% order.try(:line_items).each do |line_item| %>
 
     <tr>
@@ -38,9 +38,8 @@
     <td class="hidden"></td>
     <td class="hidden">Order total:</td>
     <td class="total"><%= quid(order.total_price) %></td>
-  </tr>  
-  </table>  
+  </tr>
+  </table>
 </div>
-<br />   
+<br />
 <% end %>
-  

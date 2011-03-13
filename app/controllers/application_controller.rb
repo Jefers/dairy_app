@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
-  
+
   private
 
   def current_ability
     @current_ability ||= CustomerAbility.new(current_customer)
   end
-  
+
 end

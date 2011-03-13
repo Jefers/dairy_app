@@ -2,10 +2,9 @@
 
   <%= form_for :order, :url => { :action => :save_order, :customer_id => current_customer.id } do |f| %>
     <fieldset>
-      <%# hidden_field_tag :customer_id, current_customer.id %>
       <legend><%= render :text => "Checkout" %></legend>
           <div>URN:<%= current_customer.urn %>~ Round:<%= current_customer.round %></div>
-          
+
       <div>
         <%= f.label :name  %><br /><%= f.text_field :name, :value => current_customer.name %>
       </div>

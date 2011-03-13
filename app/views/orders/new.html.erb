@@ -3,7 +3,7 @@
 
 <% form_for(@order) do |f| %>
   <%= f.error_messages %>
-  <%= hidden_field_tag :customer_id, current_user.id %> 
+  <%= hidden_field_tag :customer_id, current_user.id %>
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>

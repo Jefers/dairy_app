@@ -5,7 +5,7 @@ DairyApp::Application.routes.draw do
 # match '/news', :to => redirect("http://www.bbc.co.uk/")
 # match '/customer/:name', :to => redirect {|params| "/customer/#{params[:name].pluralize}" }
 # match "/categories/show/:id", :to => "categories#index", :constraints => {:id => /\d+/}
-  get 'products/autocomplete_product_name' 
+  get 'products/autocomplete_product_name'
   resources :products
 
   resources :products do
@@ -16,7 +16,7 @@ DairyApp::Application.routes.draw do
     resource :products do
       member do
         get :for_category
-      end    
+      end
     end
   end
 
@@ -26,7 +26,7 @@ DairyApp::Application.routes.draw do
   match 'products/add_to_cart' => 'products#add_to_cart'
   match 'products/save_order'  => 'products#save_order'
   # match 'products/cart' => 'store#cart', :as => :cart
-                   
+
 
   match 'orders/my_orders' => 'orders#my_orders', :as => :myorders
   resources :orders
@@ -46,12 +46,12 @@ DairyApp::Application.routes.draw do
   match '/help',       :to => 'pages#help'
   match '/disclaimer', :to => 'pages#disclaimer'
   match '/privacy',    :to => 'pages#privacy'
-  match '/security',   :to => 'pages#security'  
+  match '/security',   :to => 'pages#security'
   match '/news',       :to => 'pages#news'
   match '/fun',        :to => 'pages#fun'
 
   root :to => "products#index"
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

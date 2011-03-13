@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController 
+class ProductsController < ApplicationController
   respond_to :html, :xml, :json, :js
   autocomplete :product, :name , :full => true
   before_filter :authenticate_customer!, :except => [:show, :index, :for_category, :autocomplete_product_name]
@@ -21,15 +21,15 @@ class ProductsController < ApplicationController
     else
       @products = Product.available.order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
     end
-    
+
     if params[:category_id]
-      @products = @products.where(:category_id => (params[:category_id] == "1"))    
+      @products = @products.where(:category_id => (params[:category_id] == "1"))
     end
 
     respond_with(@products)
-    
+
   end
-  
+
   def for_category
     if params[:per_page]
       cookies.permanent[:perPage] = params[:per_page]
@@ -43,8 +43,8 @@ class ProductsController < ApplicationController
     @products = Product.search(params[:search]).available.where(:category_id => @cat).order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
     # @products = @products.select{ |product| product.category == @category }
 
-    respond_with(@products) 
-    
+    respond_with(@products)
+
   end
 
   # GET /products/1
@@ -53,8 +53,8 @@ class ProductsController < ApplicationController
     @categories = Category.all
     @product = Product.find(params[:id])
 
-    respond_with(@product) 
-    
+    respond_with(@product)
+
   end
 
   # GET /products/new
@@ -63,8 +63,8 @@ class ProductsController < ApplicationController
     @categories = Category.all
     @product = Product.new
 
-    respond_with(@product) 
-    
+    respond_with(@product)
+
   end
 
   # GET /products/1/edit
@@ -140,9 +140,11 @@ class ProductsController < ApplicationController
       end
     end
 
-    def save_order                       
-      @order = Order.new(params[:order])
-      @order.customer_id = params[:customer_id]  # :TODO review this later
+    def save_order
+      # @order = Order.new(params[:order])
+      # @order.customer_id = params[:customer_id]  # :TODO review this later
+      @order = current_customer.orders.build(params[:order])
+
       @order.add_line_items_from_cart(@cart)
       if @order.save
         OrderMailer.order_email(@order).deliver
@@ -166,15 +168,15 @@ class ProductsController < ApplicationController
     flash[:notice] = msg if msg
     redirect_to(root_path)
   end
-  
+
   def find_cart
     @cart = (session[:cart] ||= Cart.new)
   end
-    
+
   def sort_column
     Product.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
-  
+
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end

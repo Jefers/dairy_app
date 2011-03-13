@@ -17,7 +17,7 @@ class StoreController < ApplicationController
     logger.error("Attempt to access invalid product #{params[:id]}")
     redirect_to_index("Invalid product")
   end
- 
+
   def checkout
     if @cart.items.empty?
       redirect_to_index("Your cart is empty")

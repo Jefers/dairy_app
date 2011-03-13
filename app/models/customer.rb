@@ -10,10 +10,10 @@ class Customer < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model :TODO trim these?
-  attr_accessible :id, :email, :password, :password_confirmation, :remember_me, :name, :address, :post_code, :urn, :round, :telephone, :admin 
+  attr_accessible :id, :email, :password, :password_confirmation, :remember_me, :name, :address, :post_code, :urn, :round, :telephone, :admin
  # scope expandedvv, Book.select('books.*, users.name').joins(:user)
-  # scope :customer_orders, Orders.select(joins(:orders)  
-  
+  # scope :customer_orders, Orders.select(joins(:orders)
+
   def customer_orders
      self.orders.map(&:name)
   end

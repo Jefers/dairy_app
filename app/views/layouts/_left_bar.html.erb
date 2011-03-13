@@ -1,5 +1,5 @@
 <% unless @categories.blank? %>
-<%= render 'categories/list' %>
+  <%= render 'categories/list', :categories => @categories %>
 <% else %>
-<%= render 'pages/advert' %>
+  <%= render 'pages/advert' %>
 <% end %>

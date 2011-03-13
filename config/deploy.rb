@@ -54,6 +54,7 @@ end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
 
+ # require 'bundler/capistrano'     :TODO try this out sometime  ref http://rails-bestpractices.com/posts/51-dry-bundler-in-capistrano
 namespace :bundler do
   desc "Symlink bundled gems on each release"
   task :symlink_bundled_gems, :roles => :app do

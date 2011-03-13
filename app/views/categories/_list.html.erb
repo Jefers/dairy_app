@@ -4,7 +4,7 @@
   <li>
     <%= link_to "All Products", products_path %>
   </li>
-  <% @categories.each do |category| %>
+  <% categories.each do |category| %>
     <li>
       <%= link_to category.title, for_category_category_products_path(category) %>
     </li>

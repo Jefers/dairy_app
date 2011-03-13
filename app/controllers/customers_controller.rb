@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate_customer!  
+  before_filter :authenticate_customer!
   layout 'full_page_layout'
   respond_to :html
 
@@ -11,7 +11,7 @@ class CustomersController < ApplicationController
   def edit
     respond_with(@customer = Customer.find(params[:id]))
   end
-  
+
   def update
     @customer = Customer.find(params[:id])
     respond_to do |format|
@@ -22,7 +22,7 @@ class CustomersController < ApplicationController
         format.html { render :action => "edit" }
       end
     end
-    
+
   end
-  
+
 end

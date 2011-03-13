@@ -1,10 +1,10 @@
 class LineItemsController < ApplicationController
   before_filter :authenticate_customer!
-  layout 'full_page_layout'    
+  layout 'full_page_layout'
   # GET /line_items
   # GET /line_items.xml
   def index
-    
+
     if current_customer.admin?
       @line_items = LineItem.find(:all)
     else

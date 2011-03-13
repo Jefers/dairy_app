@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
     # load_and_authorize_resource
-  before_filter :authenticate_customer!  
+  before_filter :authenticate_customer!
   layout 'full_page_layout'
   # GET /orders
   # GET /orders.xml
@@ -88,7 +88,7 @@ class OrdersController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
   def my_orders
     if current_customer.admin?
       @orders = Order.find(:all).reverse

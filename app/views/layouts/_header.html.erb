@@ -4,7 +4,7 @@
   <nav id="login_nav">
     <% if current_customer.try(:admin?) %>
       <%= link_to "Categories", categories_path %> |
-    <% end %>    
+    <% end %>
     <% if customer_signed_in? %>
       <%= link_to "My Orders", myorders_path %> | Signed in as <%= current_customer.email %>. Not you?
       <%= link_to "Sign out", destroy_customer_session_path %>
@@ -13,7 +13,7 @@
     <% end %>
   </nav>
   <nav id="help_nav">
-    <ul>    
+    <ul>
     <% if customer_signed_in? %>
       <li><%= link_to "My Orders", myorders_path %></li>
     <% end %>

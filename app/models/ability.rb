@@ -3,7 +3,7 @@ class CustomerAbility
 
   def initialize(customer)
     customer ||= Customer.new # guest customer (not logged in)
-    
+
     if customer.admin?
       can :manage, :all
     else
@@ -14,7 +14,7 @@ class CustomerAbility
       #   can :update, Order do |order|
       #     order.try(:customer) == customer
       #   end
-      # end 
+      # end
     end
     # Define abilities for the passed in user here. For example:
     #
