@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to waldendairy.com, <%= @current_customer.name %></h1>
+    <p>
+      You have successfully ordered from waldendairy.com,
+      your order number is: <%= @order.id %>.<br/>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for your order</p>
+  </body>
+</html>

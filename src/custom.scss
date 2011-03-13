@@ -167,23 +167,20 @@ nav {
     li {
       list-style-type: none;
       padding: 0.2em 0;
+      height: 2em;
       a {
         padding: 0 5px;
         font-weight: bold;
         &:visited {
           color: $visited; }
         &:hover {
-          text-decoration: none;
-          background: orange;
-          border-style:solid; 
-          border-color:$border; 
-          border-width:2px; } } } } }
+          @include fancy-button($site, 11px); } } } } }
 
 #right_bar {
   @include rounded;
   @include grey_glow;
   float: right;
-  background-color: $background;
+  background-color: $bg;
   white-space: normal;
   @include clearfix;
 }
@@ -282,7 +279,7 @@ a.signup_button {
   border: 2px solid $border;
   padding: 5px;
   margin-top: -40px;
-  background-color: $background; }
+  background-color: $bg; }
   
 .pageHeading {
   width:98%;
@@ -294,7 +291,7 @@ a.signup_button {
 /*Pagination*/
 
 .digg_pagination {
-  background: $background;
+  background: $bg;
   /* self-clearing method: */
   a {
     padding: .2em .5em;
@@ -323,7 +320,7 @@ a.signup_button {
       border-color: lighten($paginate, 20%); } }
   .page_info {
     background: $paginate;
-    color: $background;
+    color: $bg;
     padding: .4em .6em;
     width: 22em;
     margin-bottom: .3em;
@@ -345,6 +342,12 @@ a.signup_button {
   &:first-child+html .digg_pagination {
     overflow: hidden; } }
 
+
+.order_header {
+    @include rounded;
+    @include grey_glow;
+    background-color:lighten($bg, 20%);
+}
 /*Pretty table*/
 
 table.pretty {
@@ -352,11 +355,30 @@ table.pretty {
   margin-bottom: 10px; }
 
 .pretty {
-  td, th {
+  th {
+    padding: 4px 10px;
+    border-bottom-color: $border;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+  }
+  td {
     padding: 4px 10px;
     border: solid 1px $border; }
+  .hidden {
+    border: hidden;
+    border-top: solid 1px $border;
+    border-right: solid 1px $border;
+    text-align: right;
+    background:lighten($site, 40%) }
   .price {
     text-align: right; }
+  .total {
+    text-align: right;
+    border-top-color: $border;
+    border-top-style: double;
+    border-top-width: thick;    
+    
+     }
   th {
     .current {
       padding-right: 18px;
@@ -486,6 +508,8 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
   margin-bottom: 10px;
 }
 /* END:cartside */
+
+
 
 /* START: no script warning */
 .noscript  {

@@ -1,4 +1,7 @@
 module ApplicationHelper
+  def spacer(number)   # :TODO would be nice if this sort of thing worked!!!
+    puts "&#160;" * number
+  end
   
   def hidden_div_if(condition, attributes = {}, &block)
     if condition
@@ -57,9 +60,14 @@ module ApplicationHelper
   end  
 
 # :TODO must be able to come up with better than this? when you do remove the link_to_delete method
+  def edit_img()
+    image_tag("icon_edit.gif", :title=>"edit", :mouseover => "/images/icon_edit.png")
+  end
+
   def destroy_img()
     image_tag("icon_trash.gif", :title=>"delete", :mouseover => "/images/icon_trash.png")
   end
+
 
   def link_to_delete(record)
     link_to image_tag("icon_trash.gif", :title=>"delete", :mouseover => "/images/icon_trash.png"), { :action => "destroy", :id => record.id }, :confirm => "Are you sure you want to delete this?" 

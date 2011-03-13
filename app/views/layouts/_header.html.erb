@@ -2,15 +2,21 @@
   <%= link_to logo, root_path %>
  <h1>beta site</h1>
   <nav id="login_nav">
+    <% if current_customer.try(:admin?) %>
+      <%= link_to "Categories", categories_path %> |
+    <% end %>    
     <% if customer_signed_in? %>
-      Signed in as <%= current_customer.email %>. Not you?
+      <%= link_to "My Orders", myorders_path %> | Signed in as <%= current_customer.email %>. Not you?
       <%= link_to "Sign out", destroy_customer_session_path %>
     <% else %>
       <%= link_to "Sign up", new_customer_registration_path %> or <%= link_to "sign in", new_customer_session_path %>
     <% end %>
   </nav>
   <nav id="help_nav">
-    <ul>
+    <ul>    
+    <% if customer_signed_in? %>
+      <li><%= link_to "My Orders", myorders_path %></li>
+    <% end %>
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Help", help_path %></li>
     </ul>

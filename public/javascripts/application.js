@@ -1,3 +1,38 @@
+// validate signup form on keyup and submit
+jQuery(document).ready(function() {
+  $("#signupForm").validate({
+          rules: {
+                  password: {
+                          required: true,
+                          minlength: 6
+                  },
+                  confirm_password: {
+                          required: true,
+                          minlength: 6,
+                          equalTo: "#password"
+                  },
+                  email: {
+                          required: true,
+                          email: true
+                  },
+                  terms_of_service: "required"
+          },
+          messages: {
+                  password: {
+                          required: "Please provide a password",
+                          minlength: "Your password must be at least 6 characters long"
+                  },
+                  confirm_password: {
+                          required: "Please provide a password",
+                          minlength: "Your password must be at least 6 characters long",
+                          equalTo: "Please enter the same password as above"
+                  },
+                  email: "Please enter a valid email address",
+                  terms_of_service: "Please accept our policy"
+          }
+  });
+});
+
 /* create an array of days which need to be disabled  :TODO ruby program to generate array of days */
 var disabledDays = ["2-21-2011","2-24-2011","2-27-2011","2-28-2011","3-3-2011","3-17-2011","4-2-2011","4-3-2011","4-4-2011","4-5-2011"];
 

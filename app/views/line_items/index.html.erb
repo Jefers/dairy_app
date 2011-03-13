@@ -3,20 +3,22 @@
 <table>
   <tr>
     <th>Product</th>
-    <th>Order</th>
+    <th>Order#</th>
+    <th>Date</th>
     <th>Quantity</th>
     <th>Total price</th>
   </tr>
 
 <% for line_item in @line_items %>
   <tr>
-    <td><%=h line_item.product_id %></td>
-    <td><%=h line_item.order_id %></td>
-    <td><%=h line_item.quantity %></td>
-    <td><%=h line_item.total_price %></td>
-    <td><%= link_to 'Show', line_item %></td>
-    <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
-    <td><%= link_to 'Destroy', line_item, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= line_item.product.name %></td>
+    <td><%= line_item.order_id %></td>
+    <td><%= format_date(line_item.created_at) %></td>
+    <td><%= line_item.quantity %></td>
+    <td><%= quid(line_item.total_price) %></td>
+    <td><%= link_to_show(line_item) %></td>
+    <td><%= link_to edit_img, edit_line_item_path(line_item) %></td>
+    <td><%= link_to destroy_img, line_item, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -26,7 +26,9 @@ DairyApp::Application.routes.draw do
   match 'products/add_to_cart' => 'products#add_to_cart'
   match 'products/save_order'  => 'products#save_order'
   # match 'products/cart' => 'store#cart', :as => :cart
+                   
 
+  match 'orders/my_orders' => 'orders#my_orders', :as => :myorders
   resources :orders
   resources :line_items
 
@@ -34,8 +36,8 @@ DairyApp::Application.routes.draw do
     resources :line_items
   end
 
-
   devise_for :customers
+  resources :customers
 
   get "users/new"
   match '/signup',     :to => 'users#new'
