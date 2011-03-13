@@ -1,7 +1,10 @@
 class Order < ActiveRecord::Base
   belongs_to :customer
-  attr_writer :current_step 
+  has_many :products, :through => :line_items
+  has_many :line_items
 
+  attr_writer :current_step 
+   
   PAYMENT_TYPES = [
                   #  Displayed       stored in db
                   [ "Cheque",          "Chq" ],
@@ -11,7 +14,19 @@ class Order < ActiveRecord::Base
   validates_presence_of :name, :address, :email, :pay_type
   validates_inclusion_of :pay_type, :in => PAYMENT_TYPES.map {|disp, value| value}
 
-  has_many :line_items
+
+
+  module Scopes
+      def by_customer(customer)
+        where(:customer_id => customer)
+      end
+  end
+  extend Scopes
+
+  def total_price
+    # self.line_items.map(&:total_price).sum
+    self.line_items.sum('total_price')
+  end
 
   def add_line_items_from_cart(cart)
     cart.items.each do |item|

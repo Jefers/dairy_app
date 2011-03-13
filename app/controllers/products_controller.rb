@@ -140,10 +140,12 @@ class ProductsController < ApplicationController
       end
     end
 
-    def save_order
+    def save_order                       
       @order = Order.new(params[:order])
+      @order.customer_id = params[:customer_id]  # :TODO review this later
       @order.add_line_items_from_cart(@cart)
       if @order.save
+        OrderMailer.order_email(@order).deliver
         session[:cart] = nil
         redirect_to_index("Thank you for your order")
       else

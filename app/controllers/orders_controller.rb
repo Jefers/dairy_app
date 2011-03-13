@@ -1,17 +1,15 @@
-#---
-# Excerpted from "Agile Web Development with Rails, 3rd Ed.",
-# published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material, 
-# courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose. 
-# Visit http://www.pragmaticprogrammer.com/titles/rails3 for more book information.
-#---
 class OrdersController < ApplicationController
+    # load_and_authorize_resource
+  before_filter :authenticate_customer!  
+  layout 'full_page_layout'
   # GET /orders
   # GET /orders.xml
   def index
-    @orders = Order.find(:all)
-
+    if current_customer.admin?
+      @orders = Order.find(:all)
+    else
+      @orders = Order.by_customer(current_customer)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @orders }
@@ -88,6 +86,14 @@ class OrdersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(orders_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def my_orders
+    if current_customer.admin?
+      @orders = Order.find(:all).reverse
+    else
+      @orders = current_customer.try(:orders).reverse
     end
   end
 end

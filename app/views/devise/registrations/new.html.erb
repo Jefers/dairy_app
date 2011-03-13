@@ -1,5 +1,6 @@
 <h2>Sign up</h2>
-
+<div id="messages"></div>
+<div id="signupForm">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -11,8 +12,12 @@
 
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>
+  
+<%= render  :partial => "tos" %>
+    
+  <p><%= f.label :terms_of_service, "Agree to Terms of Service?" %><%= f.check_box :terms_of_service %></p>
 
   <p><%= f.submit "Sign up" %></p>
 <% end %>
-
+</div>
 <%= render :partial => "devise/shared/links" %>

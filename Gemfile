@@ -6,6 +6,7 @@ gem 'mysql2'
 gem "haml-rails"
 gem "haml", '3.0.25' #:TODO is this really necessary? really?
 gem 'devise',  '~>1.1.5'
+gem 'cancan'
 gem "paperclip", "~> 2.3"
 gem 'kaminari'
 gem 'jquery-rails'

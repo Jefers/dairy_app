@@ -1,8 +1,9 @@
 class Product < ActiveRecord::Base
 #  attr_accessible :name, :price   this broke paperclip!!!
   belongs_to :category
-  has_many :orders, :through => :line_items
+  # belongs_to :customer # :TODO really. this must be a mistake
   has_many :line_items
+  has_many :orders, :through => :line_items
   
   has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "98x98#", :tiny => "49x49#", :minute => "28x28#" },
     :url => "/assets/products/:id/:style/:basename.:extension",  
