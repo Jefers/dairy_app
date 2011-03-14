@@ -39,5 +39,7 @@ module DairyApp
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    # This is overkill
+    # config.middleware.use "PDFKit::Middleware", :print_media_type => true
   end
 end

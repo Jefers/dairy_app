@@ -20,7 +20,7 @@
     Required date:<strong><%= format_date(order.try(:required_date)) %></strong>&#160;&#160;
   </p>
 
-  <table class="pretty">
+  <table class="pretty" id="line_items">
     <tr>
       <th>Product</th>
       <th>Quantity</th>
@@ -43,3 +43,5 @@
 </div>
 <br />
 <% end %>
+
+<p id="pdf_link"><%= link_to "Download orders (PDF)", myorders_path(@order, :format => "pdf") %></p>

@@ -2,7 +2,7 @@
 * {
 margin: 0;
 }
-/* http://colorschemedesigner.com/#4K325tgNTg0jF */ 
+/* http://colorschemedesigner.com/#4K325tgNTg0jF */
 
 $sitewidth: 950px;    /* Total width = (columns * 40) - 10 */
 $site: #74D52B;
@@ -25,14 +25,14 @@ $visited: $font-color;
   margin-bottom: 1.5em;
   background: $site;
   /*font-family:comic sans MS;*/
-  font-size:14px; 
-  font-weight:none; 
-  font-style:normal; 
-  border-style:solid; 
-  border-color:$border; 
+  font-size:14px;
+  font-weight:none;
+  font-style:normal;
+  border-style:solid;
+  border-color:$border;
   border-width:2px;
-  width: 280px; 
-  color:$font-color; 
+  width: 280px;
+  color:$font-color;
 }
 
 @mixin shadow_box {
@@ -45,7 +45,7 @@ $visited: $font-color;
 @mixin rounded {
   @include border-radius(0.5em);
   margin:0.25em;
-  padding: 0.5em; 
+  padding: 0.5em;
   background: $bg;
 }
 
@@ -59,7 +59,7 @@ $visited: $font-color;
 
 @mixin clearfix {
   overflow: hidden;
-  clear: both; 
+  clear: both;
 }
 
 //body {background: $site;color:$font-color ;font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;}
@@ -184,7 +184,7 @@ nav {
   white-space: normal;
   @include clearfix;
 }
-          
+
 #login_nav {
   padding:2px;
   margin-top: -2em;
@@ -280,7 +280,7 @@ a.signup_button {
   padding: 5px;
   margin-top: -40px;
   background-color: $bg; }
-  
+
 .pageHeading {
   width:98%;
   @include shadow_box;
@@ -376,8 +376,8 @@ table.pretty {
     text-align: right;
     border-top-color: $border;
     border-top-style: double;
-    border-top-width: thick;    
-    
+    border-top-width: thick;
+
      }
   th {
     .current {
@@ -388,7 +388,7 @@ table.pretty {
       content: "\25B2 \ ";text-shadow: #aaaaaa 1px 1px 1px;
        }
     .desc:after {
-      content: "\25BC \ ";text-shadow: #aaaaaa 1px 1px 1px; 
+      content: "\25BC \ ";text-shadow: #aaaaaa 1px 1px 1px;
       }
        } }
 
@@ -440,11 +440,11 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
     @include rounded;
     @include grey_glow;
     margin-top: -2em;
-} 
+}
 
 .file_input_textbox
-{ 
-  width: 400px; 
+{
+  width: 400px;
   float: left;
 }
 
@@ -452,9 +452,9 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 
 .file_input_div
 {
-  position: relative; 
-  width: 100px; 
-  height: 2.1em; 
+  position: relative;
+  width: 100px;
+  height: 2.1em;
   overflow: hidden;
   display: inline
 }
@@ -462,8 +462,8 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 .file_input_hidden
 {
   font-size: 45px;
-  position: absolute; 
-  right: 0px; 
+  position: absolute;
+  right: 0px;
   top: 0px;
   @include transparent
 }
@@ -495,7 +495,7 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 /* Styles for the cart in the sidebar */
 
 #response {
-  
+
 }
 
 #cart, #cart table {
@@ -529,7 +529,7 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
   z-index:4101;
 }
 
-.noscript .noscript-inner  { 
+.noscript .noscript-inner  {
   text-align:center;
   background-image:url("/images/i_notice.png");
   background-position:20px 50%;

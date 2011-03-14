@@ -2,6 +2,9 @@ class OrdersController < ApplicationController
     # load_and_authorize_resource
   before_filter :authenticate_customer!
   layout 'full_page_layout'
+  # for PDF
+  caches_page :my_orders
+
   # GET /orders
   # GET /orders.xml
   def index
@@ -94,6 +97,29 @@ class OrdersController < ApplicationController
       @orders = Order.find(:all).reverse
     else
       @orders = current_customer.try(:orders).reverse
+    end
+
+    # format.pdf {
+    #   html = render_to_string(:action => "my_orders.html.erb")
+    #   kit = PDFKit.new(html)
+    #   kit.stylesheets << "#{Rails.root}/public/stylesheets/print.css"
+    #   send_data kit.to_pdf, :filename => "Your-custom-filename.pdf", :type => 'application/pdf'
+    # }
+
+    # respond_to do |format|
+    #       format.html # show.html.erb
+    #       format.pdf { render :text => PDFKit.new( post_url(@post) ).to_pdf }
+    # end
+    
+    respond_to do |format|
+      format.pdf {
+        html = render_to_string(:action => "my_orders.html.erb")
+        kit = PDFKit.new(html)
+        kit.stylesheets << "#{Rails.root}/public/stylesheets/compiled/print.css"
+        send_data kit.to_pdf, :filename => "My_Orders.pdf", :type => 'application/pdf'
+      }
+      format.html # index.html.erb
+      format.xml  { render :xml => @orders }
     end
   end
 end
