@@ -97,6 +97,7 @@ GEM
     paperclip (2.3.8)
       activerecord
       activesupport
+    pdfkit (0.5.0)
     pickle (0.4.4)
       cucumber (>= 0.8)
       rake
@@ -179,6 +180,7 @@ DEPENDENCIES
   launchy
   mysql2
   paperclip (~> 2.3)
+  pdfkit
   pickle
   rails (= 3.0.4)
   rails3-jquery-autocomplete
