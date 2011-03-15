@@ -110,15 +110,15 @@ class OrdersController < ApplicationController
     #       format.html # show.html.erb
     #       format.pdf { render :text => PDFKit.new( post_url(@post) ).to_pdf }
     # end
-    
+
     respond_to do |format|
+      format.html { redirect_to(orders_url) }# index.html.erb
       format.pdf {
         html = render_to_string(:action => "my_orders.html.erb")
         kit = PDFKit.new(html)
         kit.stylesheets << "#{Rails.root}/public/stylesheets/compiled/print.css"
         send_data kit.to_pdf, :filename => "My_Orders.pdf", :type => 'application/pdf'
       }
-      format.html # index.html.erb
       format.xml  { render :xml => @orders }
     end
   end
