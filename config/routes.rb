@@ -33,7 +33,7 @@ DairyApp::Application.routes.draw do
   resources :orders do
     resources :line_items
   end
-#  match 'orders/my_orders' => 'orders#my_orders', :as => :myorders
+  match 'orders/my_orders' => 'orders#my_orders', :as => :myorders
 
   devise_for :customers
   resources :customers
