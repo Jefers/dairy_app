@@ -19,7 +19,11 @@ class ProductsController < ApplicationController
     if params[:search]
       @products = Product.search(params[:search]).available.order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
     else
-      @products = Product.available.order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
+      if current_customer.try(:admin?)
+        @products = Product.order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
+      else
+        @products = Product.available.order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
+      end
     end
 
     if params[:category_id]
@@ -40,7 +44,7 @@ class ProductsController < ApplicationController
     @categories = Category.all
     @category = Category.find(params[:category_id])
     @cat = params[:category_id]
-    @products = Product.search(params[:search]).available.where(:category_id => @cat).order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
+    @products = Product.search(params[:search]).where(:category_id => @cat).order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
     # @products = @products.select{ |product| product.category == @category }
 
     respond_with(@products)
@@ -149,7 +153,7 @@ class ProductsController < ApplicationController
       if @order.save
         OrderMailer.order_email(@order).deliver
         session[:cart] = nil
-        redirect_to_index("Thank you for your order")
+        redirect_to_index("Thank you for your order. An email has been sent to you.")
       else
         render :action => 'checkout'
       end
@@ -159,8 +163,6 @@ class ProductsController < ApplicationController
       session[:cart] = nil
       redirect_to_index
     end
-
-
 
   private
 

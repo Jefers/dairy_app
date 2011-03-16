@@ -2,7 +2,7 @@
 .bundle
 db/*.sqlite3
 db/*.sqlite3-journal
-log/*.log 
+log/*.log
 *.log
 tmp/**/*
 config/database.yml
@@ -14,7 +14,7 @@ public/stylesheets/cache
 # Public Uploads
 public/system/*
 public/themes/*
-public/pictures/*
+# public/pictures/*
 public/assets/*
 
 # Mac

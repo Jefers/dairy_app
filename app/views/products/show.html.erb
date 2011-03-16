@@ -21,8 +21,17 @@
   <%= link_to h(@product.category.name), for_category_category_products_path(@product.category) %>
 </p>
 <% end %>
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+<p>
+  <b>In Stock:</b>
+<%= @product.out_of_stock? ? 'NO' : 'YES' %>
+</p>
 
-<% if customer_signed_in? %>
+
+<% if customer_signed_in? && @product.in_stock?  %>
  <%= form_tag url_for(:action => "add_to_cart", :id=>@product.id), :id => "cart-form", :remote => true do %>
    <%= button_to "Add to Basket" %>
  <% end %>

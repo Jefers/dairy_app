@@ -27,13 +27,15 @@ DairyApp::Application.routes.draw do
   match 'products/save_order'  => 'products#save_order'
   # match 'products/cart' => 'store#cart', :as => :cart
 
+  match 'orders/my_orders' => 'orders#my_orders', :as => :myorders
+
   resources :orders
   resources :line_items
 
   resources :orders do
     resources :line_items
   end
-  match 'orders/my_orders' => 'orders#my_orders', :as => :myorders
+
 
   devise_for :customers
   resources :customers

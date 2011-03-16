@@ -41,12 +41,15 @@ class Product < ActiveRecord::Base
     end
   end
 
-
-
+# :TODO not used
+  def in_stock?
+    ! self.out_of_stock?
+  end
 
 protected
   def price_must_be_at_least_a_penny
     errors.add(:price, 'should be at least 0.01') if price.nil? ||
                        price < 0.01
   end
+
 end

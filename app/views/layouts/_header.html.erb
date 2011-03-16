@@ -22,9 +22,19 @@
     </ul>
   </nav>
   <section id="flash">
+      <% if current_customer.try(:admin?) %> 
+        <nav id="tabnav">
+          <ul>
+            <li><%= link_to "Products", products_path %></li>
+            <li><%= link_to "Categories", categories_path %></li>
+            <li><%= link_to "Orders", myorders_path %></li>
+          </ul>
+        </nav>  
+      <% end %>
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, :id => "flash_#{name}" %>
   <% end %>
   </section>
+
 </header>
 

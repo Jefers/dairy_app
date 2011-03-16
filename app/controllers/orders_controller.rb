@@ -112,7 +112,7 @@ class OrdersController < ApplicationController
     # end
 
     respond_to do |format|
-      format.html { redirect_to(orders_url) }# index.html.erb
+      format.html # index.html.erb
       format.pdf {
         html = render_to_string(:action => "my_orders.html.erb")
         kit = PDFKit.new(html)

@@ -123,7 +123,7 @@ section {
   h1 {
     font-size: 200%; }
   &#flash {
-    height: 18px;
+    height: 2em;
     @include rounded; } }
 
 /* Links */
@@ -175,6 +175,8 @@ nav {
           color: $visited; }
         &:hover {
           @include fancy-button($site, 11px); } } } } }
+
+
 
 #right_bar {
   @include rounded;
@@ -292,6 +294,7 @@ a.signup_button {
 
 .digg_pagination {
   background: $bg;
+  margin:0;
   /* self-clearing method: */
   a {
     padding: .2em .5em;
@@ -307,10 +310,11 @@ a.signup_button {
       color: #999;
       border: 1px solid #DDD; }
     &.current {
+      margin-top: 1px;
       font-weight: bold;
       background: $paginate;
       color: white;
-      border: 1px solid $paginate; } }
+      border: 2px solid $paginate; } }
   a {
     text-decoration: none;
     color: darken($paginate, 10%);
@@ -545,3 +549,24 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
   width:70%;
 }
 /* END:form */
+
+#tabnav {
+  float: right;
+  position:relative;
+  white-space: normal;
+  z-index:0;
+  margin:0;
+  padding:0.5em;
+  margin-right: -10px;
+  margin-top: -70px;
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      a {
+        @include fancy-button($site, 13px);
+        height: 2em;
+        &:visited {
+          color: $visited; }
+        &:hover {
+          @include fancy-button($site, 13px); } } } } }
