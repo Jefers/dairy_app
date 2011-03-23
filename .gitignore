@@ -29,7 +29,7 @@ public/assets/*
 .rvmrc.*
 
 # Vendor Cache
-vendor/cache
+# vendor/cache
 
 #testing
 capybara*

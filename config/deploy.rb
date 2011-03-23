@@ -1,5 +1,6 @@
 #server login
 set :user, "waldenda"
+set :keep_releases, 2
 # RVM bootstrap
 ##$:.unshift(File.expand_path("~/.rvm/lib"))
 ##require 'rvm/capistrano'
