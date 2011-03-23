@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
   def contact
     @title = "Contact"
-    render :layout => 'two_column_page_page_layout'
+    render :layout => 'two_column_page_layout'
   end
 
   def about

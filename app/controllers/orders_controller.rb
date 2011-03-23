@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-    # load_and_authorize_resource
-  before_filter :authenticate_customer!
+  load_and_authorize_resource
+  before_filter :authenticate_customer!, :except => [:my_orders]
   layout 'full_page_layout'
   # for PDF
   caches_page :my_orders

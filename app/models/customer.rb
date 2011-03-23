@@ -14,6 +14,8 @@ class Customer < ActiveRecord::Base
  # scope expandedvv, Book.select('books.*, users.name').joins(:user)
   # scope :customer_orders, Orders.select(joins(:orders)
 
+  ROLES = %w[admin customer moderator author banned]
+
   def customer_orders
      self.orders.map(&:name)
   end

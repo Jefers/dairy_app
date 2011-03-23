@@ -3,24 +3,30 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Address</th>
+    <th>Order#</th>
     <th>Email</th>
     <th>Pay type</th>
+    <th>Required date</th>
   </tr>
 
 <% for order in @orders %>
   <tr>
     <td><%= order.name %></td>
-    <td><%= order.address %></td>
+    <td><%= order.id %></td>
     <td><%= order.email %></td>
     <td><%= order.pay_type %></td>
-    <td><%= link_to 'Show', order %></td>
-    <td><%= link_to 'Edit', edit_order_path(order) %></td>
-    <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= format_date(order.required_date) %></td>
+    <% if current_customer.try(:admin?) %>
+      <td><%= link_to 'Show', order %></td>
+      <td><%= link_to 'Edit', edit_order_path(order) %></td>
+      <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New order', new_order_path %>
+<% if current_customer.try(:admin?) %>
+  <%= link_to 'New order', new_order_path %>
+<% end %>

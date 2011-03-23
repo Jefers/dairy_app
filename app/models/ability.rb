@@ -7,8 +7,7 @@ class CustomerAbility
     if customer.admin?
       can :manage, :all
     else
-      can :read, :all
-
+      can :read, Order
       # if customer.urn?(:urn)
       #   can :create, Order
       #   can :update, Order do |order|
