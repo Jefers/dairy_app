@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @customer.name %>
+</p>
+<p>
+  <b>URN:</b>
+  <%= @customer.urn %>/<%= @customer.round %>
+</p>
+<p>
+  <b>Status:</b>
+  <%= @customer.role %>
+</p>
+<p>
+  <b>Email:</b>
+  <%= @customer.email %>
+</p>
+<p>
+  <b>Telephone:</b>
+  <%= @customer.telephone %>
+</p>
+<p>
+  <b>PostCode:</b>
+  <%= @customer.post_code %>
+</p>
+<p>
+  <b>logins:</b>
+  <%= @customer.sign_in_count %>
+</p>
+
+
+<% if current_customer.try(:admin?) %>
+<%= link_to 'Edit', edit_customer_path(@customer) %> | <% end %>
+<%= link_to 'Back', customers_path %>

@@ -8,21 +8,30 @@ class CustomersController < ApplicationController
     respond_with(@customers = Customer.all)
   end
 
+  def new
+    respond_with(@customer = Customer.new)
+  end
+
+  def create
+    @customer = Customer.new(params[:customer])
+    flash[:notice] = "Customer successfully created" if @customer.save
+    respond_with(@customer)
+  end
+
   def edit
     respond_with(@customer = Customer.find(params[:id]))
   end
 
   def update
-    @customer = Customer.find(params[:id])
-    respond_to do |format|
-      if @customer.update_attributes(params[:customer])
-        flash[:notice] = 'Customer was successfully updated.'
-        format.html { redirect_to(@customer.index) }
-      else
-        format.html { render :action => "edit" }
-      end
+    # @customer = Customer.find(params[:id])
+    # @customer.update_attributes(params[:customer])
+    # respond_with(@customer)
+    if @customer.update_attributes(params[:customer])
+      redirect_to @customer, :notice => "Successfully updated customer."
+    else
+      render :action => 'edit'
     end
-
   end
+
 
 end

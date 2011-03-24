@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :post_code %><br />
-    <%= f.text_field :post_code %>
+    <%= f.text_field :post_code, :class  => 'upper' %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
@@ -38,6 +38,10 @@
   <div class="field">
     <%= f.label :telephone %><br />
     <%= f.text_field :telephone %>
+  </div>
+  <div class="field">
+    <%= f.label :role %><br />
+    <%= f.collection_select :role, Customer::ROLES, :to_s, :humanize, :prompt => 'Please select a type' %>
   </div>
   <div class="actions">
     <%= f.submit %>

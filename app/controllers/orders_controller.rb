@@ -1,9 +1,11 @@
 class OrdersController < ApplicationController
-  load_and_authorize_resource
   before_filter :authenticate_customer!, :except => [:my_orders]
+  load_and_authorize_resource
+  # load_and_authorize_resource :only => [:index, :show]
+
   layout 'full_page_layout'
   # for PDF
-  caches_page :my_orders
+  # caches_page :my_orders
 
   # GET /orders
   # GET /orders.xml
@@ -98,6 +100,8 @@ class OrdersController < ApplicationController
     else
       @orders = current_customer.try(:orders).reverse
     end
+
+    authorize! :my_orders, @orders
 
     # format.pdf {
     #   html = render_to_string(:action => "my_orders.html.erb")

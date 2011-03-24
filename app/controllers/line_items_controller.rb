@@ -1,4 +1,7 @@
 class LineItemsController < ApplicationController
+  load_and_authorize_resource :order
+  load_and_authorize_resource :line_items, :through => :order
+
   before_filter :authenticate_customer!
   layout 'full_page_layout'
   # GET /line_items

@@ -165,11 +165,17 @@ nav {
     margin: 0;
     padding: 0;
     li {
+      width: 100%;
+      @include border-radius(5px);
+      border-style:solid;
+      border-color:#8bcc46;
+      border-width:0.5px;
       list-style-type: none;
-      padding: 0.2em 0;
+      margin:0.5px 0;
+      padding: 0;
       height: 2em;
       a {
-        padding: 0 5px;
+        padding: 10px;
         font-weight: bold;
         &:visited {
           color: $visited; }
@@ -570,3 +576,8 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
           color: $visited; }
         &:hover {
           @include fancy-button($site, 13px); } } } } }
+
+/* extras */
+.upper {
+  text-transform: uppercase;
+}

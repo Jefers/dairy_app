@@ -1,4 +1,4 @@
-<h2>Orders for <%= current_customer.email %></h2>
+<h2>Orders</h2>
 
 <% @orders.each do |order| %>
 <div class="order_header">
@@ -44,4 +44,4 @@
 <br />
 <% end %>
 
-<!-- <p id="pdf_link"><%# link_to "Download orders (PDF)", myorders_path(@order, :format => "pdf") %></p> -->
+<!-- <p id="pdf_link"><%# link_to "Download orders (PDF)", my_orders_path(@order, :format => "pdf") %></p> -->

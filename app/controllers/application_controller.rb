@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   # check_authorization :unless => :devise_controller?
   rescue_from CanCan::AccessDenied do |exception|
+    Rails.logger.debug "Access denied to #{current_customer.name} on action #{exception.action} with subject #{exception.subject.inspect}"
     flash[:error] = "Access denied."
     redirect_to root_url
   end

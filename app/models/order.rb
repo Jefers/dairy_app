@@ -14,8 +14,6 @@ class Order < ActiveRecord::Base
   validates_presence_of :name, :address, :email, :pay_type
   validates_inclusion_of :pay_type, :in => PAYMENT_TYPES.map {|disp, value| value}
 
-
-
   module Scopes
       def by_customer(customer)
         where(:customer_id => customer)
