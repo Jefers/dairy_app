@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_filter :authenticate_customer!, :except => [:my_orders]
   load_and_authorize_resource
   # load_and_authorize_resource :only => [:index, :show]
-
   layout 'full_page_layout'
   # for PDF
   # caches_page :my_orders
@@ -10,7 +9,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.xml
   def index
-    if current_customer.admin?
+    if current_customer.try(:admin?)
       @orders = Order.find(:all)
     else
       @orders = Order.by_customer(current_customer)
@@ -95,7 +94,7 @@ class OrdersController < ApplicationController
   end
 
   def my_orders
-    if current_customer.admin?
+    if current_customer.try(:admin?)
       @orders = Order.find(:all).reverse
     else
       @orders = current_customer.try(:orders).reverse

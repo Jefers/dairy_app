@@ -1,0 +1,28 @@
+= semantic_form_for @customer_holiday do |f|
+  -if @customer_holiday.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@customer_holiday.errors.count, "error")} prohibited this customer_holiday from being saved:"
+      %ul
+        - @customer_holiday.errors.full_messages.each do |msg|
+          %li= msg
+  = f.inputs do
+    = f.input :from_date, :as => :string, :label => "Holiday from date", :input_html => { :size => 25 }, :hint => "Pick dates where you don't want deliveries"
+    = f.input :to_date, :as => :string, :label => "Holiday to date", :input_html => { :size => 25 }
+    = f.input :confirmed
+    = f.input :notes, :input_html => { :rows => 10, :cols => 50 }, :hint => "Please add a note if you have any specific request"
+    = f.input :urn, :input_html => {:size => 6, :value => current_customer.urn, :disabled=>"disabled" }, :hint => "Input blocked. If this is wrong please tell us in the notes. "
+    = f.input :round, :input_html => {:size => 2, :value => current_customer.round, :disabled=>"disabled" }, :hint => "Input blocked. If this is wrong please tell us in the notes. "
+    = f.input :name, :input_html => {:size => 50, :value => current_customer.name }
+    = f.input :address, :input_html => {:size => 50, :value => current_customer.address }
+    = f.input :address_2, :label => "&nbsp;", :input_html => { :size => 50, :value => current_customer.address_2 }
+    = f.input :address_3, :label => "&nbsp;", :input_html => { :size => 50, :value => current_customer.address_3 }
+    = f.input :town, :input_html => { :size => 50, :value => current_customer.town }
+    = f.input :post_code, :input_html => {:size => 10, :value => current_customer.post_code }
+    = f.input :contact_telephone, :input_html => {:size => 20, :value => current_customer.telephone }
+    = f.input :email_address, :input_html => {:size => 50, :value => current_customer.email }
+    -if current_customer.try(:admin?)
+      = f.input :active
+
+
+  .actions
+    = f.submit 'Save', :class => 'file_input_button'

@@ -54,7 +54,7 @@ function noWeekendsOrHolidays(date) {
   return noWeekend[0] ? nationalDays(date) : noWeekend;
 }
 
-/* create datepicker */
+/* create datepicker :TODO clean these up when the generic one is figured out */
 jQuery(document).ready(function() {
   jQuery('#order_required_date').datepicker({
     minDate: new Date(2011, 0, 1),
@@ -65,10 +65,25 @@ jQuery(document).ready(function() {
   });
 });
 
+jQuery(document).ready(function() {
+  jQuery('#customer_holiday_from_date').datepicker({
+    dateFormat: 'DD, MM, d, yy'
+  });
+});
 
-// $(function() { 
+jQuery(document).ready(function() {
+  jQuery('#customer_holiday_to_date').datepicker({
+    dateFormat: 'DD, MM, d, yy'
+  });
+});
+
+$(document).ready(function(){
+  $('input.ui-datepicker').datepicker();
+});
+
+// $(function() {
 //   $('#date').datepicker({ dateFormat: 'dd MM, yy' });
-// }); 
+// });
 
 $(function() {
   // create a convenient toggleLoading function
@@ -97,17 +112,17 @@ $(function() {
 //                 response( data );
 //             }
 //         });
-//     }           
-// }); 
+//     }
+// });
 
 
 
-$(document).ready(function(){ 
+$(document).ready(function(){
   $("#per_page value").keyup(function() {
       alert( $.cookie("perPage") );
     return false;
-  });  
-  
+  });
+
 });
 
 $(document).ready(function(){
@@ -130,13 +145,13 @@ $(document).ready(function(){
 });
 
 $('a[data-remote=true]').livequery('click', function() {
-    $.ajax({ 
-      url: this.href, 
+    $.ajax({
+      url: this.href,
       dataType: "script"
-    }); 
-    return false; 
+    });
+    return false;
 });
- 
+
 
 $('form[data-remote=true]').livequery('submit', function() {
   return request({ url : this.action, type : this.method, data : $(this).serialize() });

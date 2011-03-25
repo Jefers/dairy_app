@@ -129,7 +129,7 @@ section {
 /* Links */
 
 a {
-  color: $linkcolor; text-decoration: none;
+  color: $linkcolor;
   &:hover { color: $hover; text-decoration: underline; }
   &:visited { color: $visited; } }
 
@@ -249,7 +249,7 @@ a.signup_button {
   @include red_glow;
   display: inline; }
 
-#error_explanation {
+#error_explanation, #errorExplanation, .error_explanation {
   @include rounded;
   @include red_glow;
   width: 99%;
@@ -405,7 +405,7 @@ table.pretty {
 tbody tr:nth-child(even) td, tbody tr.even td {background:lighten($site, 15%);}
 
 /*fancy input search*/
-input[type="password"], input[type="text"], input[type="file"], textarea {
+input[type="password"], input[type="text"], input[type="file"], input[type="tel"], input[type="email"], textarea {
   @include formInputs;
   @include grey_glow;
   font-family: $font-family;
@@ -459,6 +459,7 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 }
 
 .file_input_button {@include fancy-button($site, 15px);  margin-bottom: 30px; margin-top: 7px; }
+.holiday_button {@include fancy-button($site, 15px);  margin-bottom: 30px; margin-top: 7px; }
 
 .file_input_div
 {
@@ -519,6 +520,40 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 }
 /* END:cartside */
 
+#holiday {
+  @include rounded;
+  background-color:#ff9000;
+  margin:1px;
+  padding:1px;
+}
+#holiday h3{
+  margin:5px auto;
+  width:70%;
+}
+#holiday_inner {
+  @include rounded;
+  background-color:#e5fabb;
+  margin:1px;
+  padding:5px;
+}
+#holiday_inner p{
+
+  font-style:italic;
+}
+#holiday_button{
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:1px;
+  margin-bottom:1px;
+  padding:1px;
+  width:70%;
+}
+.holiday_button {@include fancy-button($site, 17px);
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:1px;
+  margin-bottom:1px;
+}
 
 
 /* START: no script warning */
@@ -580,4 +615,7 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 /* extras */
 .upper {
   text-transform: uppercase;
+}
+.italic {
+  font-style:italic;
 }

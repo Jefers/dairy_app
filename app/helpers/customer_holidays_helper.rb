@@ -1,0 +1,2 @@
+module CustomerHolidaysHelper
+end

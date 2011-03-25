@@ -10,13 +10,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110323200905) do
+ActiveRecord::Schema.define(:version => 20110325170302) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
+  end
+
+  create_table "customer_holidays", :force => true do |t|
+    t.integer  "customer_id"
+    t.string   "title"
+    t.string   "urn"
+    t.string   "round"
+    t.string   "address"
+    t.string   "address_2"
+    t.string   "address_3"
+    t.string   "town"
+    t.string   "post_code"
+    t.string   "contact_telephone"
+    t.string   "email_address"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.boolean  "confirmed"
+    t.text     "notes"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "customers", :force => true do |t|
@@ -36,11 +58,14 @@ ActiveRecord::Schema.define(:version => 20110323200905) do
     t.boolean  "admin"
     t.integer  "urn",                  :limit => 8
     t.string   "name"
-    t.text     "address"
     t.string   "post_code",            :limit => 8
     t.string   "telephone",            :limit => 14
     t.string   "round",                :limit => 1
     t.string   "role"
+    t.string   "address"
+    t.string   "address_2"
+    t.string   "address_3"
+    t.string   "town"
   end
 
   add_index "customers", ["email"], :name => "index_customers_on_email", :unique => true
@@ -57,7 +82,6 @@ ActiveRecord::Schema.define(:version => 20110323200905) do
 
   create_table "orders", :force => true do |t|
     t.string   "name"
-    t.text     "address"
     t.string   "email"
     t.string   "pay_type",      :limit => 10
     t.datetime "created_at"
@@ -65,6 +89,12 @@ ActiveRecord::Schema.define(:version => 20110323200905) do
     t.integer  "customer_id"
     t.boolean  "repeat",                      :default => true
     t.date     "required_date"
+    t.string   "address"
+    t.string   "address_2"
+    t.string   "address_3"
+    t.string   "town"
+    t.string   "post_code"
+    t.text     "instructions"
   end
 
   create_table "products", :force => true do |t|

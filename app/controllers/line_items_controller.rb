@@ -8,7 +8,7 @@ class LineItemsController < ApplicationController
   # GET /line_items.xml
   def index
 
-    if current_customer.admin?
+    if current_customer.try(:admin?)
       @line_items = LineItem.find(:all)
     else
       @line_items = LineItem.by_customer(current_customer)

@@ -1,4 +1,6 @@
 DairyApp::Application.routes.draw do
+  resources :customer_holidays
+
   # get "autocomplete_searches/Index"
   # resources :autocomplete_searches, :only => [:index], :as => 'autocomplete'
 # match "/foo", :to => proc {|env| [200, {}, ["Hello world"]] }

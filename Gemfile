@@ -16,6 +16,9 @@ gem 'fancy-buttons'
 gem 'hpricot'
 gem 'ruby_parser'
 gem 'pdfkit'
+gem 'formtastic', '~> 1.2.3'
+gem 'dynamic_form'
+
 
 group :development do
   gem 'rspec-rails', '2.4.1'

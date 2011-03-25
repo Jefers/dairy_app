@@ -1,0 +1,44 @@
+%p#notice= notice
+
+%p
+  %b Urn/Round:
+  = @customer_holiday.urn
+  \/
+  = @customer_holiday.round
+%p
+  %b Name:
+  = @customer_holiday.name
+%p
+  %b From date:
+  = format_date(@customer_holiday.from_date)
+%p
+  %b To date:
+  = format_date(@customer_holiday.to_date)
+%p
+  %b Confirmed:
+  = @customer_holiday.confirmed
+%p
+  %b Notes:
+  = @customer_holiday.notes
+%p
+  %b Address:
+  = @customer_holiday.address
+  \,
+  = @customer_holiday.address_2
+  \,
+  = @customer_holiday.address_3
+  \,
+  = @customer_holiday.town
+  \,
+  = @customer_holiday.post_code
+%p
+  %b Contact telephone:
+  = @customer_holiday.contact_telephone
+%p
+  %b Email address:
+  = @customer_holiday.email_address
+
+
+= link_to 'Edit', edit_customer_holiday_path(@customer_holiday)
+\|
+= link_to 'Back', customer_holidays_path

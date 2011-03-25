@@ -1,30 +1,22 @@
-  <!-- <%# :TODO see https://github.com/rails/dynamic_form  error_messages_for 'order' %>   } + {current_customer.post_code} -->
+  <%=  error_messages_for 'order' %>
 
-  <%= form_for :order, :url => { :action => :save_order, :customer_id => current_customer.id } do |f| %>
-    <fieldset>
-      <legend><%= render :text => "Checkout" %></legend>
-          <div>URN:<%= current_customer.urn %>~ Round:<%= current_customer.round %></div>
-
-      <div>
-        <%= f.label :name  %><br /><%= f.text_field :name, :value => current_customer.name %>
-      </div>
-      <div>
-        <%= f.label :address %><br /><div id="address"><%= current_customer.address %><br /><%= current_customer.post_code %></div><br />
-        <%= f.text_area :address, :cols => 40, :rows => 3, :value => current_customer.address  %>
-      </div>
-      <div>
-        <%= f.label :email %><br /><%= f.text_field :email, :value => current_customer.email %>
-      </div>
-      <div>
-        <%= f.label :repeat %><br /><%= f.check_box :repeat %>
-      </div>
-      <div>
-        <%= f.label :required_date %><br /><%= f.text_field :required_date %>
-      </div>
-      <div>
-        <%= f.label :pay_type %><br /><%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt => 'Please select a payment method' %>
-      </div>
-      <%= submit_tag "Checkout", :class => "submit" %>
-    </fieldset>
-  <% end %>
+<h1>Checkout</h1>
+<%= semantic_form_for :order, :url => { :action => :save_order, :customer_id => current_customer.id } do |f| %>
+        <h3>URN/Round:<%= current_customer.urn %>/<%= current_customer.round %></h3>
+        <p class="italic">Please check your order and then hit the checkout button.</p>
+        <%= f.inputs do %>
+          <%= f.input :name, :input_html => {:size => 50, :value => current_customer.name } %>
+          <%= f.input :email, :input_html => {:size => 50, :value => current_customer.email } %>
+          <%= f.input :pay_type, :as => :select, :collection => ["Cheque", "BACS"], :prompt => 'Please select a payment method' %>
+          <%= f.input :repeat, :as  => :radio, :hint => "Is this a repeated order?" %>
+          <%= f.input :required_date, :as => :string, :label => "Required date", :input_html => { :size => 35 } %>
+          <%= f.input :address, :input_html => {:size => 50, :value => current_customer.address } %>
+          <%= f.input :address_2, :label => "&nbsp;", :input_html => { :size => 50, :value => current_customer.address_2 } %>
+          <%= f.input :address_3, :label => "&nbsp;", :input_html => { :size => 50, :value => current_customer.address_3 } %>
+          <%= f.input :town, :input_html => { :size => 50, :value => current_customer.town } %>
+          <%= f.input :post_code, :input_html => {:size => 10, :value => current_customer.post_code } %>
+          <%= f.input :instructions, :as  => :text, :hint => "Put some special instructions here, if required. " %>
+        <% end %>
+    <%= submit_tag "Checkout", :class => "submit" %>
+<% end %>
 

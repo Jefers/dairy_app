@@ -1,0 +1,8 @@
+%h1 Editing holiday
+
+= render 'form'
+
+= link_to 'Show', @customer_holiday
+\|
+-if current_customer.try(:admin?)
+  = link_to 'Back', customer_holidays_path

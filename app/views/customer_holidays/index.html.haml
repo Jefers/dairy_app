@@ -1,0 +1,27 @@
+%h1 List of Holidays
+
+%table
+  %tr
+    %th From date
+    %th To date
+    %th Confirmed
+    %th Notes
+    %th
+    -if current_customer.try(:admin?)
+      %th
+      %th
+
+  - @customer_holidays.each do |customer_holiday|
+    %tr
+      %td= customer_holiday.from_date
+      %td= customer_holiday.to_date
+      %td= customer_holiday.confirmed
+      %td= customer_holiday.notes
+      %td= link_to_show customer_holiday
+      -if current_customer.try(:admin?)
+        %td= link_to_edit(customer_holiday)
+        %td= link_to 'Destroy', customer_holiday, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Holiday? Click here', new_customer_holiday_path

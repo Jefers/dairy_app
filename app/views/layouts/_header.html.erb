@@ -16,6 +16,7 @@
     <ul>
     <% if customer_signed_in? %>
       <!-- <li><%# link_to "My Orders", my_orders_path %></li>  :TODO -->
+      <li><%= link_to "Holidays?", customer_holidays_path %></li>
     <% end %>
       <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Help", help_path %></li>
