@@ -6,7 +6,7 @@ margin: 0;
 
 $sitewidth: 950px;    /* Total width = (columns * 40) - 10 */
 $site: #c3ff83; //#74D52B;
-$font-color: $fb-color;
+$font-color: #333b33; //$fb-color;
 $font-family: "Helvetica Neue", Arial, Helvetica, sans-serif ;
 $font-size: 120%;
 $background: lighten($site, 20%);
@@ -16,7 +16,7 @@ $fontb: darken(#52C4E4, 10);
 $paginate: darken($site, 20%);
 
 $linkcolor: $font-color;
-$hover: lighten($font-color, 30%);
+$hover: #167f1b; //lighten($font-color, 30%);
 $active: $font-color;
 $visited: $font-color;
 
@@ -126,12 +126,7 @@ section {
     height: 2em;
     @include rounded; } }
 
-/* Links */
 
-a {
-  color: $linkcolor;
-  &:hover { color: $hover; text-decoration: underline; }
-  &:visited { color: $visited; } }
 
 /* Navigation */
 
@@ -180,9 +175,17 @@ nav {
         &:visited {
           color: $visited; }
         &:hover {
-          @include fancy-button($site, 11px); } } } } }
+          text-decoration: none;
+          @include fancy-button($site, 11px); } } } }
+}
 
+/* Links */
 
+a {
+   text-decoration: none; color: $linkcolor;
+    &:visited {  text-decoration: none;color: $visited; }
+    &:active {  text-decoration: none; color: $active; }
+    &:hover { text-decoration: underline; color: green; } }
 
 #right_bar {
   @include rounded;
@@ -619,3 +622,4 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 .italic {
   font-style:italic;
 }
+
