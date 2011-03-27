@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_filter :authenticate_customer!, :except => [:my_orders]
   load_and_authorize_resource
+  skip_authorize_resource :only => :my_orders
   # load_and_authorize_resource :only => [:index, :show]
   layout 'full_page_layout'
   # for PDF
@@ -94,13 +95,14 @@ class OrdersController < ApplicationController
   end
 
   def my_orders
+    # authorize! :roll, :logs
+    # authorize! :my_orders, @orders
+
     if current_customer.try(:admin?)
       @orders = Order.find(:all).reverse
     else
       @orders = current_customer.try(:orders).reverse
     end
-
-    authorize! :my_orders, @orders
 
     # format.pdf {
     #   html = render_to_string(:action => "my_orders.html.erb")

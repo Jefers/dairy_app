@@ -1,3 +1,22 @@
+$(document).ready(function() {
+  $('div.accordionButton').click(function() {
+    $('div.accordionContent').slideUp('normal');
+    $(this).next().slideDown('normal');
+  });
+  $("div.accordionContent").hide();
+});
+
+function initMenu() {
+$('#menu ul').hide();
+$('#menu li a').click(
+  function() {
+    $(this).next().slideToggle('normal');
+    } 
+  );  
+}
+$(document).ready(function() {initMenu();});
+
+
 // validate signup form on keyup and submit
 jQuery(document).ready(function() {
   $("#signupForm").validate({

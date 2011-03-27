@@ -2,44 +2,51 @@
 
 <% @orders.each do |order| %>
 <div class="order_header">
-  <h5>Name :<strong><%= order.customer.try(:name) %></strong>&#160;&#160;
-     URN :<strong><%= order.customer.try(:urn) %></strong>&#160;&#160;
-     Round :<strong><%= order.customer.try(:round) %></strong>&#160;&#160;&#160;
-     Order Number :<strong><%= order.id %></strong>&#160;&#160;&#160;
-     Created date:<%= format_date(order.created_at) %>&#160;&#160;&#160;
-     Required date:<%= format_date(order.required_date) %>
-  </h5>
-  <p>
-    Order name :<strong><%= order.try(:name) %></strong>&#160;&#160;
-    Address:<strong><%= order.try(:address) %></strong>&#160;&#160;
-    Email:<strong><%= order.try(:email) %></strong>&#160;&#160;
-  </p>
-  <p>
-    Paytype:<strong><%= order.try(:pay_type) %></strong>&#160;&#160;
-    Repeat:<strong><%= order.try(:repeat) %></strong>&#160;&#160;
-    Required date:<strong><%= format_date(order.try(:required_date)) %></strong>&#160;&#160;
-  </p>
+  <div class="accordionButton">
+    <h5>
+       <%= image_tag("icon_view.gif", :title=>"view", :mouseover => "/images/icon_view.png") %>
+       Name :<strong><%= order.customer.try(:name) %></strong>&#160;&#160;
+       URN :<strong><%= order.customer.try(:urn) %></strong>&#160;&#160;
+       Round :<strong><%= order.customer.try(:round) %></strong>&#160;&#160;&#160;
+       Order Number :<strong><%= order.id %></strong>&#160;&#160;&#160;
+       Created date:<%= format_date(order.created_at) %>&#160;&#160;&#160;
+       Required date:<%= format_date(order.required_date) %>
+    </h5>
+  </div>
 
-  <table class="pretty" id="line_items">
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Total Price</th>
-    </tr>
-  <% order.try(:line_items).each do |line_item| %>
+  <div class="accordionContent">
+    <p>
+      Order name :<strong><%= order.try(:name) %></strong>&#160;&#160;
+      Address:<strong><%= order.try(:address) %></strong>&#160;&#160;
+      Email:<strong><%= order.try(:email) %></strong>&#160;&#160;
+    </p>
+    <p>
+      Paytype:<strong><%= order.try(:pay_type) %></strong>&#160;&#160;
+      Repeat:<strong><%= order.try(:repeat) %></strong>&#160;&#160;
+      Required date:<strong><%= format_date(order.try(:required_date)) %></strong>&#160;&#160;
+    </p>
 
+    <table class="pretty" id="line_items">
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+      </tr>
+    <% order.try(:line_items).each do |line_item| %>
+
+      <tr>
+        <td><%= line_item.product.name %></td>
+        <td class="price"><%= line_item.quantity %></td>
+        <td class="price"><%= quid(line_item.total_price) %></td>
+      </tr>
+    <% end %>
     <tr>
-      <td><%= line_item.product.name %></td>
-      <td class="price"><%= line_item.quantity %></td>
-      <td class="price"><%= quid(line_item.total_price) %></td>
+      <td class="hidden"></td>
+      <td class="hidden">Order total:</td>
+      <td class="total"><%= quid(order.total_price) %></td>
     </tr>
-  <% end %>
-  <tr>
-    <td class="hidden"></td>
-    <td class="hidden">Order total:</td>
-    <td class="total"><%= quid(order.total_price) %></td>
-  </tr>
-  </table>
+    </table>
+  </div>
 </div>
 <br />
 <% end %>
