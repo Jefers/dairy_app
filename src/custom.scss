@@ -595,14 +595,15 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 /* END:form */
 
 #tabnav {
+  width: 100%;
   float: right;
   position:relative;
   white-space: normal;
   z-index:0;
   margin:0;
   padding:0.5em;
-  margin-right: -10px;
-  margin-top: -70px;
+  margin-right: -7px;
+  margin-top: 40px;
   ul {
     margin: 0;
     padding: 0;

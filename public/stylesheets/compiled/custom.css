@@ -1565,21 +1565,22 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 /* END:form */
 /* line 597, ../../../src/custom.scss */
 #tabnav {
+  width: 100%;
   float: right;
   position: relative;
   white-space: normal;
   z-index: 0;
   margin: 0;
   padding: 0.5em;
-  margin-right: -10px;
-  margin-top: -70px;
+  margin-right: -7px;
+  margin-top: 40px;
 }
-/* line 606, ../../../src/custom.scss */
+/* line 607, ../../../src/custom.scss */
 #tabnav ul {
   margin: 0;
   padding: 0;
 }
-/* line 610, ../../../src/custom.scss */
+/* line 611, ../../../src/custom.scss */
 #tabnav ul li a {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1643,11 +1644,11 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 #tabnav ul li a:active, #tabnav ul li a:active:visited {
   color: #222222;
 }
-/* line 613, ../../../src/custom.scss */
+/* line 614, ../../../src/custom.scss */
 #tabnav ul li a:visited {
   color: #333b33;
 }
-/* line 615, ../../../src/custom.scss */
+/* line 616, ../../../src/custom.scss */
 #tabnav ul li a:hover {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1712,12 +1713,12 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 }
 
 /* extras */
-/* line 619, ../../../src/custom.scss */
+/* line 620, ../../../src/custom.scss */
 .upper {
   text-transform: uppercase;
 }
 
-/* line 622, ../../../src/custom.scss */
+/* line 623, ../../../src/custom.scss */
 .italic {
   font-style: italic;
 }

@@ -4,6 +4,8 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
+    <h1>Thank you for choosing Walden Dairy!</h1>
+    <p><%= image_tag attachments['small_wd.png'].url -%></p>
     <h1>Welcome to waldendairy.com, <%= @customer_holiday.try(:name) %>, URN/round: <%= @customer_holiday.try(:urn) %>/<%= @customer_holiday.try(:round) %></h1>
     <p>
       You have successfully sent a holiday information email to waldendairy.com,
