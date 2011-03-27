@@ -10,8 +10,8 @@
     = f.input :to_date, :as => :string, :label => "Holiday to date", :input_html => { :size => 25 }
     = f.input :confirmed
     = f.input :notes, :input_html => { :rows => 10, :cols => 50 }, :hint => "Please add a note if you have any specific request"
-    = f.input :urn, :input_html => {:size => 6, :value => current_customer.urn, :disabled=>"disabled" }, :hint => "Input blocked. If this is wrong please tell us in the notes. "
-    = f.input :round, :input_html => {:size => 2, :value => current_customer.round, :disabled=>"disabled" }, :hint => "Input blocked. If this is wrong please tell us in the notes. "
+    = f.input :urn, :input_html => {:size => 6, :value => current_customer.urn }, :hint => "If this is wrong please tell us in the notes. "
+    = f.input :round, :input_html => {:size => 2, :value => current_customer.round }, :hint => "If this is wrong please tell us in the notes. "
     = f.input :name, :input_html => {:size => 50, :value => current_customer.name }
     = f.input :address, :input_html => {:size => 50, :value => current_customer.address }
     = f.input :address_2, :label => "&nbsp;", :input_html => { :size => 50, :value => current_customer.address_2 }

@@ -46,7 +46,7 @@ class CustomerHolidaysController < ApplicationController
 
     respond_to do |format|
       if @customer_holiday.save
-        HolidayMailer.holiday_email(@customer_holiday).deliver
+        CustomerHolidayMailer.customer_holiday_email(@customer_holiday).deliver
         format.html { redirect_to(@customer_holiday, :notice => 'Customer holiday was successfully created.') }
         format.xml  { render :xml => @customer_holiday, :status => :created, :location => @customer_holiday }
       else

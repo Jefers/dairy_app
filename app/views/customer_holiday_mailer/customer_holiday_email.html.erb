@@ -4,14 +4,14 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Welcome to waldendairy.com, <%= @customer_holiday.name %><%= @customer_holiday.urn %>/<%= @customer_holiday.round %></h1>
+    <h1>Welcome to waldendairy.com, <%= @customer_holiday.try(:name) %>, URN/round: <%= @customer_holiday.try(:urn) %>/<%= @customer_holiday.try(:round) %></h1>
     <p>
       You have successfully sent a holiday information email to waldendairy.com,
-      your dates are from: <%= @customer_holiday.from_date %> to date: <%= @customer_holiday.to_date %>.<br/>
+      your dates are from: <%= @customer_holiday.try(:from_date) %> to date: <%= @customer_holiday.try(:to_date) %>.<br/>
     </p>
     <p>
       Here are the instructions you have given us:
-      <%= @customer_holiday.notes %> <br/>
+      <%= @customer_holiday.try(:notes) %> <br/>
     </p>
     <p>
       To login to the site, just follow this link: <%= @url %>.
