@@ -4,12 +4,19 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
+    <h1>Thank you for choosing Walden Dairy!</h1>
+    <p><%= image_tag attachments['small_wd.png'].url -%></p>
     <h1>Welcome to waldendairy.com, <%= @order.name %></h1>
     <p>
       You have successfully ordered from waldendairy.com,
       your order number is: <%= @order.id %>.<br/>
     </p>
-    <p></p>
+    <p>
+      Your instructions: <%= @order.instructions %>.<br/>
+    </p>
+    <p>
+      required date: <%= format_date(@order.required_date) %>.<br/>
+    </p>
     <p>
       To login to the site, just follow this link: <%= @url %>.
     </p>

@@ -107,9 +107,6 @@ header h1 {
   right: 9em;
 }
 
-.container {
-}
-
 header {
   padding-top: 20px;
   img {
@@ -124,6 +121,9 @@ section {
     font-size: 200%; }
   &#flash {
     height: 2em;
+    @include rounded; }
+  &#navbar {
+    height: 4em;
     @include rounded; } }
 
 
@@ -355,7 +355,6 @@ a.signup_button {
   &:first-child+html .digg_pagination {
     overflow: hidden; } }
 
-
 .order_header {
     @include rounded;
     @include grey_glow;
@@ -509,10 +508,11 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 /* Styles for the cart in the sidebar */
 
 #response {
-
+  width:100%;
 }
 
 #cart, #cart table {
+  width:100%;
   font-size: 100%;
 }
 
@@ -595,15 +595,11 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 /* END:form */
 
 #tabnav {
-  width: 100%;
-  float: right;
+  width: 98%;
   position:relative;
   white-space: normal;
-  z-index:0;
-  margin:0;
+  margin:0.25em;
   padding:0.5em;
-  margin-right: -7px;
-  margin-top: 40px;
   ul {
     margin: 0;
     padding: 0;
