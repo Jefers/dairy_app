@@ -657,13 +657,13 @@ table.pretty {
   text-shadow: #aaaaaa 1px 1px 1px;
 }
 
-/* line 407, ../../../src/custom.scss */
+/* line 408, ../../../src/custom.scss */
 tbody tr:nth-child(even) td, tbody tr.even td {
   background: #e8ffd0;
 }
 
 /*fancy input search*/
-/* line 410, ../../../src/custom.scss */
+/* line 411, ../../../src/custom.scss */
 input[type="password"], input[type="text"], input[type="file"], input[type="tel"], input[type="email"], textarea {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -687,17 +687,17 @@ input[type="password"], input[type="text"], input[type="file"], input[type="tel"
   font-size: 120%;
 }
 
-/* line 416, ../../../src/custom.scss */
+/* line 417, ../../../src/custom.scss */
 textarea {
   height: 4em;
 }
 
-/* line 420, ../../../src/custom.scss */
+/* line 421, ../../../src/custom.scss */
 #date {
   width: 8em;
 }
 
-/* line 424, ../../../src/custom.scss */
+/* line 425, ../../../src/custom.scss */
 div#upload, select {
   height: 2em;
   -moz-border-radius: 5px;
@@ -719,7 +719,7 @@ div#upload, select {
   color: #333b33;
 }
 
-/* line 429, ../../../src/custom.scss */
+/* line 430, ../../../src/custom.scss */
 input[type="text"]#search {
   padding-left: 1.5em;
   height: 1.5em;
@@ -743,12 +743,12 @@ input[type="text"]#search {
   background: url(/images/mag_glass.png) 0 -2px no-repeat;
 }
 
-/* line 436, ../../../src/custom.scss */
+/* line 437, ../../../src/custom.scss */
 input[type="text"]#per_page {
   width: 20px;
 }
 
-/* line 439, ../../../src/custom.scss */
+/* line 440, ../../../src/custom.scss */
 .button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -812,7 +812,7 @@ input[type="text"]#per_page {
   color: #222222;
 }
 
-/* line 440, ../../../src/custom.scss */
+/* line 441, ../../../src/custom.scss */
 input[type="submit"] {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -876,7 +876,7 @@ input[type="submit"]:active, input[type="submit"]:active:visited {
   color: #222222;
 }
 
-/* line 441, ../../../src/custom.scss */
+/* line 442, ../../../src/custom.scss */
 button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -940,7 +940,7 @@ button:active, button:active:visited {
   color: #222222;
 }
 
-/* line 442, ../../../src/custom.scss */
+/* line 443, ../../../src/custom.scss */
 input[type="submit"]#go_button {
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
@@ -1005,7 +1005,7 @@ input[type="submit"]#go_button:active, input[type="submit"]#go_button:active:vis
   color: #222222;
 }
 
-/* line 443, ../../../src/custom.scss */
+/* line 444, ../../../src/custom.scss */
 input[type="submit"]#product_submit {
   -moz-border-radius: 1em;
   -webkit-border-radius: 1em;
@@ -1069,7 +1069,7 @@ input[type="submit"]#product_submit:active, input[type="submit"]#product_submit:
   color: #222222;
 }
 
-/* line 444, ../../../src/custom.scss */
+/* line 445, ../../../src/custom.scss */
 input[type="submit"]#save_button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1134,7 +1134,7 @@ input[type="submit"]#save_button:active, input[type="submit"]#save_button:active
   color: #222222;
 }
 
-/* line 445, ../../../src/custom.scss */
+/* line 446, ../../../src/custom.scss */
 input[type="submit"]#customer_submit {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1199,12 +1199,12 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   color: #222222;
 }
 
-/* line 447, ../../../src/custom.scss */
+/* line 448, ../../../src/custom.scss */
 .productImage img {
   -moz-box-shadow: 0 0 8px rgba(78, 78, 78, 0.5);
 }
 
-/* line 451, ../../../src/custom.scss */
+/* line 452, ../../../src/custom.scss */
 #logo {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -1219,13 +1219,13 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   margin-top: -2em;
 }
 
-/* line 458, ../../../src/custom.scss */
+/* line 459, ../../../src/custom.scss */
 .file_input_textbox {
   width: 400px;
   float: left;
 }
 
-/* line 463, ../../../src/custom.scss */
+/* line 464, ../../../src/custom.scss */
 .file_input_button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1291,7 +1291,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   color: #222222;
 }
 
-/* line 464, ../../../src/custom.scss */
+/* line 465, ../../../src/custom.scss */
 .holiday_button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1357,7 +1357,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   color: #222222;
 }
 
-/* line 467, ../../../src/custom.scss */
+/* line 468, ../../../src/custom.scss */
 .file_input_div {
   position: relative;
   width: 100px;
@@ -1366,7 +1366,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   display: inline;
 }
 
-/* line 476, ../../../src/custom.scss */
+/* line 477, ../../../src/custom.scss */
 .file_input_hidden {
   font-size: 45px;
   position: absolute;
@@ -1377,7 +1377,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 }
 
-/* line 484, ../../../src/custom.scss */
+/* line 485, ../../../src/custom.scss */
 .checkbox {
   color: #333b33;
   background: #f4ffe9;
@@ -1387,17 +1387,17 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 
 /* START:cartmain */
 /* Styles for the cart in the main page */
-/* line 494, ../../../src/custom.scss */
+/* line 495, ../../../src/custom.scss */
 .cart_title {
   font: 150% bold;
 }
 
-/* line 498, ../../../src/custom.scss */
+/* line 499, ../../../src/custom.scss */
 .item_price, .total_line {
   text-align: right;
 }
 
-/* line 502, ../../../src/custom.scss */
+/* line 503, ../../../src/custom.scss */
 .total_line .total_cell {
   font-weight: bold;
   border-top: 1px solid #92ff1d;
@@ -1405,26 +1405,41 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 
 /* START:cartside */
 /* Styles for the cart in the sidebar */
-/* line 510, ../../../src/custom.scss */
+/* line 511, ../../../src/custom.scss */
 #response {
   width: 100%;
 }
 
-/* line 514, ../../../src/custom.scss */
-#cart, #cart table {
+/* line 515, ../../../src/custom.scss */
+#notice {
   width: 100%;
-  font-size: 100%;
+  color: #0000ff;
 }
 
 /* line 519, ../../../src/custom.scss */
+#cart {
+  width: 100%;
+  font-size: 100%;
+  margin: 0px;
+  padding: 1px;
+}
+
+/* line 526, ../../../src/custom.scss */
+#storeListTable tbody tr:nth-child(even) td, tbody tr.even td {
+  background: #007f00;
+}
+
+/* line 528, ../../../src/custom.scss */
 #cart table {
+  width: 99%;
+  font-size: 100%;
   border-top: 1px dotted #595;
   border-bottom: 1px dotted #595;
   margin-bottom: 10px;
 }
 
 /* END:cartside */
-/* line 526, ../../../src/custom.scss */
+/* line 537, ../../../src/custom.scss */
 #holiday {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -1440,13 +1455,13 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   padding: 1px;
 }
 
-/* line 532, ../../../src/custom.scss */
+/* line 543, ../../../src/custom.scss */
 #holiday h3 {
   margin: 5px auto;
   width: 70%;
 }
 
-/* line 536, ../../../src/custom.scss */
+/* line 547, ../../../src/custom.scss */
 #holiday_inner {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -1462,12 +1477,12 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   padding: 5px;
 }
 
-/* line 542, ../../../src/custom.scss */
+/* line 553, ../../../src/custom.scss */
 #holiday_inner p {
   font-style: italic;
 }
 
-/* line 546, ../../../src/custom.scss */
+/* line 557, ../../../src/custom.scss */
 #holiday_button {
   margin-right: auto;
   margin-left: auto;
@@ -1477,7 +1492,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   width: 70%;
 }
 
-/* line 554, ../../../src/custom.scss */
+/* line 565, ../../../src/custom.scss */
 .holiday_button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1546,7 +1561,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 }
 
 /* START: no script warning */
-/* line 563, ../../../src/custom.scss */
+/* line 574, ../../../src/custom.scss */
 .noscript {
   background-color: #AE0000;
   color: #FFFFFF;
@@ -1564,7 +1579,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   z-index: 4101;
 }
 
-/* line 580, ../../../src/custom.scss */
+/* line 591, ../../../src/custom.scss */
 .noscript .noscript-inner {
   text-align: center;
   background-image: url("/images/i_notice.png");
@@ -1582,7 +1597,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 }
 
 /* END:form */
-/* line 597, ../../../src/custom.scss */
+/* line 608, ../../../src/custom.scss */
 #tabnav {
   width: 98%;
   position: relative;
@@ -1590,12 +1605,12 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   margin: 0.25em;
   padding: 0.5em;
 }
-/* line 603, ../../../src/custom.scss */
+/* line 614, ../../../src/custom.scss */
 #tabnav ul {
   margin: 0;
   padding: 0;
 }
-/* line 607, ../../../src/custom.scss */
+/* line 618, ../../../src/custom.scss */
 #tabnav ul li a {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1659,11 +1674,11 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 #tabnav ul li a:active, #tabnav ul li a:active:visited {
   color: #222222;
 }
-/* line 610, ../../../src/custom.scss */
+/* line 621, ../../../src/custom.scss */
 #tabnav ul li a:visited {
   color: #333b33;
 }
-/* line 612, ../../../src/custom.scss */
+/* line 623, ../../../src/custom.scss */
 #tabnav ul li a:hover {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1728,12 +1743,12 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 }
 
 /* extras */
-/* line 616, ../../../src/custom.scss */
+/* line 627, ../../../src/custom.scss */
 .upper {
   text-transform: uppercase;
 }
 
-/* line 619, ../../../src/custom.scss */
+/* line 630, ../../../src/custom.scss */
 .italic {
   font-style: italic;
 }

@@ -18,6 +18,22 @@ class StoreController < ApplicationController
     redirect_to_index("Invalid product")
   end
 
+  def remove_from_cart
+    product = Product.find(params[:id])
+    @current_item = @cart.remove_product(product)
+    if request.xhr?
+      @current_item = @cart.remove_product(params[:id])
+      flash.now[:cart_notice] = "Removed 1 item"
+      render :action => "remove_with_ajax"
+    elsif request.post?
+      @current_item = @cart.remove_product(params[:id])
+      flash[:cart_notice] = "Removed 1 item"
+      redirect_to :controller => "product"
+    else
+      render
+    end
+  end
+
   def checkout
     if @cart.items.empty?
       redirect_to_index("Your cart is empty")
@@ -41,6 +57,7 @@ class StoreController < ApplicationController
     session[:cart] = nil
     redirect_to_index
   end
+
 
 private
 

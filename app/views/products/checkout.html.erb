@@ -9,7 +9,7 @@
           <%= f.input :email, :input_html => {:size => 50, :value => current_customer.email } %>
           <%= f.input :pay_type, :as => :select, :collection => ["Cheque", "BACS"], :prompt => 'Please select a payment method' %>
           <%= f.input :repeat, :as  => :radio, :hint => "Is this a repeated order?" %>
-          <%= f.input :required_date, :as => :string, :label => "Required date", :input_html => { :size => 35 } %>
+          <%= f.input :required_date, :as => :string, :label => "Required date", :input_html => { :size => 35 }, :hint => "Pick a date two days in advance. Excludes Sundays and National holidays. " %>
           <%= f.input :address, :input_html => {:size => 50, :value => current_customer.address } %>
           <%= f.input :address_2, :label => "&nbsp;", :input_html => { :size => 50, :value => current_customer.address_2 } %>
           <%= f.input :address_3, :label => "&nbsp;", :input_html => { :size => 50, :value => current_customer.address_3 } %>

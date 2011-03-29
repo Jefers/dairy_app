@@ -6,6 +6,7 @@
         - @customer_holiday.errors.full_messages.each do |msg|
           %li= msg
   = f.inputs do
+    = f.input :customer_id, :as => :hidden, :input_html => {:value => current_customer.id }
     = f.input :from_date, :as => :string, :label => "Holiday from date", :input_html => { :size => 25 }, :hint => "Pick dates where you don't want deliveries"
     = f.input :to_date, :as => :string, :label => "Holiday to date", :input_html => { :size => 25 }
     = f.input :confirmed

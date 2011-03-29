@@ -1,15 +1,17 @@
-<div class="cart-title"><h3>Basket</h3></div>
-<div id="notice">notices:<div id="response"></div><%= image_tag 'ajax-loader.gif', :id => 'loading', :style => 'display: none' %></div>
-<table>
-  <%= render(:partial => "cart_item", :collection => cart.items) %>
+<div id="jcart" class="ui-widget-content ui-corner-all">
+  <div><h3 class="ui-widget-header ui-corner-all">Cart/Basket</h3></div>
+  <div id="response">status</div><%= image_tag 'ajax-loader.gif', :id => 'loading', :style => 'display: none' %>
+  <table id="storeListTable">
+    <%= render(:partial => "cart_item", :collection => cart.items) %>
 
-  <tr class="total_line">
-    <td colspan="2">Total</td>
-    <td class="total_cell"><%= quid(cart.total_price) %></td>
-  </tr>
-</table>
+    <tr class="total_line">
+      <td colspan="2">Total</td>
+      <td class="total_cell"><%= quid(cart.total_price) %></td>
+    </tr>
+  </table>
 
-<%= button_to "Checkout", :action => :checkout %>
-<br />
-<%= button_to "Empty cart", :action => :empty_cart %>
+  <%= button_to "Checkout", {:action => :checkout}, {:class=>"ui-state-default ui-corner-all"} %>
 
+  <br />
+  <%= button_to "Empty cart", {:action => :empty_cart}, {:class=>"ui-state-default ui-corner-all"}  %>
+</div>

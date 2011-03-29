@@ -402,7 +402,8 @@ table.pretty {
     .desc:after {
       content: "\25BC \ ";text-shadow: #aaaaaa 1px 1px 1px;
       }
-       } }
+       }
+}
 
 tbody tr:nth-child(even) td, tbody tr.even td {background:lighten($site, 15%);}
 
@@ -511,12 +512,22 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
   width:100%;
 }
 
-#cart, #cart table {
+#notice {
+  width:100%;
+  color: #0000ff;
+}
+#cart {
   width:100%;
   font-size: 100%;
+  margin:0px;
+  padding: 1px;
 }
 
+#storeListTable tbody tr:nth-child(even) td, tbody tr.even td {background:#007f00;}
+
 #cart table {
+  width:99%;
+  font-size: 100%;
   border-top:    1px dotted #595;
   border-bottom: 1px dotted #595;
   margin-bottom: 10px;

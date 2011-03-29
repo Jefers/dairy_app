@@ -124,9 +124,21 @@ class ProductsController < ApplicationController
     end
   end
 
-    def add_to_cart
-      product = Product.find(params[:id])
-      @current_item = @cart.add_product(product)
+  def add_to_cart
+    product = Product.find(params[:id])
+    @current_item = @cart.add_product(product)
+    respond_to do |format|
+      format.js if request.xhr?
+      format.html {redirect_to_index}
+    end
+  rescue ActiveRecord::RecordNotFound
+    logger.error("Attempt to access invalid product #{params[:id]}")
+    redirect_to_index("Invalid product")
+  end
+
+  def remove_from_cart
+    product = Product.find(params[:id])
+    @current_item = @cart.remove_product(product)
       respond_to do |format|
         format.js if request.xhr?
         format.html {redirect_to_index}
@@ -134,35 +146,35 @@ class ProductsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       logger.error("Attempt to access invalid product #{params[:id]}")
       redirect_to_index("Invalid product")
+  end
+
+  def checkout
+    if @cart.items.empty?
+      redirect_to_index("Your cart is empty")
+    else
+      @order = Order.new
     end
+  end
 
-    def checkout
-      if @cart.items.empty?
-        redirect_to_index("Your cart is empty")
-      else
-        @order = Order.new
-      end
-    end
+  def save_order
+    # @order = Order.new(params[:order])
+    # @order.customer_id = params[:customer_id]  # :TODO review this later
+    @order = current_customer.orders.build(params[:order])
 
-    def save_order
-      # @order = Order.new(params[:order])
-      # @order.customer_id = params[:customer_id]  # :TODO review this later
-      @order = current_customer.orders.build(params[:order])
-
-      @order.add_line_items_from_cart(@cart)
-      if @order.save
-        OrderMailer.order_email(@order).deliver
-        session[:cart] = nil
-        redirect_to_index("Thank you for your order. An email has been sent to you.")
-      else
-        render :action => 'checkout'
-      end
-    end
-
-    def empty_cart
+    @order.add_line_items_from_cart(@cart)
+    if @order.save
+      OrderMailer.order_email(@order).deliver
       session[:cart] = nil
-      redirect_to_index
+      redirect_to_index("Thank you for your order. An email has been sent to you.")
+    else
+      render :action => 'checkout'
     end
+  end
+
+  def empty_cart
+    session[:cart] = nil
+    redirect_to_index
+  end
 
   private
 

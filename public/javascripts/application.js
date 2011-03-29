@@ -11,8 +11,8 @@ $('#menu ul').hide();
 $('#menu li a').click(
   function() {
     $(this).next().slideToggle('normal');
-    } 
-  );  
+    }
+  );
 }
 $(document).ready(function() {initMenu();});
 
@@ -52,8 +52,8 @@ jQuery(document).ready(function() {
   });
 });
 
-/* create an array of days which need to be disabled  :TODO ruby program to generate array of days */
-var disabledDays = ["2-21-2011","2-24-2011","2-27-2011","2-28-2011","3-3-2011","3-17-2011","4-2-2011","4-3-2011","4-4-2011","4-5-2011"];
+/* create an array of days which need to be disabled  :todo ruby program to generate array of days */
+var disabledDays = ["4-22-2011","4-25-2011","4-29-2011","5-2-2011","5-30-2011","8-29-2011","12-26-2011","12-27-2011","1-2-2012","4-6-2012"];
 
 /* utility functions */
 function nationalDays(date) {
@@ -73,25 +73,37 @@ function noWeekendsOrHolidays(date) {
   return noWeekend[0] ? nationalDays(date) : noWeekend;
 }
 
-/* create datepicker :TODO clean these up when the generic one is figured out */
+function noSundaysOrHolidays(date) {
+  var noWeekend = jQuery.datepicker.noWeekends(date);
+  return noWeekend[0] ? nationalDays(date) : noSundays(date);
+}
+
+function noSundays(date) {
+    var day = date.getDay();
+    return [(day != 0), ''];
+}
+
+/* create datepicker */
 jQuery(document).ready(function() {
   jQuery('#order_required_date').datepicker({
-    minDate: new Date(2011, 0, 1),
-    maxDate: new Date(2011, 5, 31),
+    minDate: 2,
+    maxDate: 90,
     dateFormat: 'DD, MM, d, yy',
     constrainInput: true,
-    beforeShowDay: noWeekendsOrHolidays
+    beforeShowDay: noSundaysOrHolidays
   });
 });
 
 jQuery(document).ready(function() {
   jQuery('#customer_holiday_from_date').datepicker({
+    minDate: 2,
     dateFormat: 'DD, MM, d, yy'
   });
 });
 
 jQuery(document).ready(function() {
   jQuery('#customer_holiday_to_date').datepicker({
+    minDate: 2,
     dateFormat: 'DD, MM, d, yy'
   });
 });
@@ -104,18 +116,36 @@ $(document).ready(function(){
 //   $('#date').datepicker({ dateFormat: 'dd MM, yy' });
 // });
 
-$(function() {
+$(document).ready(function() {
   // create a convenient toggleLoading function
-  var toggleLoading = function() { $("#loading").toggle() };
+  var showLoading = function() { $("#loading").show() };
+  var hideLoading = function() { $("#loading").hide() };
 
   $("#cart-form")
-    .bind("ajax:loading",  toggleLoading)
-    .bind("ajax:complete", toggleLoading)
-    .bind("ajax:success", function(evt, data, status, xhr) {
+    .bind("ajax:beforeSend",  showLoading)
+    .bind("ajax:complete", hideLoading)
+    .bind("ajax:success", function(s, data, status, xhr) {
       $("#response").html(status);
     });
 });
 
+$(document).ready(function(){
+  $("h1").click(function () {
+        $(this).effect("highlight", {}, 3000);
+  });
+});
+
+$(document).ready(function(){
+  $("h3").click(function () {
+        $(this).effect("pulsate", { times:3 }, 2000);
+  });
+});
+
+$(document).ready(function() {
+    $('#cart-form').click(function () {
+          $("#jcart").effect("highlight", {}, 3000);
+    });
+});
 // $('.cart').replaceWith(<%= escape_javascript(render :partial => 'cart') %>)
 
 
@@ -183,7 +213,7 @@ $(function() {
   })
 });
 
-// TODO is this really needed?
+// :todo is this really needed?
 $(function() {
   $("#products th a, #products .pagination a").live("click", function() {
     $.getScript(this.href);

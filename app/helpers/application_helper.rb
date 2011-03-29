@@ -17,6 +17,10 @@ module ApplicationHelper
     link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
   end
 
+  def del
+    del = image_tag("del.png", :alt => "", :class => "del")
+  end
+
   def logo
     logo = image_tag("logo.png", :alt => "Walden Dairy", :id => "logo")
   end
