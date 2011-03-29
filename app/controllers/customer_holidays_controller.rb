@@ -4,8 +4,11 @@ class CustomerHolidaysController < ApplicationController
   # GET /customer_holidays
   # GET /customer_holidays.xml
   def index
-    @customer_holidays = CustomerHoliday.all
-
+    if current_customer.try(:admin?)
+      @customer_holidays = CustomerHoliday.all
+    else
+      @customer_holidays = CustomerHoliday.by_customer(current_customer)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @customer_holidays }
@@ -15,7 +18,7 @@ class CustomerHolidaysController < ApplicationController
   # GET /customer_holidays/1
   # GET /customer_holidays/1.xml
   def show
-    @customer_holiday = CustomerHoliday.find(params[:id])
+    @customer_holiday = CustomerHoliday.by_customer(current_customer).find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +39,7 @@ class CustomerHolidaysController < ApplicationController
 
   # GET /customer_holidays/1/edit
   def edit
-    @customer_holiday = CustomerHoliday.find(params[:id])
+    @customer_holiday = CustomerHoliday.by_customer(current_customer).find(params[:id])
   end
 
   # POST /customer_holidays
@@ -47,7 +50,7 @@ class CustomerHolidaysController < ApplicationController
     respond_to do |format|
       if @customer_holiday.save
         CustomerHolidayMailer.customer_holiday_email(@customer_holiday).deliver
-        format.html { redirect_to(@customer_holiday, :notice => 'Customer holiday was successfully created.') }
+        format.html { redirect_to(@customer_holiday, :notice => 'Customer holiday was successfully created. An email has been sent to you.') }
         format.xml  { render :xml => @customer_holiday, :status => :created, :location => @customer_holiday }
       else
         format.html { render :action => "new" }

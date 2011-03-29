@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.xml
   def show
-    @order = Order.find(params[:id])
+    @order = Order.by_customer(current_customer).find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
-    @order = Order.find(params[:id])
+    @order = Order.by_customer(current_customer).find(params[:id])
   end
 
   # POST /orders
@@ -68,7 +68,7 @@ class OrdersController < ApplicationController
   # PUT /orders/1
   # PUT /orders/1.xml
   def update
-    @order = Order.find(params[:id])
+    @order = Order.by_customer(current_customer).find(params[:id])
 
     respond_to do |format|
       if @order.update_attributes(params[:order])

@@ -12,7 +12,10 @@ class CustomerAbility
       unless customer
         can :read, [Product,Category]
       else
+         cannot :manage, Customer
+         cannot :manage, Order
          can :my_orders, @orders
+
         # Admins
         if customer.admin?
           can :manage, :all
