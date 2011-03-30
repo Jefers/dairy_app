@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110325170302) do
+ActiveRecord::Schema.define(:version => 20110330160603) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(:version => 20110325170302) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "price",                :precision => 8, :scale => 2
+    t.decimal  "price",                             :precision => 8, :scale => 2
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20110325170302) do
     t.boolean  "discontinued"
     t.boolean  "out_of_stock"
     t.text     "description"
+    t.string   "product_code",         :limit => 8
   end
 
   create_table "sessions", :force => true do |t|

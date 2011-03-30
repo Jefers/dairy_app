@@ -11,7 +11,7 @@ class PagesController < ApplicationController
 
   def about
     @title = "About"
-    render :layout => 'two_column_page_layout'
+    render :layout => 'full_page_layout'
   end
 
   def help

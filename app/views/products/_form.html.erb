@@ -12,6 +12,10 @@
   <% end %>
     <%= image_tag @product.picture.url(:tiny) %>
   <div class="field">
+    <%= f.label :product_code %><br />
+    <%= f.text_field :product_code %>
+  </div>
+  <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>

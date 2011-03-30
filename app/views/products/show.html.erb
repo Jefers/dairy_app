@@ -1,7 +1,12 @@
 <p>
 <%= image_tag @product.picture.url(:medium) %>
 </p>
-
+<% if current_customer.try(:admin?) %>
+  <p>
+    <b>Code:</b>
+    <%= @product.product_code %>
+  </p>
+<% end %>
 <p>
   <b>Name:</b>
   <%= @product.name %>
