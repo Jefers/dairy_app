@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
     before_filter :authenticate_customer!, :except => [:show, :index]
-
+    load_and_authorize_resource
   # GET /categories
   # GET /categories.xml
   def index

@@ -12,8 +12,12 @@ class CustomerAbility
       unless customer
         can :read, [Product,Category]
       else
+         cannot :manage, CustomerHoliday
+         can :create, CustomerHoliday
+         # can :update, CustomerHoliday
          cannot :manage, Customer
          cannot :manage, Order
+         cannot :manage, Category
          can :my_orders, @orders
 
         # Admins

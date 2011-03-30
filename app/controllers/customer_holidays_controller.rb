@@ -1,4 +1,5 @@
 class CustomerHolidaysController < ApplicationController
+  # load_and_authorize_resource
   before_filter :authenticate_customer!
   layout 'full_page_layout'
   # GET /customer_holidays
@@ -18,8 +19,11 @@ class CustomerHolidaysController < ApplicationController
   # GET /customer_holidays/1
   # GET /customer_holidays/1.xml
   def show
-    @customer_holiday = CustomerHoliday.by_customer(current_customer).find(params[:id])
-
+    if current_customer.try(:admin?)
+      @customer_holiday = CustomerHoliday.find(params[:id])
+    else
+      @customer_holiday = CustomerHoliday.by_customer(current_customer).find(params[:id])
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @customer_holiday }
@@ -39,7 +43,11 @@ class CustomerHolidaysController < ApplicationController
 
   # GET /customer_holidays/1/edit
   def edit
-    @customer_holiday = CustomerHoliday.by_customer(current_customer).find(params[:id])
+    if current_customer.try(:admin?)
+      @customer_holiday = CustomerHoliday.find(params[:id])
+    else
+      @customer_holiday = CustomerHoliday.by_customer(current_customer).find(params[:id])
+    end
   end
 
   # POST /customer_holidays
