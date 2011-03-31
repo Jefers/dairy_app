@@ -1,3 +1,15 @@
+$(document).ready(function(){
+  $("#flash").click(function () {
+        $(this).effect.hide("highlight", {}, 9000);
+  });
+});
+
+jQuery(document).ready(function() {
+  var $box = $('#flash');
+  if ($box.is(':visible')) {
+    $box.hide("highlight", {}, 9000);
+  }
+});
 
 jQuery(document).ready(function() {
   $( "#tabs" ).tabs();

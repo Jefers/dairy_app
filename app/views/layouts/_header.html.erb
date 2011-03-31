@@ -13,13 +13,6 @@
 
   <%= link_to logo, root_path %>
 
-  <section id="flash">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-  </section>
-
-
     <section id="navbar">
       <nav id="tabnav">
         <ul>
@@ -43,5 +36,13 @@
       </nav>
     </section>
 
+    <div id="flash" class="flash_html">
+      <% unless flash[:notice].blank? %>
+      <%= flash[:notice]%>
+      <% end %>
+      <% unless flash[:error].blank? %>
+      <%= flash[:error]%>
+      <% end %>
+    </div>
 </header>
 
