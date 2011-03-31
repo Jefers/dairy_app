@@ -5,38 +5,35 @@
   <div class="accordionButton">
     <h5>
        <%= image_tag("icon_view.gif", :title=>"view", :mouseover => "/images/icon_view.png") %>
-       Name :<strong><%= order.customer.try(:name) %></strong>&#160;&#160;
-       URN :<strong><%= order.customer.try(:urn) %></strong>&#160;&#160;
-       Round :<strong><%= order.customer.try(:round) %></strong>&#160;&#160;&#160;
-       Order Number :<strong><%= order.id %></strong>&#160;&#160;&#160;
-       Created date:<%= format_date(order.created_at) %>&#160;&#160;&#160;
-       Required date:<%= format_date(order.required_date) %>
+       Address:<strong><%= order.try(:address) %></strong>&#160;&#160;
+       URN :<strong><%= order.customer.try(:urn) %>/<%= order.customer.try(:round) %></strong>&#160;&#160;
+       Required date:<strong><%= format_long_date(order.required_date) %></strong>&#160;&#160;&#160;
+       Order Number :<%= order.id %>&#160;&#160;&#160;
+       Created date:<%= format_date(order.created_at) %>
     </h5>
   </div>
 
   <div class="accordionContent">
     <p>
-      Order name :<strong><%= order.try(:name) %></strong>&#160;&#160;
-      Address:<strong><%= order.try(:address) %></strong>&#160;&#160;
-      Email:<strong><%= order.try(:email) %></strong>&#160;&#160;
-    </p>
-    <p>
+      Order name :<%= order.try(:name) %>&#160;&#160;
+      Email:<%= order.try(:email) %>&#160;&#160;
       Paytype:<strong><%= order.try(:pay_type) %></strong>&#160;&#160;
       Repeat:<strong><%= order.try(:repeat) %></strong>&#160;&#160;
-      Required date:<strong><%= format_date(order.try(:required_date)) %></strong>&#160;&#160;
     </p>
 
     <table class="pretty" id="line_items">
       <tr>
-        <th>Product</th>
+        <th>Code</th>
         <th>Quantity</th>
+        <th>Product</th>
         <th>Total Price</th>
       </tr>
     <% order.try(:line_items).each do |line_item| %>
 
       <tr>
-        <td><%= line_item.product.name %></td>
+        <td><%= line_item.product.product_code %></td>
         <td class="price"><%= line_item.quantity %></td>
+        <td><%= line_item.product.name %></td>
         <td class="price"><%= quid(line_item.total_price) %></td>
       </tr>
     <% end %>

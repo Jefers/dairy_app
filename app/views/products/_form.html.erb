@@ -44,6 +44,12 @@
     <%= f.label :out_of_stock %><br />
     <%= f.check_box :out_of_stock, :class => "checkbox" %>
   </div>
+  <% if current_customer.try(:admin?) %>
+    <div class="field">
+      <%= f.label :position %><br />
+      <%= f.text_field :position %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :category_id %><br />
     <%= f.collection_select(:category_id, Category.all, :id, :name, :include_blank => true) %>

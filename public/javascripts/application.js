@@ -1,3 +1,9 @@
+
+jQuery(document).ready(function() {
+  $( "#tabs" ).tabs();
+});
+
+
 $(document).ready(function() {
   $('div.accordionButton').click(function() {
     $('div.accordionContent').slideUp('normal');

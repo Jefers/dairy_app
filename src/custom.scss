@@ -109,9 +109,7 @@ header h1 {
 
 header {
   padding-top: 20px;
-  img {
-    padding: 1em;
-    background: $background; } }
+ }
 
 section {
   @include rounded;
@@ -292,6 +290,19 @@ a.signup_button {
   margin-top: -40px;
   background-color: $bg; }
 
+#payinfo {
+  @include rounded;
+  @include grey_glow;
+  background-color: $bg;
+  white-space: normal;
+  margin-bottom:1.25em;
+  @include clearfix;
+  strong {
+    color: #007f00;
+    font-size:120%;
+         }
+}
+
 .pageHeading {
   width:98%;
   @include shadow_box;
@@ -450,9 +461,8 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 }
 
 #logo {
-    @include rounded;
-    @include grey_glow;
-    margin-top: -2em;
+ margin:0;
+ padding:0;
 }
 
 .file_input_textbox
@@ -616,12 +626,12 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
     padding: 0;
     li {
       a {
-        @include fancy-button($site, 13px);
+        @include fancy-button($site, 14px);
         height: 2em;
         &:visited {
           color: $visited; }
         &:hover {
-          @include fancy-button($site, 13px); } } } } }
+          @include fancy-button($site, 14px); } } } } }
 
 /* extras */
 .upper {

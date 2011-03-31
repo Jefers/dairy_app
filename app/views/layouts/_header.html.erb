@@ -1,45 +1,47 @@
 <header>
-  <%= link_to logo, root_path %>
- <h1>beta site</h1>
   <nav id="login_nav">
     <% if current_customer.try(:admin?) %>
       <%= link_to "Categories", categories_path %> |
     <% end %>
     <% if customer_signed_in? %>
-      <%# :TODO link_to "My Orders", my_orders_path %> Signed in as <%= current_customer.email %>. Not you?
+      Signed in as <%= current_customer.email %>. Not you?
       <%= link_to "Sign out", destroy_customer_session_path %>
     <% else %>
       <%= link_to "Sign up", new_customer_registration_path %> or <%= link_to "sign in", new_customer_session_path %>
     <% end %>
   </nav>
-  <nav id="help_nav">
-    <ul>
-    <% if customer_signed_in? %>
-      <li><%= link_to "My Orders", my_orders_path %></li>
-      <li><%= link_to "Holidays?", customer_holidays_path %></li>
-    <% end %>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Help", help_path %></li>
-    </ul>
-  </nav>
+
+  <%= link_to logo, root_path %>
+
   <section id="flash">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
   </section>
 
-  <% if current_customer.try(:admin?) %>
+
     <section id="navbar">
       <nav id="tabnav">
         <ul>
-          <li><%= link_to "Customers", customers_path %></li>
-          <li><%= link_to "Products", products_path %></li>
-          <li><%= link_to "Categories", categories_path %></li>
-          <li><%= link_to "Holidays", customer_holidays_path %></li>
-          <li><%= link_to "Orders", my_orders_path %></li>
+          <li><%= link_to "Home", root_path %></li>
+  <% if customer_signed_in? %>
+          <% if current_customer.try(:admin?) %>
+            <li><%= link_to "Customers", customers_path %></li>
+            <li><%= link_to "Products", products_path %></li>
+            <li><%= link_to "Quick list", quick_list_path %></li>
+            <li><%= link_to "Categories", categories_path %></li>
+          <% end %>
+            <li><%= link_to "Shop", products_path %></li>
+            <li><%= link_to "Orders", my_orders_path %></li>
+            <li><%= link_to "Holidays", customer_holidays_path %></li>
+  <% else %>
+            <li><%= link_to "Sign Up Here", new_customer_registration_path %></li>
+            <li><%= link_to "Customer Sign_in", new_customer_session_path %></li>
+  <% end %>
+            <li><%= link_to "Help", help_path %></li>
         </ul>
       </nav>
     </section>
-  <% end %>
+
 </header>
 

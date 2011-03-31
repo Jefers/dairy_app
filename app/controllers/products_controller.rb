@@ -6,6 +6,13 @@ class ProductsController < ApplicationController
   helper_method :sort_column, :sort_direction
   attr_accessor :perPage, :show_pictures
 
+
+  def quick_list
+     # render :layout => 'full_page_layout'
+    @products = Product.order_by_category_and_position.all
+
+  end
+
   # GET /products
   # GET /products.xml
   def index
@@ -17,7 +24,7 @@ class ProductsController < ApplicationController
 
     @categories = Category.all
     if params[:search]
-      @products = Product.search(params[:search]).available.order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
+      @products = Product.search(params[:search]).available.order_by_category.page(params[:page]).per(cookies[:perPage])
     else
       if current_customer.try(:admin?)
         @products = Product.order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
@@ -163,6 +170,7 @@ class ProductsController < ApplicationController
 
     @order.add_line_items_from_cart(@cart)
     if @order.save
+      # raise @order.add_line_items_from_cart(@cart).inspect
       OrderMailer.order_email(@order).deliver
       session[:cart] = nil
       redirect_to_index("Thank you for your order. An email has been sent to you.")
@@ -175,6 +183,7 @@ class ProductsController < ApplicationController
     session[:cart] = nil
     redirect_to_index
   end
+
 
   private
 

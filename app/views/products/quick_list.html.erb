@@ -1,0 +1,29 @@
+<table class="pretty" id="productsTable">
+  <tr>
+    <th class="productImage"></th>
+    <th>Name</th>
+    <% if current_customer.try(:admin?) %>
+    <th>Code</th>
+    <th>Price</th>
+    <th>Position</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <% end %>
+  </tr>
+  <% for product in @products %>
+    <tr>
+      <td class="productImage"><%= link_to (image_tag product.picture.url(:minute)), product  %> </td>
+      <td><%= link_to product.name, product %></td>
+       <% if current_customer.try(:admin?) %>
+       <td><%= product.product_code %></td>
+       <td class="price"><%= quid(product.price) %></td>
+       <td><%= product.position %></td>
+       <td><%= product.category.name %></td>
+       <td><%= link_to_show product %></td>
+       <td><%= link_to_edit(product) %></td>
+       <td><%= link_to destroy_img, product, :method=>:delete, :confirm=>"Are you sure you want to delete this?", :remote=>:true, :class=>"balert" %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

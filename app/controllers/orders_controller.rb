@@ -95,9 +95,6 @@ class OrdersController < ApplicationController
   end
 
   def my_orders
-    # authorize! :roll, :logs
-    # authorize! :my_orders, @orders
-
     if current_customer.try(:admin?)
       @orders = Order.find(:all).reverse
     else

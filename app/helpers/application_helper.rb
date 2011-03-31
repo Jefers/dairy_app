@@ -22,7 +22,7 @@ module ApplicationHelper
   end
 
   def logo
-    logo = image_tag("logo.png", :alt => "Walden Dairy", :id => "logo")
+    logo = image_tag("large_banner.png", :alt => "Walden Dairy", :id => "logo")
   end
 
   # Return a title on a per-page basis.
@@ -50,6 +50,14 @@ module ApplicationHelper
       date.strftime("%d-%m-%Y")
     end
   end
+
+  # Format a date as DD, MM, d, yy
+  def format_long_date(date)
+    if date != nil
+      date.strftime("%a %d/%m/%y")
+    end
+  end
+
 
   def datedmy(date)
     date.strftime(date, '%d/%m/%Y')

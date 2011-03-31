@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110330160603) do
+ActiveRecord::Schema.define(:version => 20110331134155) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20110330160603) do
     t.boolean  "out_of_stock"
     t.text     "description"
     t.string   "product_code",         :limit => 8
+    t.integer  "position"
   end
 
   create_table "sessions", :force => true do |t|

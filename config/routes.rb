@@ -28,6 +28,7 @@ DairyApp::Application.routes.draw do
   match 'products/add_to_cart'      => 'products#add_to_cart'
   match 'products/remove_from_cart' => 'products#remove_from_cart'
   match 'products/save_order'       => 'products#save_order'
+
   # match 'products/cart' => 'store#cart', :as => :cart
 
   match 'orders/my_orders' => 'orders#my_orders', :as => :my_orders
@@ -53,6 +54,7 @@ DairyApp::Application.routes.draw do
   match '/security',   :to => 'pages#security'
   match '/news',       :to => 'pages#news'
   match '/fun',        :to => 'pages#fun'
+  match '/quick_list', :to => 'products#quick_list'
 
   root :to => "products#index"
 

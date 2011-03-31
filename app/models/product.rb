@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
   has_many :line_items
   has_many :orders, :through => :line_items
 
-  has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "98x98#", :tiny => "49x49#", :minute => "28x28#" },
+  has_attached_file :picture, :styles => { :massive  => "930x930>", :medium => "300x300>", :thumb => "98x98#", :tiny => "49x49#", :minute => "28x28#" },
     :url => "/assets/products/:id/:style/:basename.:extension",
     :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
 
@@ -17,6 +17,7 @@ class Product < ActiveRecord::Base
   validates_numericality_of :price
   validate :price_must_be_at_least_a_penny
   validates_uniqueness_of :name
+  validates_uniqueness_of :position
   validates_presence_of :category_id
 
   # default_scope :group => 'category_id'
@@ -26,6 +27,19 @@ class Product < ActiveRecord::Base
   # scope :cat, where(:category_id => @cat)
   # scope :autocomplete_name, lambda{ |name| {:conditions => ["products.name LIKE ?", "#{name}%"]} }
   # scope :autocomplete_name1, lambda{ |name| {:include => :product, :conditions => ["products.name LIKE ?", "#{name}%"]} }
+
+  module Scopes
+      def by_position
+        order('position ASC')
+      end
+      def order_by_category_and_position
+        order('category_id ASC').order('position ASC')
+      end
+      def order_by_category
+        order('category_id ASC')
+      end
+  end
+  extend Scopes
 
   def self.cheaper_than(price)
     where("products.price < ?", price)
