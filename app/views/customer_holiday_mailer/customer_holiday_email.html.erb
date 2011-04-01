@@ -5,8 +5,8 @@
   </head>
   <body>
     <h1>Thank you for choosing Walden Dairy!</h1>
-    <p><%= image_tag attachments['small_wd.png'].url -%></p>
-    <h1>Welcome to waldendairy.com, <%= @customer_holiday.try(:name) %>, URN/round: <%= @customer_holiday.try(:urn) %>/<%= @customer_holiday.try(:round) %></h1>
+    <p><%= image_tag attachments['small_wd_banner.png'].url -%></p>
+    <h2>Welcome to waldendairy.com, <%= @customer_holiday.try(:name) %>, URN/round: <%= @customer_holiday.try(:urn) %>/<%= @customer_holiday.try(:round) %></h2>
     <p>
       You have successfully sent a holiday information email to waldendairy.com,
       your dates are from: <%= @customer_holiday.try(:from_date) %> to date: <%= @customer_holiday.try(:to_date) %>.<br/>
@@ -19,5 +19,13 @@
       To login to the site, just follow this link: <%= @url %>.
     </p>
     <p>Thank you for your custom.</p>
+    <p></p><%= link_to "Follow us on twitter", "http://twitter.com/waldendairy", :target => "_blank"  %>
+    <br/>
+    <br/>
+    <br/>
+    <p></p>
+    <p>
+     <%= link_to (image_tag attachments['small_sh_banner.png'].url), "http://saffronhosts.com", :target => "_blank"  %>
+    </p>
   </body>
 </html>

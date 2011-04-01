@@ -148,13 +148,13 @@ $(document).ready(function() {
 });
 
 $(document).ready(function(){
-  $("h1").click(function () {
-        $(this).effect("highlight", {}, 3000);
+  $("#tabnav").click(function () {
+        $(this).effect("highlight", {}, 12000);
   });
 });
 
 $(document).ready(function(){
-  $("h3").click(function () {
+  $("#h3").click(function () {
         $(this).effect("pulsate", { times:3 }, 2000);
   });
 });
@@ -164,25 +164,6 @@ $(document).ready(function() {
           $("#jcart").effect("highlight", {}, 3000);
     });
 });
-// $('.cart').replaceWith(<%= escape_javascript(render :partial => 'cart') %>)
-
-
-// $('.auto_search_complete').autocomplete({
-//     minLength: 3,
-//     delay: 600,
-//     source: function(request, response) {
-//         $.ajax({
-//             url: "/autocomplete.js",
-//             dataType: "json",
-//             data: {term: request.term},
-//             success: function( data ) {
-//                 response( data );
-//             }
-//         });
-//     }
-// });
-
-
 
 $(document).ready(function(){
   $("#per_page value").keyup(function() {
@@ -205,24 +186,11 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-  $(".productImage").hide(); // Hide div by default
+  $(".productImage").show(); // Hide div by default
   $("button#pictureButton").click(function(){
     $(".productImage").toggle();
   });
 });
-
-// $('a[data-remote=true]').livequery('click', function() {
-//     $.ajax({
-//       url: this.href,
-//       dataType: "script"
-//     });
-//     return false;
-// });
-
-
-// $('form[data-remote=true]').livequery('submit', function() {
-//   return request({ url : this.action, type : this.method, data : $(this).serialize() });
-// });
 
 $(function() {
   $(".balert").click(function() {

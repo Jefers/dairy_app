@@ -14,7 +14,7 @@
 
   - @customer_holidays.each do |customer_holiday|
     %tr
-      %td= format_long_date(customer_holiday.from_date + 1.day)
+      %td= format_long_date(customer_holiday.to_date + 1.day)
       %td= format_long_date(customer_holiday.from_date)
       %td= format_long_date(customer_holiday.to_date)
       %td= customer_holiday.confirmed

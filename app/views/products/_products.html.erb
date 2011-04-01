@@ -5,9 +5,9 @@
   <table class="pretty" id="productsTable">
     <tr>
       <th class="productImage"></th>
-      <th><%= sortable "name" %></th>
+      <th>Name</th>
       <% if customer_signed_in? %>
-      <th><%= sortable "price" %></th>
+      <th>Price</th>
       <th>&nbsp;</th>
       <% end %>
       <% if current_customer.try(:admin?) %>
