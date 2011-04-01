@@ -18,7 +18,7 @@ gem 'ruby_parser'
 gem 'pdfkit'
 gem 'formtastic', '~> 1.2.3'
 gem 'dynamic_form'
-
+gem "best_in_place"
 
 group :development do
   gem 'rspec-rails', '2.4.1'

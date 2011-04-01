@@ -30,6 +30,8 @@ GEM
     activesupport (3.0.4)
     arel (2.0.8)
     bcrypt-ruby (2.1.4)
+    best_in_place (0.1.9)
+      rails (~> 3.0.0)
     builder (2.1.2)
     cancan (1.6.0)
     capybara (0.3.9)
@@ -169,6 +171,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  best_in_place
   cancan
   capybara (~> 0.3.9)
   compass

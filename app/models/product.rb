@@ -20,6 +20,10 @@ class Product < ActiveRecord::Base
   validates_uniqueness_of :position
   validates_presence_of :category_id
 
+
+  validates :product_code,
+    :length => { :minimum => 2, :maximum => 24, :message => "has invalid length"}
+
   # default_scope :group => 'category_id'
   scope :discontinued, where(:discontinued => true)
   scope :available, where(:discontinued => false)

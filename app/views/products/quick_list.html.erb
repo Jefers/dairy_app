@@ -16,7 +16,7 @@
       <td class="productImage"><%= link_to (image_tag product.picture.url(:minute)), product  %> </td>
       <td><%= link_to product.name, product %></td>
        <% if current_customer.try(:admin?) %>
-       <td><%= product.product_code %></td>
+       <td><%= best_in_place product, :product_code, :type => :input, :nil => "Click" %></td>
        <td class="price"><%= quid(product.price) %></td>
        <td><%= product.position %></td>
        <td><%= product.category.name %></td>
