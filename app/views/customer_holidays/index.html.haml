@@ -3,26 +3,26 @@
 %table
   %tr
     %th ReStart date
+    %th URN
+    %th Address
     %th From date
     %th To date
-    %th Confirmed
-    %th Notes
     %th
     -if current_customer.try(:admin?)
       %th
-      %th
+      %th Status
 
   - @customer_holidays.each do |customer_holiday|
     %tr
       %td= format_long_date(customer_holiday.to_date + 1.day)
+      %td= customer_holiday.try(:urn)
+      %td= customer_holiday.try(:address)
       %td= format_long_date(customer_holiday.from_date)
       %td= format_long_date(customer_holiday.to_date)
-      %td= customer_holiday.confirmed
-      %td= customer_holiday.notes
       %td= link_to_show customer_holiday
       -if current_customer.try(:admin?)
         %td= link_to_edit(customer_holiday)
-        %td= link_to 'Destroy', customer_holiday, :confirm => 'Are you sure?', :method => :delete
+        %td= best_in_place customer_holiday, :status, :type => :input, :nil => "Click"
 
 %br
 

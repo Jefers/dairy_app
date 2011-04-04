@@ -15,7 +15,7 @@
 <% if customer_signed_in? %>
   <p>
     <b>Price:</b>
-    <%= quid(@product.price) %>
+    <%= format_price(@product.price) %>
   </p>
 <% end %>
 

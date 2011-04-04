@@ -10,6 +10,7 @@
        Required date:<strong><%= format_long_date(order.required_date) %></strong>&#160;&#160;&#160;
        Order Number :<%= order.id %>&#160;&#160;&#160;
        Created date:<%= format_date(order.created_at) %>
+       Status:<%= best_in_place order, :status, :type => :input, :nil => "Click" %>
     </h5>
   </div>
 
@@ -38,6 +39,7 @@
       </tr>
     <% end %>
     <tr>
+      <td class="hidden"></td>
       <td class="hidden"></td>
       <td class="hidden">Order total:</td>
       <td class="total"><%= quid(order.total_price) %></td>

@@ -7,6 +7,9 @@
     <th>Email</th>
     <th>Pay type</th>
     <th>Required date</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% for order in @orders %>
@@ -19,7 +22,7 @@
     <% if current_customer.try(:admin?) %>
       <td><%= link_to 'Show', order %></td>
       <td><%= link_to 'Edit', edit_order_path(order) %></td>
-      <td><%= link_to 'Destroy', order, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= best_in_place order, :status, :type => :input, :nil => "Click" %></td>
     <% end %>
   </tr>
 <% end %>

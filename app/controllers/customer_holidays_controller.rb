@@ -6,7 +6,7 @@ class CustomerHolidaysController < ApplicationController
   # GET /customer_holidays.xml
   def index
     if current_customer.try(:admin?)
-      @customer_holidays = CustomerHoliday.all
+      @customer_holidays = CustomerHoliday.unseen
     else
       @customer_holidays = CustomerHoliday.by_customer(current_customer)
     end

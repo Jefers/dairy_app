@@ -1,0 +1,41 @@
+<ul id="tasks-list">
+  <% @products.each do |t| %>
+    <li id="task_<%= t.id -%>">
+      <span><%= link_to (image_tag t.picture.url(:minute)), t  %></span>
+      <span><%= link_to t.name, t %></span>
+       <span><%= best_in_place t, :product_code, :type => :input, :nil => "Click" %></span>
+       <span><%= best_in_place t, :price, :type => :input, :nil => "Click"  %></span>
+       <span><%= best_in_place t, :position, :type => :input, :nil => "Click"  %></span>
+       <span><%= t.category.name %></span>
+       <span><%= link_to_edit(t) %></span>
+      <span class="handle">[handle]</span>
+    </li>
+  <% end %>
+</ul>
+
+<% content_for :javascript do %>
+
+  <% javascript_tag do %>
+     $('#tasks-list').sortable(
+        {
+          axis: 'y',
+          dropOnEmpty:false,
+          handle: '.handle',
+          cursor: 'crosshair',
+          items: 'li',
+          opacity: 0.4,
+          scroll: true,
+          update: function(){
+            $.ajax({
+                type: 'post',
+                data: $('#tasks-list').sortable('serialize') + '&id=<%=@product.id-%>',
+                dataType: 'script',
+                complete: function(request){
+                    $('#tasks-list').effect('highlight');
+                  },
+                url: '/products/prioritize_tasks'})
+            }
+          })
+    <% end %>
+
+<% end %>

@@ -2,6 +2,7 @@
   <tr>
     <th class="productImage"></th>
     <th>Name</th>
+    <th>Grab</th>
     <% if current_customer.try(:admin?) %>
     <th>Code</th>
     <th>Price</th>
@@ -13,12 +14,13 @@
   </tr>
   <% for product in @products %>
     <tr id="<%= product.id %>">
+      <td>€</td>
       <td class="productImage"><%= link_to (image_tag product.picture.url(:minute)), product  %> </td>
       <td><%= link_to product.name, product %></td>
        <% if current_customer.try(:admin?) %>
        <td><%= best_in_place product, :product_code, :type => :input, :nil => "Click" %></td>
-       <td class="price"><%= quid(product.price) %></td>
-       <td><%= product.position %></td>
+       <td class="price"><%= best_in_place product, :price, :type => :input, :nil => "Click"  %></td>
+       <td><%= best_in_place product, :position, :type => :input, :nil => "Click"  %></td>
        <td><%= product.category.name %></td>
        <td><%= link_to_show product %></td>
        <td><%= link_to_edit(product) %></td>

@@ -96,7 +96,7 @@ class OrdersController < ApplicationController
 
   def my_orders
     if current_customer.try(:admin?)
-      @orders = Order.find(:all).reverse
+      @orders = Order.unseen
     else
       @orders = current_customer.try(:orders).reverse
     end

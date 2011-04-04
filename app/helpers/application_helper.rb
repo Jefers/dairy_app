@@ -44,6 +44,13 @@ module ApplicationHelper
     sprintf("&pound;%0.2f", amt)
   end
 
+  def format_price(n)
+    a,b = sprintf("%0.2f", n).split('.')
+    a.gsub!(/(\d)(?=(\d{3})+(?!\d))/, '\\1,')
+    "#{a}.#{b}"
+  end
+
+
   # Format a date as dd/mm/yy
   def format_date(date)
     if date != nil

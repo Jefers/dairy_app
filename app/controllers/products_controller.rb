@@ -6,6 +6,17 @@ class ProductsController < ApplicationController
   helper_method :sort_column, :sort_direction
   attr_accessor :perPage, :show_pictures
 
+  # :todo see: awesomeful.net/posts/47-sortable-lists-with-jquery-in-rails
+  def prioritize_tasks
+    product = Product.find(params[:id])
+    tasks = product.tasks
+    tasks.each do |task|
+      task.position = params['task'].index(task.id.to_s) + 1
+      task.save
+    end
+    render :nothing => true
+  end
+
   def quick_list
     @products = Product.order_by_category_and_position.all
     render :layout => 'full_page_layout'
@@ -107,7 +118,7 @@ class ProductsController < ApplicationController
     #@product.accessible = :all if admin?
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.html { redirect_to(@product, :notice => 'Product was successfully updated.') }
+        format.html { redirect_to quick_list_path, :notice => 'Product was successfully updated.' }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

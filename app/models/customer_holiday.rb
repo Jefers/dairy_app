@@ -4,6 +4,9 @@ class CustomerHoliday < ActiveRecord::Base
       def by_customer(customer)
         where(:customer_id => customer)
       end
+      def unseen
+        where(:status => nil)
+      end
   end
   extend Scopes
 end

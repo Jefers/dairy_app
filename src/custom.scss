@@ -658,3 +658,9 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
   font-style:italic;
 }
 
+.form_in_place input[type="text"]{
+  width:50px;
+  height:1em;
+  margin:0;
+  padding:0;
+}
