@@ -216,4 +216,9 @@ $(function() {
   });
 });
 
+$(document).ready(function(){
+  $("#telephone").click(function () {
+        $(this).effect("puff");
+  });
+});
 

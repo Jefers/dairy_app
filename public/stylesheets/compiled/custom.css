@@ -1775,18 +1775,38 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   color: #222222;
 }
 
+/* line 653, ../../../src/custom.scss */
+.highlight_link {
+  white-space: normal;
+}
+/* line 655, ../../../src/custom.scss */
+.highlight_link a {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 120%;
+}
+/* line 659, ../../../src/custom.scss */
+.highlight_link a:visited {
+  color: #333b33;
+}
+/* line 661, ../../../src/custom.scss */
+.highlight_link a:hover {
+  text-decoration: none;
+  color: #167f1b;
+}
+
 /* extras */
-/* line 654, ../../../src/custom.scss */
+/* line 667, ../../../src/custom.scss */
 .upper {
   text-transform: uppercase;
 }
 
-/* line 657, ../../../src/custom.scss */
+/* line 670, ../../../src/custom.scss */
 .italic {
   font-style: italic;
 }
 
-/* line 661, ../../../src/custom.scss */
+/* line 674, ../../../src/custom.scss */
 .form_in_place input[type="text"] {
   width: 50px;
   height: 1em;

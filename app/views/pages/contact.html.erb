@@ -1,12 +1,21 @@
 <h1>Contact</h1>
 
-<p><%= BUSINESS %></p>
-<p><%= ADDRESS %></p>
+<h2><%= BUSINESS %></h2>
+<h3><%= ADDRESS %></h3>
 <hr />
-<p>Telephone <%= TELEPHONE %></p>
-<p> Please call from 7:00am to 11:00am on week days</p>
+<h2 id="telephone_number">Telephone <%= TELEPHONE %></h2>
+<div id="telephone"><%= image_tag("call.gif", :alt => "", :id => "telephone") %></div>
+<h3> Please call from 7:00am to 11:00am on week days</h3>
+<h4 class="italic">For existing customers, please remember to quote your URN number.</h4>
+<% if customer_signed_in? %>
+  <div id="payinfo">
+    <p class="italic"><strong>Please note:</strong> We do not accept payments through this website. We take payments by Cheque or BACS</p>
+    <p class="italic">If you are using BACS, please do so through your own internet banking website, remembering to <strong>quote your URN as a reference</strong> (on the back of cheques too. Thank you).</p>
+    <p class="italic">Our sort code is: 20-74-05 and our account number is: 90951080.</p>
+  </div>
+<% end %>
 <hr />
 <p>
   Or send an email to <%= EMAIL %>
-  <a href="mailto:milkman@waldendairy.com?Subject=Customer%20enquiry">Send mail</a>.
+  <a href="mailto:milkman@waldendairy.com?Subject=Customer%20enquiry">Send mail via email client click here</a>.
 </p>

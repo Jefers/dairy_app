@@ -650,6 +650,19 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
         &:hover {
           @include fancy-button($site, 14px); } } } } }
 
+.highlight_link {
+  white-space: normal;
+    a {
+      padding: 10px;
+      font-weight: bold;
+      font-size:120%;
+      &:visited {
+        color: $visited; }
+      &:hover {
+        text-decoration: none;
+        color: $hover; } }
+}
+
 /* extras */
 .upper {
   text-transform: uppercase;

@@ -1,15 +1,16 @@
   <%=  error_messages_for 'order' %>
 
 <h1>Checkout</h1>
+<h2>Please submit your order</h2>
 <%= semantic_form_for :order, :url => { :action => :save_order, :customer_id => current_customer.id } do |f| %>
         <h3>URN/Round:<%= current_customer.urn %>/<%= current_customer.round %></h3>
-        <p class="italic">Please check your order and then click the checkout button.</p>
+        <p class="italic">Please check your order and then click the Submit your order button.</p>
         <p class="italic">An email will be sent automatically to you when you order is submitted.</p>
         <br />
         <%= f.inputs do %>
           <%= f.input :name, :input_html => {:size => 50, :value => current_customer.name } %>
           <%= f.input :email, :input_html => {:size => 50, :value => current_customer.email } %>
-          <%= f.input :repeat, :as  => :radio, :hint => "Is this a repeated order?" %>
+          <%= f.input :repeat, :as  => :radio, :hint => "Is this a repeated order? If it is a mixed order then please use the instructions (below) to let us know." %>
           <%= f.input :required_date, :as => :string, :label => "Required date", :input_html => { :size => 35 }, :hint => "Please pick a date. N.B. Orders have a 48 hour lead-time. Excludes Sundays and National holidays. " %>
           <%= f.input :pay_type, :as => :select, :collection => ["Cheque", "BACS"], :prompt => 'Please select a payment method' %>
           <div id="payinfo">
@@ -18,12 +19,13 @@
             <p class="italic">Our sort code is: 20-74-05 and our account number is: 90951080.</p>
           </div>
           <%= f.input :address, :input_html => {:size => 50, :value => current_customer.address } %>
-          <%= f.input :address_2, :label => "&nbsp;", :input_html => { :size => 50, :value => current_customer.address_2 } %>
-          <%= f.input :address_3, :label => "&nbsp;", :input_html => { :size => 50, :value => current_customer.address_3 } %>
-          <%= f.input :town, :input_html => { :size => 50, :value => current_customer.town } %>
-          <%= f.input :post_code, :input_html => {:size => 10, :value => current_customer.post_code } %>
-          <%= f.input :instructions, :as  => :text, :hint => "Put some special instructions here, if required. " %>
+          <%= f.input :address_2, :label => "&nbsp;", :required => false, :input_html => { :size => 50, :value => current_customer.address_2 } %>
+          <%= f.input :address_3, :label => "&nbsp;", :required => false, :input_html => { :size => 50, :value => current_customer.address_3 } %>
+          <%= f.input :town, :required => false, :input_html => { :size => 50, :value => current_customer.town } %>
+          <%= f.input :post_code, :required => false, :input_html => {:size => 10, :value => current_customer.post_code } %>
+          <%= f.input :instructions, :required => false, :as  => :text, :hint => "Put some special instructions here, if required. " %>
         <% end %>
     <%= submit_tag "Submit your order", :class => "submit" %>
 <% end %>
-
+        <p class="italic">N.B. This will simply transmit your order to us. There is no subsequent step. This keeps the process as simple as possible.</p>
+        <p class="italic">If you need to amend your order or make a mistake, then please call us or send an email.</p>

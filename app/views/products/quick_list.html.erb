@@ -2,7 +2,6 @@
   <tr>
     <th class="productImage"></th>
     <th>Name</th>
-    <th>Grab</th>
     <% if current_customer.try(:admin?) %>
     <th>Code</th>
     <th>Price</th>
@@ -14,7 +13,6 @@
   </tr>
   <% for product in @products %>
     <tr id="<%= product.id %>">
-      <td>€</td>
       <td class="productImage"><%= link_to (image_tag product.picture.url(:minute)), product  %> </td>
       <td><%= link_to product.name, product %></td>
        <% if current_customer.try(:admin?) %>

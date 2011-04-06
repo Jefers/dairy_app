@@ -19,10 +19,10 @@
           <li><%= link_to "Home", root_path %></li>
   <% if customer_signed_in? %>
           <% if current_customer.try(:admin?) %>
-            <li><%= link_to "Customers", customers_path %></li>
-            <li><%= link_to "Products", products_path %></li>
-            <li><%= link_to "Quick list", quick_list_path %></li>
-            <li><%= link_to "Categories", categories_path %></li>
+            <li><%= link_to "Custs", customers_path %></li>
+            <li><%= link_to "Prods", products_path %></li>
+            <li><%= link_to "Qlist", quick_list_path %></li>
+            <li><%= link_to "Catz", categories_path %></li>
           <% end %>
             <li><%= link_to "Shop", products_path %></li>
             <li><%= link_to "Orders", my_orders_path %></li>
@@ -31,6 +31,8 @@
             <li><%= link_to "Sign Up Here", new_customer_registration_path %></li>
             <li><%= link_to "Customer Sign_in", new_customer_session_path %></li>
   <% end %>
+            <li><%= link_to "About",      about_path %></li>
+            <li><%= link_to "Contact",    contact_path %></li>
             <li><%= link_to "Help", help_path %></li>
         </ul>
       </nav>
