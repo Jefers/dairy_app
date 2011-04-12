@@ -1,63 +1,76 @@
 DairyApp::Application.routes.draw do
-  resources :customer_holidays
+  SSL_PROTO__ = 'https' unless defined?(SSL_PROTO__)
+  scope :constraints => { :protocol => SSL_PROTO__ } do
+    # All your SSL routes.
+    devise_for :customers #, :controllers => { :registrations => "my_registrations" }
+    resources :customers
 
-  # get "autocomplete_searches/Index"
-  # resources :autocomplete_searches, :only => [:index], :as => 'autocomplete'
-# match "/foo", :to => proc {|env| [200, {}, ["Hello world"]] }
-# match '/news', :to => redirect("http://www.bbc.co.uk/")
-# match '/customer/:name', :to => redirect {|params| "/customer/#{params[:name].pluralize}" }
-# match "/categories/show/:id", :to => "categories#index", :constraints => {:id => /\d+/}
-  get 'products/autocomplete_product_name'
-  resources :products
+    # devise_for :customers, :constraints => { :protocol => "https" }
+    # resources :customers
 
-  resources :products do
-    resources :line_items
-  end
+    resources :customer_holidays
 
-  resources :categories do
-    resource :products do
-      member do
-        get :for_category
+    # get "autocomplete_searches/Index"
+    # resources :autocomplete_searches, :only => [:index], :as => 'autocomplete'
+  # match "/foo", :to => proc {|env| [200, {}, ["Hello world"]] }
+  # match '/news', :to => redirect("http://www.bbc.co.uk/")
+  # match '/customer/:name', :to => redirect {|params| "/customer/#{params[:name].pluralize}" }
+  # match "/categories/show/:id", :to => "categories#index", :constraints => {:id => /\d+/}
+    get 'products/autocomplete_product_name'
+    resources :products
+
+    resources :products do
+      resources :line_items
+    end
+
+    resources :categories do
+      resource :products do
+        member do
+          get :for_category
+        end
       end
     end
+
+    # resources :store
+    match 'products/checkout'         => 'products#checkout'
+    match 'products/empty_cart'       => 'products#empty_cart'
+    match 'products/add_to_cart'      => 'products#add_to_cart'
+    match 'products/remove_from_cart' => 'products#remove_from_cart'
+    match 'products/save_order'       => 'products#save_order'
+
+    # match 'products/cart' => 'store#cart', :as => :cart
+
+    match 'orders/my_orders' => 'orders#my_orders', :as => :my_orders
+
+    # resources :orders
+    # resources :line_items
+
+    resources :orders do
+      resources :line_items
+    end
+
+
+    # get "users/new"
+    # match '/signup',     :to => 'users#new'
+    match '/contact',    :to => 'pages#contact'
+    match '/about',      :to => 'pages#about'
+    match '/help',       :to => 'pages#help'
+    match '/disclaimer', :to => 'pages#disclaimer'
+    match '/privacy',    :to => 'pages#privacy'
+    match '/security',   :to => 'pages#security'
+    match '/news',       :to => 'pages#news'
+    match '/fun',        :to => 'pages#fun'
+    match '/quick_list', :to => 'products#quick_list'
+
+    root :to => "products#index"
+              
   end
 
-  # resources :store
-  match 'products/checkout'         => 'products#checkout'
-  match 'products/empty_cart'       => 'products#empty_cart'
-  match 'products/add_to_cart'      => 'products#add_to_cart'
-  match 'products/remove_from_cart' => 'products#remove_from_cart'
-  match 'products/save_order'       => 'products#save_order'
-
-  # match 'products/cart' => 'store#cart', :as => :cart
-
-  match 'orders/my_orders' => 'orders#my_orders', :as => :my_orders
-
-  # resources :orders
-  # resources :line_items
-
-  resources :orders do
-    resources :line_items
-  end
-
-
-  devise_for :customers
-  resources :customers
-
-  get "users/new"
-  match '/signup',     :to => 'users#new'
-  match '/contact',    :to => 'pages#contact'
-  match '/about',      :to => 'pages#about'
-  match '/help',       :to => 'pages#help'
-  match '/disclaimer', :to => 'pages#disclaimer'
-  match '/privacy',    :to => 'pages#privacy'
-  match '/security',   :to => 'pages#security'
-  match '/news',       :to => 'pages#news'
-  match '/fun',        :to => 'pages#fun'
-  match '/quick_list', :to => 'products#quick_list'
-
-  root :to => "products#index"
-
+  match "customers(/*path)",
+        :to => redirect { |params, request|
+                          "https://" + request.host_with_port +
+                                       request.fullpath
+                        }
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -45,7 +45,11 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
-    @order = Order.by_customer(current_customer).find(params[:id])
+    if current_customer.try(:admin?)
+      @order = Order.find(params[:id])
+    else
+      @order = Order.by_customer(current_customer).find(params[:id])
+    end
   end
 
   # POST /orders
@@ -68,7 +72,11 @@ class OrdersController < ApplicationController
   # PUT /orders/1
   # PUT /orders/1.xml
   def update
-    @order = Order.by_customer(current_customer).find(params[:id])
+    if current_customer.try(:admin?)
+      @order = Order.find(params[:id])
+    else
+      @order = Order.by_customer(current_customer).find(params[:id])
+    end
 
     respond_to do |format|
       if @order.update_attributes(params[:order])
@@ -85,7 +93,11 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.xml
   def destroy
-    @order = Order.find(params[:id])
+    if current_customer.try(:admin?)
+      @order = Order.find(params[:id])
+    else
+      @order = Order.by_customer(current_customer).find(params[:id])
+    end
     @order.destroy
 
     respond_to do |format|

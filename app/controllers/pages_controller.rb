@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 
   def contact
     @title = "Contact"
-    render :layout => 'two_column_page_layout'
+    render :layout => 'c2_c3_layout'
   end
 
   def about
@@ -16,22 +16,22 @@ class PagesController < ApplicationController
 
   def help
     @title = "Help"
-    render :layout => 'two_column_page_layout'
+    render :layout => 'c2_c3_layout'
   end
 
   def disclaimer
     @title = "Disclaimer"
-    render :layout => 'two_column_page_layout'
+    render :layout => 'c2_c3_layout'
   end
 
   def privacy
     @title = "Privacy"
-    render :layout => 'two_column_page_layout'
+    render :layout => 'c2_c3_layout'
   end
 
   def security
     @title = "Security"
-    render :layout => 'two_column_page_layout'
+    render :layout => 'c2_c3_layout'
   end
 
   def fun

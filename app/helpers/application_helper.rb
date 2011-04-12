@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def url_for(options = nil)
+    if Hash === options
+      options[:protocol] ||= 'http'
+    end
+    super(options)
+  end
+
+
   def spacer(number)   # :TODO would be nice if this sort of thing worked!!!
     puts "&#160;" * number
   end

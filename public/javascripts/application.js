@@ -4,12 +4,14 @@ jQuery(".best_in_place").best_in_place()
 });
 
 $(document).ready(function(){
+  /* Highlight the flash messages */
   $("#flash").click(function () {
         $(this).effect.hide("highlight", {}, 9000);
   });
 });
 
 jQuery(document).ready(function() {
+  /* Fade out the flash messages */
   var $box = $('#flash');
   if ($box.is(':visible')) {
     $box.hide("highlight", {}, 9000);
@@ -19,7 +21,6 @@ jQuery(document).ready(function() {
 jQuery(document).ready(function() {
   $( "#tabs" ).tabs();
 });
-
 
 $(document).ready(function() {
   $('div.accordionButton').click(function() {
@@ -38,7 +39,6 @@ $('#menu li a').click(
   );
 }
 $(document).ready(function() {initMenu();});
-
 
 // validate signup form on keyup and submit
 jQuery(document).ready(function() {
