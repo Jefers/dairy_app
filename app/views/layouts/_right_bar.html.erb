@@ -21,60 +21,12 @@
     </div>
   <% end %>
 
-  <div id="wdtwitter">
-    <script src="http://widgets.twimg.com/j/2/widget.js"></script>
-    <script>
-    new TWTR.Widget({
-      version: 2,
-      type: 'profile',
-      rpp: 7,
-      interval: 6000,
-      width: 260,
-      height: 'auto',
-      theme: {
-        shell: {
-          background: '#fa991c',
-          color: '#5e5e5e'
-        },
-        tweets: {
-          background: '#e5fabb',
-          color: '#5e5e5e',
-          links: '#080'
-        }
-      },
-      features: {
-        scrollbar: true,
-        loop: false,
-        live: true,
-        hashtags: true,
-        timestamp: true,
-        avatars: true,
-        behavior: 'default'
-      }
-    }).render().setUser('waldenDairy').start();
-    </script>
-  </div>
+  <%= render :partial => 'layouts/twitterfeed' %>
 
-  <div id="mdtwittershare">
-  <a href="http://twitter.com/WaldenDairy"><img src="http://www.twitterbuttons.com/upload/images/0f2d8bc6d6nt2.png" title="By: TwitterButtons.com" alt="By: TwitterButtons.com" width="259" height="88" /></a><br /><a href="http://www.twitterbuttons.com">By TwitterButtons.com</a></div>
+  <%= render :partial => 'layouts/twitterfollow' %>
 
-  <div id="firefox">
-    <script type="text/javascript" src="http://sfx-images.mozilla.org/utw/switch-36.js"></script>
-    <span class="sfx-affiliates-utw-button size-160x280">
-        <a class="ff36" style="display:none;" href="http://addons.mozilla.org" title="Try Add-ons!">
-            <img border="0" src="http://sfx-images.mozilla.org/utw/3.6/FF36_36_160x280.png" alt="You Rock.  Thanks for using Firefox. Try Add-ons!" />
-        </a>
-        <a class="ff" style="display:none;" href="http://www.mozilla.com/firefox/upgrade.html?from=sfx&amp;uid=325011&amp;t=478" title="Upgrade the Web to Firefox 3.6!">
-            <img border="0" src="http://sfx-images.mozilla.org/utw/3.6/FF36_FF_160x280.png" alt="Thanks for using Firefox.  Don't miss the upgrade.  Download Firefox 3.6!" />
-        </a>
-        <a class="ie" style="display: none;" href="http://www.mozilla.com/firefox/ie.html?from=sfx&amp;uid=325011&amp;t=480" title="Upgrade to Firefox 3.6!">
-            <img border="0" src="http://sfx-images.mozilla.org/utw/3.6/FF36_IE_160x280.png" alt="You don't use VHS...then why Internet Explorer?  Upgrade to Firefox 3.6!" />
-        </a>
-        <a class="other" href="http://www.mozilla.com/firefox/firefox.html?from=sfx&amp;uid=325011&amp;t=481" title="Upgrade to Firefox 3.6!">
-            <img border="0" src="http://sfx-images.mozilla.org/utw/3.6/FF36_OTHER_160x280.png" alt="You're settling for good when there's awesome.  Upgrade to Firefox 3.6!" />
-        </a>
-    </span><script type="text/javascript">init_utw()</script>
-  </div>
+  <%= render :partial => 'layouts/getFF' %>
+
 
   <div>
     <p><%= image_tag("van1.png", :alt => "", :id => "van1") %></p>

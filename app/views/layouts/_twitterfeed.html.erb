@@ -1,0 +1,33 @@
+<div id="wdtwitter">
+  <script src="//widgets.twimg.com/j/2/widget.js"></script>
+  <script>
+  new TWTR.Widget({
+    version: 2,
+    type: 'profile',
+    rpp: 7,
+    interval: 6000,
+    width: 260,
+    height: 'auto',
+    theme: {
+      shell: {
+        background: '#fa991c',
+        color: '#5e5e5e'
+      },
+      tweets: {
+        background: '#e5fabb',
+        color: '#5e5e5e',
+        links: '#080'
+      }
+    },
+    features: {
+      scrollbar: true,
+      loop: false,
+      live: true,
+      hashtags: true,
+      timestamp: true,
+      avatars: true,
+      behavior: 'default'
+    }
+  }).render().setUser('waldenDairy').start();
+  </script>
+</div>

@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
-
   protected
 
   def layout_by_resource

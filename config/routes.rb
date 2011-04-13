@@ -4,9 +4,13 @@ DairyApp::Application.routes.draw do
     # All your SSL routes.
     devise_for :customers #, :controllers => { :registrations => "my_registrations" }
     resources :customers
+  end
 
-    # devise_for :customers, :constraints => { :protocol => "https" }
-    # resources :customers
+  match "customers(/*path)",
+        :to => redirect { |params, request|
+                          "https://" + request.host_with_port +
+                                       request.fullpath
+                        }
 
     resources :customer_holidays
 
@@ -63,14 +67,8 @@ DairyApp::Application.routes.draw do
     match '/quick_list', :to => 'products#quick_list'
 
     root :to => "products#index"
-              
-  end
 
-  match "customers(/*path)",
-        :to => redirect { |params, request|
-                          "https://" + request.host_with_port +
-                                       request.fullpath
-                        }
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
