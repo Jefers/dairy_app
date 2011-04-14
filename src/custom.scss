@@ -203,6 +203,7 @@ a {
     &:hover { text-decoration: underline; color: green; } }
 
 #right_bar {
+  max-width:268px; //Chrome hack
   @include rounded;
   @include grey_glow;
   float: right;
@@ -545,6 +546,7 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 }
 #cart {
   width:100%;
+  max-width:268px; //Chrome hack
   font-size: 100%;
   margin:0px;
   padding: 1px;
@@ -562,6 +564,7 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 /* END:cartside */
 
 #holiday {
+  max-width:268px; //Chrome hack
   @include rounded;
   background-color:#ff9000;
   margin:1px;
@@ -596,6 +599,18 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
   margin-bottom:1px;
 }
 
+#wdtwitter {
+ max-width:268px; //Chrome hack
+}
+
+#mdtwittershare {
+ max-width:268px; //Chrome hack
+}
+
+#firefox img{
+ display: inline-block !important;
+ max-width:268px; //Chrome hack
+}
 
 /* START: no script warning */
 .noscript  {
