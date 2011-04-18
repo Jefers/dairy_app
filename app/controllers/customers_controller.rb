@@ -5,6 +5,7 @@ class CustomersController < ApplicationController
   respond_to :html
 
   def index
+    @customer_online_count = Customer.on_line_now
     respond_with(@customers = Customer.all)
   end
 

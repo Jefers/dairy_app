@@ -86,6 +86,10 @@ module ApplicationHelper
     end
   end
 
+  def format_date_time(datetime)
+    datetime.strftime('%d/%m/%Y @ %r')
+  end
+
   def datedmy(date)
     date.strftime(date, '%d/%m/%Y')
   end

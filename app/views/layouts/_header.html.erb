@@ -39,12 +39,9 @@
     </section>
 
     <div id="flash" class="flash_html">
-      <% unless flash[:notice].blank? %>
-      <%= flash[:notice]%>
-      <% end %>
-      <% unless flash[:error].blank? %>
-      <%= flash[:error]%>
-      <% end %>
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+      <%- end -%>
     </div>
 </header>
 

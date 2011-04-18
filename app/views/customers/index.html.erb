@@ -1,15 +1,17 @@
 <% if current_customer.try(:admin?) %>
 <h1>Customers</h1>
+<p>This is the number of customers on-line now:  <strong><%=  @customer_online_count %></strong></p>
 
 <table>
   <tr>
     <th>Name</th>
     <th>URN/Rnd:</th>
-    <th>Telephone:</th>
     <th>Role</th>
-    <th>Pst Cde</th>
-    <th>Login#</th>
+    <th>Address</th>
     <th>Email</th>
+    <th>Login#</th>
+    <th>Last seen</th>
+    <th>Seen</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,11 +20,12 @@
   <tr>
     <td><%= customer.name %></td>
     <td><%= customer.urn %>/<%= customer.round %></td>
-    <td><%= customer.telephone %></td>
     <td><%= customer.role %></td>
-    <td><%= customer.post_code %></td>
-    <td><%= customer.sign_in_count %></td>
+    <td><%= customer.address %></td>
     <td><%= customer.email %></td>
+    <td><%= customer.sign_in_count %></td>
+    <td><%= format_date_time(customer.last_seen) unless customer.last_seen.nil? %></td>
+    <td><%= time_ago_in_words(customer.last_seen) unless customer.last_seen.nil? %></td>
     <td><%= link_to_show customer %></td>
     <td><%= link_to_edit(customer) %></td>
     <td><%= link_to destroy_img, customer, :method=>:delete, :confirm=>"Are you sure you want to delete this?", :remote=>:true, :class=>"balert" %></td>

@@ -28,7 +28,10 @@
   <b>logins:</b>
   <%= @customer.sign_in_count %>
 </p>
-
+<p>
+  <b>last seen:</b>
+  <%= format_date_time(@customer.last_seen) unless @customer.last_seen.nil? %>
+</p>
 
 <% if current_customer.try(:admin?) %>
 <%= link_to 'Edit', edit_customer_path(@customer) %> | <% end %>
