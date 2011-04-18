@@ -12,6 +12,12 @@ DairyApp::Application.configure do
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = "X-Sendfile"
 
+
+  config.middleware.use ExceptionNotifier,
+    :email_prefix => "WaldenDairy-Errors:[Exception] ",
+    :sender_address => %{"Exception Notifier" <support-e-team@waldendairy.com>},
+    :exception_recipients => %w{support-e-team@waldendairy.com}
+
   # For nginx:
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
 

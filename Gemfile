@@ -20,6 +20,8 @@ gem 'formtastic', '~> 1.2.3'
 gem 'dynamic_form'
 gem "best_in_place"
 gem 'acts_as_list'
+gem 'exception_notification_rails3', :require => 'exception_notifier'
+# gem "exception_notification", :git => "git://github.com/rails/exception_notification", :require => 'exception_notifier'
 
 group :development do
   gem 'rspec-rails', '2.4.1'
