@@ -10,7 +10,9 @@
        Required date:<strong><%= format_long_date(order.required_date) %></strong>&#160;&#160;&#160;
        Order Number :<%= order.id %>&#160;&#160;&#160;
        Created date:<%= format_date(order.created_at) %>
+       <% if current_customer.try(:admin?) %>
        Status:<%= best_in_place order, :status, :type => :input, :nil => "Click" %>
+       <% end %>
     </h5>
   </div>
 

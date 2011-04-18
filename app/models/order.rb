@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
   belongs_to :customer
   has_many :products, :through => :line_items
   has_many :line_items
-
+  attr_accessible :status, :name, :address, :email, :pay_type, :required_date
   attr_writer :current_step
 
   PAYMENT_TYPES = [
@@ -10,6 +10,25 @@ class Order < ActiveRecord::Base
                   [ "Cheque",          "Chq" ],
                   [ "BACS",           "Bacs" ]
                   ]
+
+# from: http://rails-bestpractices.com/posts/16-dry-metaprogramming
+#   STATUSES = [ "ok", "ig" ]
+# validates_inclusion_of :status, :in => STATUSES
+#
+#   class << self
+#     STATUSES.each do |status_name|
+#       define_method "all_#{status}" do
+#         find.where(:status => status_name)
+#       end
+#     end
+#   end
+#
+#
+#   STATUSES.each do |status_name|
+#     define_method "#{status_name}?" do
+#       self.status == status_name
+#     end
+#   end
 
   validates_presence_of :name, :address, :email, :required_date, :pay_type
   # validates_inclusion_of :pay_type, :in => PAYMENT_TYPES.map {|disp, value| value}

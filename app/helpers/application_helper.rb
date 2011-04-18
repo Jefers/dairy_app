@@ -1,4 +1,6 @@
 module ApplicationHelper
+  # helper :all #include all helpers all of the time #Blows up!!!
+
   def url_for(options = nil)
     if Hash === options
       options[:protocol] ||= 'http'
@@ -31,6 +33,10 @@ module ApplicationHelper
 
   def logo
     logo = image_tag("large_banner.png", :alt => "Walden Dairy", :id => "logo")
+  end
+
+  def hols
+    hols = image_tag("easter_grass.png", :alt => "hols", :id => "hols")
   end
 
   # Return a title on a per-page basis.
@@ -73,6 +79,12 @@ module ApplicationHelper
     end
   end
 
+  # Format a date as DD, MM, d, yy
+  def format_very_long_date(date)
+    if date != nil
+      date.strftime("%A %d %B %Y")
+    end
+  end
 
   def datedmy(date)
     date.strftime(date, '%d/%m/%Y')

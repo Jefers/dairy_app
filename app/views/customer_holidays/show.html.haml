@@ -10,10 +10,10 @@
   = @customer_holiday.name
 %p
   %b From date:
-  = format_date(@customer_holiday.from_date)
+  = format_very_long_date(@customer_holiday.from_date)
 %p
   %b To date:
-  = format_date(@customer_holiday.to_date)
+  = format_very_long_date(@customer_holiday.to_date)
 %p
   %b Confirmed:
   = @customer_holiday.confirmed
@@ -38,7 +38,7 @@
   %b Email address:
   = @customer_holiday.email_address
 
-
-= link_to 'Edit', edit_customer_holiday_path(@customer_holiday)
-\|
-= link_to 'Back', customer_holidays_path
+-if current_customer.try(:admin?)
+  = link_to 'Edit', edit_customer_holiday_path(@customer_holiday)
+  \|
+  = link_to 'Back', customer_holidays_path

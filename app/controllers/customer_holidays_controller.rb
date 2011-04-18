@@ -34,7 +34,8 @@ class CustomerHolidaysController < ApplicationController
   # GET /customer_holidays/new.xml
   def new
     @customer_holiday = CustomerHoliday.new
-
+    @customer_holiday.customer_id = current_customer.id
+    customer_default_values
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @customer_holiday }
@@ -48,6 +49,9 @@ class CustomerHolidaysController < ApplicationController
     else
       @customer_holiday = CustomerHoliday.by_customer(current_customer).find(params[:id])
     end
+
+    customer_default_values
+
   end
 
   # POST /customer_holidays
@@ -94,4 +98,19 @@ class CustomerHolidaysController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+  private
+   def customer_default_values
+     @customer_holiday.urn = @customer_holiday.customer_urn if @customer_holiday.urn.blank?
+     @customer_holiday.round = @customer_holiday.customer_round if @customer_holiday.round.blank?
+     @customer_holiday.name = @customer_holiday.customer_name if @customer_holiday.name.blank?
+     @customer_holiday.address = @customer_holiday.customer_address if @customer_holiday.address.blank?
+     @customer_holiday.address_2 = @customer_holiday.customer_address_2 if @customer_holiday.address_2.blank?
+     @customer_holiday.address_3 = @customer_holiday.customer_address_3 if @customer_holiday.address_3.blank?
+     @customer_holiday.town = @customer_holiday.customer_town if @customer_holiday.town.blank?
+     @customer_holiday.post_code = @customer_holiday.customer_post_code if @customer_holiday.post_code.blank?
+     @customer_holiday.contact_telephone = @customer_holiday.customer_telephone if @customer_holiday.contact_telephone.blank?
+     @customer_holiday.email_address = @customer_holiday.customer_email if @customer_holiday.email_address.blank?
+   end
 end

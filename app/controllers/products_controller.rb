@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
 
   def quick_list
     @products = Product.order_by_category_and_position.all
+    authorize! :update, @product
     render :layout => 'full_page_layout'
   end
 
@@ -82,7 +83,7 @@ class ProductsController < ApplicationController
   def new
     @categories = Category.all
     @product = Product.new
-
+    authorize! :update, @product
     respond_with(@product)
 
   end
@@ -91,6 +92,7 @@ class ProductsController < ApplicationController
   def edit
     @categories = Category.all
     @product = Product.find(params[:id])
+    authorize! :update, @product
   end
 
   # POST /products

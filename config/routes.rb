@@ -36,11 +36,13 @@ DairyApp::Application.routes.draw do
     end
 
     # resources :store
-    match 'products/checkout'         => 'products#checkout'
-    match 'products/empty_cart'       => 'products#empty_cart'
-    match 'products/add_to_cart'      => 'products#add_to_cart'
-    match 'products/remove_from_cart' => 'products#remove_from_cart'
-    match 'products/save_order'       => 'products#save_order'
+    scope 'products' do
+      match '/checkout'         => 'products#checkout'
+      match '/empty_cart'       => 'products#empty_cart'
+      match '/add_to_cart'      => 'products#add_to_cart'
+      match '/remove_from_cart' => 'products#remove_from_cart'
+      match '/save_order'       => 'products#save_order'
+    end
 
     # match 'products/cart' => 'store#cart', :as => :cart
 

@@ -6,21 +6,21 @@
         - @customer_holiday.errors.full_messages.each do |msg|
           %li= msg
   = f.inputs do
-    = f.input :customer_id, :as => :hidden, :input_html => {:value => current_customer.id }
-    = f.input :from_date, :as => :string, :label => "Holiday from date", :input_html => { :size => 25 }, :hint => "Pick date range for non-delivery"
+    = f.input :customer_id, :as => :hidden
+    = f.input :from_date, :as => :string, :label => "Holiday from date", :input_html => { :size => 25 }, :hint => "Pick date range for non-delivery. N.B. format of dates is yyyy-mm-dd"
     = f.input :to_date, :as => :string, :label => "Holiday to date", :input_html => { :size => 25 }
-    = f.input :confirmed
+    = f.input :confirmed, :hint => "  Important: We will ignore a holiday request unless it is confirmed. Please review the dates you have chosen. "
     = f.input :notes, :input_html => { :rows => 10, :cols => 50 }, :hint => "Please add a note if you have any specific request"
-    = f.input :urn, :input_html => {:size => 6, :value => current_customer.urn }, :hint => "If this is wrong please tell us in the notes. "
-    = f.input :round, :input_html => {:size => 2, :value => current_customer.round }, :hint => "If this is wrong please tell us in the notes. "
-    = f.input :name, :input_html => {:size => 50, :value => current_customer.name }
-    = f.input :address, :input_html => {:size => 50, :value => current_customer.address }
-    = f.input :address_2, :required => false, :label => "&nbsp;", :input_html => { :size => 50, :value => current_customer.address_2 }
-    = f.input :address_3, :required => false, :label => "&nbsp;", :input_html => { :size => 50, :value => current_customer.address_3 }
-    = f.input :town, :required => false, :input_html => { :size => 50, :value => current_customer.town }
-    = f.input :post_code, :required => false, :input_html => {:size => 10, :value => current_customer.post_code }
-    = f.input :contact_telephone, :input_html => {:size => 20, :value => current_customer.telephone }
-    = f.input :email_address, :input_html => {:size => 50, :value => current_customer.email }
+    = f.input :urn, :input_html => {:size => 6 }, :hint => "If this is wrong please tell us in the notes. "
+    = f.input :round, :input_html => {:size => 2 }, :hint => "If this is wrong please tell us in the notes. "
+    = f.input :name, :input_html => {:size => 50 }
+    = f.input :address, :input_html => {:size => 50 }
+    = f.input :address_2, :required => false, :label => "&nbsp;", :input_html => { :size => 50 }
+    = f.input :address_3, :required => false, :label => "&nbsp;", :input_html => { :size => 50 }
+    = f.input :town, :required => false, :input_html => { :size => 50 }
+    = f.input :post_code, :required => false, :input_html => {:size => 10 }
+    = f.input :contact_telephone, :input_html => {:size => 20 }
+    = f.input :email_address, :input_html => {:size => 50 }
     -if current_customer.try(:admin?)
       = f.input :active
 

@@ -23,7 +23,7 @@ class Customer < ActiveRecord::Base
     self.post_code.try(:upcase!)
   end
 
-  def customer_orders
-     self.orders.map(&:name)
-  end
+  # def customer_orders
+  #    self.orders.map(&:name)
+  # end
 end

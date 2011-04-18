@@ -14,7 +14,7 @@
 
   - @customer_holidays.each do |customer_holiday|
     %tr
-      %td= format_long_date(customer_holiday.to_date + 1.day)
+      %td= format_long_date(customer_holiday.to_date + 1.day) unless customer_holiday.to_date.nil?
       %td= customer_holiday.try(:urn)
       %td= customer_holiday.try(:address)
       %td= format_long_date(customer_holiday.from_date)

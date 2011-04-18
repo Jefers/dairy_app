@@ -16,6 +16,10 @@
     <%= f.text_field :email %>
   </p>
   <p>
+    <%= f.label :status %><br />
+    <%= f.select :status, options_for_select(["pr","dr","pu","ok"], @order.status) %>
+  </p>
+  <p>
     <%= f.label :pay_type %><br />
     <%= f.text_field :pay_type %>
   </p>

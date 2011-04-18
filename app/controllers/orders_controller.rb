@@ -24,8 +24,11 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.xml
   def show
-    @order = Order.by_customer(current_customer).find(params[:id])
-
+    if current_customer.try(:admin?)
+      @order = Order.find(params[:id])
+    else
+      @order = Order.by_customer(current_customer).find(params[:id])
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @order }

@@ -13,7 +13,6 @@
       <% if current_customer.try(:admin?) %>
       <th>&nbsp;</th>
       <th>&nbsp;</th>
-      <th>&nbsp;</th>
       <% end %>
     </tr>
     <% for product in @products %>
@@ -36,7 +35,6 @@
          <% if current_customer.try(:admin?) %>
          <td><%= link_to_show product %></td>
          <td><%= link_to_edit(product) %></td>
-         <td><%= link_to destroy_img, product, :method=>:delete, :confirm=>"Are you sure you want to delete this?", :remote=>:true, :class=>"balert" %></td>
         <% end %>
       </tr>
     <% end %>

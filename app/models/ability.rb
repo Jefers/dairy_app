@@ -15,6 +15,7 @@ class CustomerAbility
          cannot :manage, CustomerHoliday
          can :create, CustomerHoliday
          # can :update, CustomerHoliday
+         cannot :manage, Product
          cannot :manage, Customer
          cannot :manage, Order
          cannot :manage, Category
