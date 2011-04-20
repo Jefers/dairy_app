@@ -39,6 +39,15 @@ class PagesController < ApplicationController
     render :layout => 'full_page_layout'
   end
 
+  def help_order
+    @title = "Order Help"
+    render :layout => 'full_page_layout'
+  end
+
+  def help_holiday
+    @title = "Holiday Help"
+    render :layout => 'full_page_layout'
+  end
   def news
     @title = "News"
   end

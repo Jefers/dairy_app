@@ -58,15 +58,17 @@ DairyApp::Application.routes.draw do
 
     # get "users/new"
     # match '/signup',     :to => 'users#new'
-    match '/contact',    :to => 'pages#contact'
-    match '/about',      :to => 'pages#about'
-    match '/help',       :to => 'pages#help'
-    match '/disclaimer', :to => 'pages#disclaimer'
-    match '/privacy',    :to => 'pages#privacy'
-    match '/security',   :to => 'pages#security'
-    match '/news',       :to => 'pages#news'
-    match '/fun',        :to => 'pages#fun'
-    match '/quick_list', :to => 'products#quick_list'
+    match '/help_holiday', :to => 'pages#help_holiday'
+    match '/help_order',   :to => 'pages#help_order'
+    match '/contact',      :to => 'pages#contact'
+    match '/about',        :to => 'pages#about'
+    match '/help',         :to => 'pages#help'
+    match '/disclaimer',   :to => 'pages#disclaimer'
+    match '/privacy',      :to => 'pages#privacy'
+    match '/security',     :to => 'pages#security'
+    match '/news',         :to => 'pages#news'
+    match '/fun',          :to => 'pages#fun'
+    match '/quick_list',   :to => 'products#quick_list'
 
     root :to => "products#index"
 

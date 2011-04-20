@@ -1801,35 +1801,43 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 }
 /* line 671, ../../../src/custom.scss */
 .highlight_link a {
+  font-color: #167F1B;
   padding: 10px;
   font-weight: bold;
-  font-size: 120%;
+  font-size: 105%;
 }
-/* line 675, ../../../src/custom.scss */
+/* line 676, ../../../src/custom.scss */
 .highlight_link a:visited {
-  color: #333b33;
+  color: #167F1B;
 }
-/* line 677, ../../../src/custom.scss */
+/* line 678, ../../../src/custom.scss */
 .highlight_link a:hover {
   text-decoration: none;
-  color: #167f1b;
+  color: orange;
 }
 
 /* extras */
-/* line 683, ../../../src/custom.scss */
+/* line 684, ../../../src/custom.scss */
 .upper {
   text-transform: uppercase;
 }
 
-/* line 686, ../../../src/custom.scss */
+/* line 687, ../../../src/custom.scss */
 .italic {
   font-style: italic;
 }
 
-/* line 690, ../../../src/custom.scss */
+/* line 691, ../../../src/custom.scss */
 .form_in_place input[type="text"] {
   width: 50px;
   height: 1em;
   margin: 0;
   padding: 0;
+}
+
+/* line 698, ../../../src/custom.scss */
+#video {
+  text-align: center;
+  margin: 1em;
+  padding: 1em;
 }

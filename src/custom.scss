@@ -669,14 +669,15 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
 .highlight_link {
   white-space: normal;
     a {
+      font-color: #167F1B;
       padding: 10px;
       font-weight: bold;
-      font-size:120%;
+      font-size:105%;
       &:visited {
-        color: $visited; }
+        color: #167F1B; }
       &:hover {
         text-decoration: none;
-        color: $hover; } }
+        color: orange; } }
 }
 
 /* extras */
@@ -692,4 +693,10 @@ input[type="submit"]#customer_submit {@include fancy-button($site, 17px);  margi
   height:1em;
   margin:0;
   padding:0;
+}
+
+#video {
+  text-align:center;
+  margin: 1em;
+  padding: 1em;
 }
