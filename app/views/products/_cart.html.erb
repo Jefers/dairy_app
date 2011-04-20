@@ -5,7 +5,8 @@
     <%= render(:partial => "cart_item", :collection => cart.items) %>
 
     <tr class="total_line">
-      <td colspan="2">Total</td>
+      <td></td>
+      <td class="total_cell">Total:</td>
       <td class="total_cell"><%= quid(cart.total_price) %></td>
     </tr>
   </table>

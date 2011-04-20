@@ -65,7 +65,7 @@ footer nav {
 
 /* line 90, ../../../src/custom.scss */
 body {
-  background: url(/images/main_background.png) -20% -23px repeat-x;
+  background: url(/images/main_background_opt.png) -20% -23px repeat-x;
   color: #333b33;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
@@ -1435,22 +1435,23 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 .total_line .total_cell {
   font-weight: bold;
   border-top: 1px solid #92ff1d;
+  text-align: right;
 }
 
 /* START:cartside */
 /* Styles for the cart in the sidebar */
-/* line 539, ../../../src/custom.scss */
+/* line 540, ../../../src/custom.scss */
 #response {
   width: 100%;
 }
 
-/* line 543, ../../../src/custom.scss */
+/* line 544, ../../../src/custom.scss */
 #notice {
   width: 100%;
   color: #0000ff;
 }
 
-/* line 547, ../../../src/custom.scss */
+/* line 548, ../../../src/custom.scss */
 #cart {
   width: 100%;
   max-width: 268px;
@@ -1459,12 +1460,12 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   padding: 1px;
 }
 
-/* line 555, ../../../src/custom.scss */
+/* line 556, ../../../src/custom.scss */
 #storeListTable tbody tr:nth-child(even) td, tbody tr.even td {
   background: #007f00;
 }
 
-/* line 557, ../../../src/custom.scss */
+/* line 558, ../../../src/custom.scss */
 #cart table {
   width: 99%;
   font-size: 100%;
@@ -1474,7 +1475,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 }
 
 /* END:cartside */
-/* line 566, ../../../src/custom.scss */
+/* line 567, ../../../src/custom.scss */
 #holiday {
   max-width: 268px;
   -moz-border-radius: 0.5em;
@@ -1491,13 +1492,13 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   padding: 1px;
 }
 
-/* line 573, ../../../src/custom.scss */
+/* line 574, ../../../src/custom.scss */
 #holiday h3 {
   margin: 5px auto;
   width: 70%;
 }
 
-/* line 577, ../../../src/custom.scss */
+/* line 578, ../../../src/custom.scss */
 #holiday_inner {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -1513,12 +1514,12 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   padding: 5px;
 }
 
-/* line 583, ../../../src/custom.scss */
+/* line 584, ../../../src/custom.scss */
 #holiday_inner p {
   font-style: italic;
 }
 
-/* line 587, ../../../src/custom.scss */
+/* line 588, ../../../src/custom.scss */
 #holiday_button {
   margin-right: auto;
   margin-left: auto;
@@ -1528,7 +1529,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   width: 70%;
 }
 
-/* line 595, ../../../src/custom.scss */
+/* line 596, ../../../src/custom.scss */
 .holiday_button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1596,24 +1597,24 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   color: #222222;
 }
 
-/* line 602, ../../../src/custom.scss */
+/* line 603, ../../../src/custom.scss */
 #wdtwitter {
   max-width: 268px;
 }
 
-/* line 606, ../../../src/custom.scss */
+/* line 607, ../../../src/custom.scss */
 #mdtwittershare {
   max-width: 268px;
 }
 
-/* line 610, ../../../src/custom.scss */
+/* line 611, ../../../src/custom.scss */
 #firefox img {
   display: inline-block !important;
   max-width: 268px;
 }
 
 /* START: no script warning */
-/* line 616, ../../../src/custom.scss */
+/* line 617, ../../../src/custom.scss */
 .noscript {
   background-color: #AE0000;
   color: #FFFFFF;
@@ -1631,7 +1632,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   z-index: 4101;
 }
 
-/* line 633, ../../../src/custom.scss */
+/* line 634, ../../../src/custom.scss */
 .noscript .noscript-inner {
   text-align: center;
   background-image: url("/images/i_notice.png");
@@ -1649,7 +1650,7 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 }
 
 /* END:form */
-/* line 650, ../../../src/custom.scss */
+/* line 651, ../../../src/custom.scss */
 #tabnav {
   width: 98%;
   position: relative;
@@ -1657,12 +1658,12 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   margin: 0.25em;
   padding: 0.5em;
 }
-/* line 656, ../../../src/custom.scss */
+/* line 657, ../../../src/custom.scss */
 #tabnav ul {
   margin: 0;
   padding: 0;
 }
-/* line 660, ../../../src/custom.scss */
+/* line 661, ../../../src/custom.scss */
 #tabnav ul li a {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1726,11 +1727,11 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
 #tabnav ul li a:active, #tabnav ul li a:active:visited {
   color: #222222;
 }
-/* line 663, ../../../src/custom.scss */
+/* line 664, ../../../src/custom.scss */
 #tabnav ul li a:visited {
   color: #333b33;
 }
-/* line 665, ../../../src/custom.scss */
+/* line 666, ../../../src/custom.scss */
 #tabnav ul li a:hover {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -1794,38 +1795,38 @@ input[type="submit"]#customer_submit:active, input[type="submit"]#customer_submi
   color: #222222;
 }
 
-/* line 668, ../../../src/custom.scss */
+/* line 669, ../../../src/custom.scss */
 .highlight_link {
   white-space: normal;
 }
-/* line 670, ../../../src/custom.scss */
+/* line 671, ../../../src/custom.scss */
 .highlight_link a {
   padding: 10px;
   font-weight: bold;
   font-size: 120%;
 }
-/* line 674, ../../../src/custom.scss */
+/* line 675, ../../../src/custom.scss */
 .highlight_link a:visited {
   color: #333b33;
 }
-/* line 676, ../../../src/custom.scss */
+/* line 677, ../../../src/custom.scss */
 .highlight_link a:hover {
   text-decoration: none;
   color: #167f1b;
 }
 
 /* extras */
-/* line 682, ../../../src/custom.scss */
+/* line 683, ../../../src/custom.scss */
 .upper {
   text-transform: uppercase;
 }
 
-/* line 685, ../../../src/custom.scss */
+/* line 686, ../../../src/custom.scss */
 .italic {
   font-style: italic;
 }
 
-/* line 689, ../../../src/custom.scss */
+/* line 690, ../../../src/custom.scss */
 .form_in_place input[type="text"] {
   width: 50px;
   height: 1em;

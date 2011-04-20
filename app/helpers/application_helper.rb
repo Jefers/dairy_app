@@ -1,5 +1,9 @@
 module ApplicationHelper
-  # helper :all #include all helpers all of the time #Blows up!!!
+
+  # Use within views to set the page's HTML meta description
+  def description(text)
+    content_for(:description) { text }
+  end
 
   def url_for(options = nil)
     if Hash === options
@@ -7,7 +11,6 @@ module ApplicationHelper
     end
     super(options)
   end
-
 
   def spacer(number)   # :TODO would be nice if this sort of thing worked!!!
     puts "&#160;" * number
@@ -32,7 +35,7 @@ module ApplicationHelper
   end
 
   def logo
-    logo = image_tag("large_banner.png", :alt => "Walden Dairy", :id => "logo")
+    logo = image_tag("large_banner_opt.png", :alt => "Walden Dairy", :id => "logo")
   end
 
   def hols

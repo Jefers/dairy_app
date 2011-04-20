@@ -1,10 +1,12 @@
 <div id="right_bar">
 
+
   <div id="cart">
     <% if @cart %>
       <%= hidden_div_if(@cart.items.empty?, :id => "cart") do %>
         <%= render(:partial => "cart", :object => @cart) %>
       <% end %>
+      <%= image_tag("empty_cart.png", :alt => "empty cart", :id => "empty_cart") if @cart.items.empty? %>
     <% end %>
   </div>
 
@@ -29,7 +31,7 @@
 
 
   <div>
-    <p><%= image_tag("van1.png", :alt => "", :id => "van1") %></p>
+    <p><%= image_tag("van1_opt.png", :alt => "", :id => "van1") %></p>
   </div>
 
 </div>
