@@ -44,6 +44,8 @@ GEM
       selenium-webdriver (>= 0.0.3)
     childprocess (0.1.7)
       ffi (~> 0.6.3)
+    client_side_validations (3.0.4)
+      activesupport (~> 3.0.0)
     compass (0.10.6)
       haml (>= 3.0.4)
     configuration (1.2.0)
@@ -184,6 +186,7 @@ DEPENDENCIES
   best_in_place
   cancan
   capybara (~> 0.3.9)
+  client_side_validations
   compass
   cucumber-rails (~> 0.3.2)
   database_cleaner

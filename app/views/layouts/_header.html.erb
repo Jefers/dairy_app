@@ -23,17 +23,24 @@
             <li><%= link_to "Prods", products_path %></li>
             <li><%= link_to "Qlist", quick_list_path %></li>
             <li><%= link_to "Catz", categories_path %></li>
-          <% end %>
+            <li><%= link_to "New Orders", my_orders_path %></li>
+            <li><%= link_to "All Orders", orders_path %></li>
+            <li><%= link_to "New Hols", customer_holidays_path %></li>
+            <li><%= link_to "Old Hols", old_holidays_path %></li>
+          <% else %>
             <li><%= link_to "Shop", products_path %></li>
             <li><%= link_to "Orders", my_orders_path %></li>
             <li><%= link_to "Holidays", customer_holidays_path %></li>
+          <% end %>
   <% else %>
             <li><%= link_to "Sign Up Here", new_customer_registration_path, :protocol => "https" %></li>
             <li><%= link_to "Customer Sign_in", new_customer_session_path, :protocol => "https" %></li>
   <% end %>
+          <% unless current_customer.try(:admin?) %>
             <li><%= link_to "About", about_path %></li>
             <li><%= link_to "Contact", contact_path %></li>
             <li><%= link_to "Help", help_path %></li>
+          <% end %>
         </ul>
       </nav>
     </section>
@@ -43,5 +50,6 @@
         <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
       <%- end -%>
     </div>
+
 </header>
 

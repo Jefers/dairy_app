@@ -1,27 +1,22 @@
 <p>
-  <b>Name:</b>
-  <%=h @order.name %>
+   Address:<strong> <%= @order.try(:address) %></strong>
+   URN:<strong> <%= @order.customer.try(:urn) %>/<%= @order.customer.try(:round) %></strong>
+   Required date:<strong> <%= format_long_date(@order.required_date) %></strong>
+   Order#:<strong>  <%= @order.id %></strong>
+</p>
+<p>
+   Created:<strong> <%= format_date(@order.created_at) %></strong>
+   Last Updated:<strong> <%= format_date(@order.updated_at) %></strong>
+   Status:<strong>  <%= process_status(@order.try(:status)) %></strong>
 </p>
 
 <p>
-  <b>Address:</b>
-  <%=h @order.address %>
+  Order name :<strong> <%= @order.try(:name) %></strong>
+  Email:<strong> <%= @order.try(:email) %></strong>
+  Paytype:<strong> <%= @order.try(:pay_type) %></strong>
+  Repeat:<strong> <%= @order.try(:repeat) %></strong>
 </p>
-
-<p>
-  <b>Email:</b>
-  <%=h @order.email %>
-</p>
-
-<p>
-  <b>Pay type:</b>
-  <%=h @order.pay_type %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%=h @order.status %>
-</p>
+<%= render :partial => 'line_items', :locals => { :order => @order } %>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

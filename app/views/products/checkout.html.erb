@@ -2,7 +2,7 @@
 
 <h1>Checkout</h1>
 <h2>Please submit your order</h2>
-<%= semantic_form_for :order, :url => { :action => :save_order, :customer_id => current_customer.id } do |f| %>
+<%= semantic_form_for(@product, :as => :order, :url => { :action => :save_order, :customer_id => current_customer.id }) do |f| %>
         <h3>URN/Round:<%= current_customer.urn %>/<%= current_customer.round %></h3>
         <p class="italic">Please check your order and then click the Submit your order button.</p>
         <p class="italic">An email will be sent automatically to you when you order is submitted.</p>

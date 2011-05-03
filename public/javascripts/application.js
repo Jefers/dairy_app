@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 /* Activating Best In Place */
 jQuery(".best_in_place").best_in_place()
@@ -7,6 +8,14 @@ $(document).ready(function(){
   /* Highlight the flash messages */
   $("#flash").click(function () {
         $(this).effect.hide("highlight", {}, 9000);
+  });
+});
+
+
+$(document).ready(function(){
+  /* Highlight the flash messages */
+  $("#old").click(function () {
+        $(this).effect("pulsate", { times:3 }, 2000);
   });
 });
 
@@ -149,7 +158,30 @@ $(document).ready(function() {
     .bind("ajax:complete", hideLoading)
     .bind("ajax:success", function(s, data, status, xhr) {
       $("#response").html(status);
+      var flash = XMLHttpRequest.getResponseHeader("X-Flash");
+      $("#flash").html(flash);
+      alert(s);
+      alert(xhr);
+      alert(status);
+      alert(data);
     });
+});
+
+
+$(document).ready(function() {
+  $('th').click(function(event) {
+    if ( $(this).hasClass('highlight_tr') ) {
+        $(this).removeClass('highlight_tr');
+    } else {
+        $(this).addClass('highlight_tr');
+    }
+  });
+});
+
+$(document).ready(function() {
+  $('tr').click(function(event) {
+    $(this).effect("highlight", {}, 48000);
+  });
 });
 
 $(document).ready(function(){

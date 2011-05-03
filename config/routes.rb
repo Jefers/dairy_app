@@ -12,6 +12,7 @@ DairyApp::Application.routes.draw do
                                        request.fullpath
                         }
 
+    match 'customer_holidays/old' => 'customer_holidays#old', :as => :old_holidays
     resources :customer_holidays
 
     # get "autocomplete_searches/Index"

@@ -1,0 +1,23 @@
+<table class="pretty" id="line_items">
+  <tr>
+    <th>Code</th>
+    <th>Quantity</th>
+    <th>Product</th>
+    <th>Total Price</th>
+  </tr>
+<% order.try(:line_items).each do |line_item| %>
+
+  <tr>
+    <td><%= line_item.product.product_code %></td>
+    <td class="price"><%= line_item.quantity %></td>
+    <td><%= line_item.product.name %></td>
+    <td class="price"><%= quid(line_item.total_price) %></td>
+  </tr>
+<% end %>
+<tr>
+  <td class="hidden"></td>
+  <td class="hidden"></td>
+  <td class="hidden">Order total:</td>
+  <td class="total"><%= quid(order.total_price) %></td>
+</tr>
+</table> 

@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   autocomplete :product, :name , :full => true
   before_filter :authenticate_customer!, :except => [:show, :index, :for_category, :autocomplete_product_name]
   before_filter :find_cart, :except => :empty_cart
+  after_filter :flash_headers
   helper_method :sort_column, :sort_direction
   attr_accessor :perPage, :show_pictures
 
@@ -145,6 +146,7 @@ class ProductsController < ApplicationController
   def add_to_cart
     product = Product.find(params[:id])
     @current_item = @cart.add_product(product)
+    flash[:notice] = "Successfully added #{@current_item.name} to cart."
     respond_to do |format|
       format.js if request.xhr?
       format.html {redirect_to_index}
@@ -195,6 +197,20 @@ class ProductsController < ApplicationController
     redirect_to_index
   end
 
+
+  def flash_headers
+    # This will discontinue execution if Rails detects that the request is not
+    # from an AJAX request, i.e. the header wont be added for normal requests
+    return unless request.xhr?
+
+    # Add the appropriate flash messages to the header
+    response.headers['x-flash'] = flash[:error]  unless flash[:error].blank?
+    response.headers['x-flash'] = flash[:notice]  unless flash[:notice].blank?
+    response.headers['x-flash'] = flash[:warning]  unless flash[:warning].blank?
+
+    # Stops the flash appearing when you next refresh the page
+    flash.discard
+  end
 
   private
 

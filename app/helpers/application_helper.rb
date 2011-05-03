@@ -12,6 +12,16 @@ module ApplicationHelper
     super(options)
   end
 
+  def process_status(status, attributes = {}, &block)
+    not_processed = " Not processed"
+    processed = " Processed"
+    if status.nil?
+      not_processed
+    else
+      processed
+    end
+  end
+
   def spacer(number)   # :TODO would be nice if this sort of thing worked!!!
     puts "&#160;" * number
   end
@@ -114,9 +124,8 @@ module ApplicationHelper
     image_tag("icon_trash.gif", :title=>"delete", :mouseover => "/images/icon_trash.png")
   end
 
-
   def link_to_delete(record)
-    link_to image_tag("icon_trash.gif", :title=>"delete", :mouseover => "/images/icon_trash.png"), { :action => "destroy", :id => record.id }, :confirm => "Are you sure you want to delete this?"
+    link_to image_tag("icon_trash.gif", :title=>"delete", :mouseover => "/images/icon_trash.png"), record, :confirm => 'Are you sure you want to delete this?', :method => :delete
   end
 end
 
