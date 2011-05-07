@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
   belongs_to :customer
   has_many :products, :through => :line_items
   has_many :line_items
-  attr_accessible :status, :name, :address, :email, :pay_type, :required_date
+  attr_accessible :status, :processed, :name, :address, :address_2, :address_3, :town, :post_code, :email, :repeat, :pay_type, :required_date, :instructions
   attr_writer :current_step
 
   PAYMENT_TYPES = [
