@@ -1,10 +1,10 @@
 @import "fancy-buttons";
 
-$green: darken(#57b42c, 8);
+$green: #00ff00;
 $blue: adjust_hue($green, 110);
 $red: adjust_hue($green, -100);
 $heart_button: saturate(lighten($red, 2), 20);
- 
+
 @mixin custom-fancy-gradient($color1, $color2) {
   @include radial-gradient(color-stops(#c00, #fff, #00c 50px)); }
 

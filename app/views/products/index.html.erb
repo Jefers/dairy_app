@@ -1,2 +1,10 @@
 <h1>Products</h1>
-<%= render :partial => 'preferences' %>
+
+  <%= render :partial => 'search' %>
+
+  <div id="products"><%= render 'products' %></div>
+<br />
+
+<% if current_customer.try(:admin?) %>
+  <%= link_to 'New Product', new_product_path %>
+<% end %>

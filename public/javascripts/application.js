@@ -11,14 +11,6 @@ $(document).ready(function(){
   });
 });
 
-
-$(document).ready(function(){
-  /* Highlight the flash messages */
-  $("#old").click(function () {
-        $(this).effect("pulsate", { times:3 }, 2000);
-  });
-});
-
 jQuery(document).ready(function() {
   /* Fade out the flash messages */
   var $box = $('#flash');
@@ -39,53 +31,8 @@ $(document).ready(function() {
   $("div.accordionContent").hide();
 });
 
-function initMenu() {
-$('#menu ul').hide();
-$('#menu li a').click(
-  function() {
-    $(this).next().slideToggle('normal');
-    }
-  );
-}
-$(document).ready(function() {initMenu();});
-
-// validate signup form on keyup and submit
-jQuery(document).ready(function() {
-  $("#signupForm").validate({
-          rules: {
-                  password: {
-                          required: true,
-                          minlength: 6
-                  },
-                  confirm_password: {
-                          required: true,
-                          minlength: 6,
-                          equalTo: "#password"
-                  },
-                  email: {
-                          required: true,
-                          email: true
-                  },
-                  terms_of_service: "required"
-          },
-          messages: {
-                  password: {
-                          required: "Please provide a password",
-                          minlength: "Your password must be at least 6 characters long"
-                  },
-                  confirm_password: {
-                          required: "Please provide a password",
-                          minlength: "Your password must be at least 6 characters long",
-                          equalTo: "Please enter the same password as above"
-                  },
-                  email: "Please enter a valid email address",
-                  terms_of_service: "Please accept our policy"
-          }
-  });
-});
-
 /* create an array of days which need to be disabled  :todo ruby program to generate array of days */
-var disabledDays = ["4-22-2011","4-25-2011","4-29-2011","5-2-2011","5-30-2011","8-29-2011","12-26-2011","12-27-2011","1-2-2012","4-6-2012"];
+var disabledDays = ["5-30-2011","8-29-2011","12-26-2011","12-27-2011","1-2-2012","4-6-2012"];
 
 /* utility functions */
 function nationalDays(date) {
@@ -202,25 +149,6 @@ $(document).ready(function() {
     });
 });
 
-$(document).ready(function(){
-  $("#per_page value").keyup(function() {
-      alert( $.cookie("perPage") );
-    return false;
-  });
-
-});
-
-$(document).ready(function(){
-  $.cookie("perPage", "25", { path: '/' }); // , { path: '/', domain: 'www.example.com' });
-});
-
-$(document).ready(function(){
-  $("#preferences").hide(); // Hide div by default
-  $("button#preferenceButton").click(function(){
-    $("#preferences").toggle();
-
-  });
-});
 
 $(document).ready(function(){
   $(".productImage").show(); // Hide div by default

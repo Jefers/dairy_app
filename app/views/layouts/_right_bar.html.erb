@@ -1,15 +1,23 @@
 <div id="right_bar">
 
+  <% if customer_signed_in? %>
+    <div id="cart">
+      <% if @cart %>
+        <%= hidden_div_if(@cart.items.empty?, :id => "cart") do %>
+          <%= render(:partial => "cart", :object => @cart) %>
+        <% end %>
 
-  <div id="cart">
-    <% if @cart %>
-      <%= hidden_div_if(@cart.items.empty?, :id => "cart") do %>
-        <%= render(:partial => "cart", :object => @cart) %>
+        <% if @cart.items.empty? %>
+          <div class="top_section">
+            <span><%= render :text => "Your shopping cart is empty" %></span>
+          </div>
+        <% end %>
       <% end %>
-      <%= image_tag("empty_cart.png", :alt => "empty cart", :id => "empty_cart") if @cart.items.empty? %>
-    <% end %>
-  </div>
-
+    </div>
+  <% end %>
+<hr />
+  <%= render :partial => 'layouts/twitterfollow' %>
+<hr />
   <% if customer_signed_in? %>
     <div id="holiday">
       <h3>Going on holiday?</h3>
@@ -21,17 +29,10 @@
         </div>
       </div>
     </div>
+
+    <%= javascript_include_tag "twitterwidget", :cache => true %>
+    <%= render :partial => 'layouts/twitterfeed' %>
+
   <% end %>
-
-  <%= render :partial => 'layouts/twitterfeed' %>
-
-  <%= render :partial => 'layouts/twitterfollow' %>
-
-  <%= render :partial => 'layouts/getFF' %>
-
-
-  <div>
-    <p><%= image_tag("van1_opt.png", :alt => "", :id => "van1") %></p>
-  </div>
 
 </div>
