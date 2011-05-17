@@ -100,7 +100,9 @@ section {
     height: 2em;
     @include rounded; }
   &#navbar {
-    height: 4em; } }
+    height: 4em;
+    @include rounded;
+    @include grey_glow; } }
 
     #flash{
     font-size:150%;
@@ -121,20 +123,26 @@ section {
 
     }
 
+section#main_content {
+  @include rounded;
+  @include grey_glow;
+}
+
 /* Navigation */
 
 nav {
-  @include rounded;
-  @include grey_glow;
+  border:none;
   float: right;
   white-space: nowrap;
   ul {
     margin: 0;
     padding: 0;
     li {
+      @include rounded;
+      border:none;
       list-style-type: none;
       display: inline-block;
-      padding: 0.2em 0;
+      padding: 0.25em 0;
       a {
         padding: 0 5px;
         font-weight: bold;
@@ -277,7 +285,7 @@ div.field_with_errors div.ui-effects-wrapper { display: inline-block !important;
          }
 }
 
-.pageHeading { width:98%; @include shadow_box; padding:2px; margin-bottom: 1em; }
+.pageHeading { width:98%; @include rounded; @include shadow_box; padding:2px; margin-bottom: 1em; }
 
 /*Pagination*/
 
@@ -411,25 +419,25 @@ input[type="text"]#search {
 }
 
 input[type="text"]#per_page { width:20px; }
-.button {@include fancy-button($buttons, 11px); }
-input[type="submit"]{@include fancy-button($buttons, 11px); }
+.button {@include fancy-button($buttons, 11px); text-shadow: 1px 1px 1px #fff; }
+input[type="submit"]{@include fancy-button($buttons, 11px); text-shadow: 1px 1px 1px #fff; }
 button {@include fancy-button($buttons, 11px); }
-input[type="submit"]#go_button {@include fancy-button($buttons, 14px, 1em, 2px);  margin-bottom: -6px }
-input[type="submit"]#product_submit {@include fancy-button($buttons, 19px, 1em, 1px) }
-input[type="submit"]#save_button {@include fancy-button($buttons, 11px);  margin-bottom: -6px }
-input[type="submit"]#customer_submit {@include fancy-button($buttons, 17px);  margin-top: 1em; margin-bottom: -6px }
+input[type="submit"]#go_button {@include fancy-button($buttons, 14px, 1em, 2px); text-shadow: 1px 1px 1px #000;  margin-bottom: -6px; }
+input[type="submit"]#product_submit {@include fancy-button($buttons, 19px, 1em, 1px); text-shadow: 1px 1px 1px #000; }
+input[type="submit"]#save_button {@include fancy-button($buttons, 11px); text-shadow: 1px 1px 1px #000;  margin-bottom: -6px; }
+input[type="submit"]#customer_submit {@include fancy-button($buttons, 17px); text-shadow: 1px 1px 1px #000;  margin-top: 1em; margin-bottom: -6px; }
 
 input[type="submit"],input[type="submit"]:visited { color: $visited; }
 
 #customer_terms_of_service { margin-left: 1em; }
 #customer_remember_me {margin-right: 1em; }
-.productImage img { @include grey_glow; }
+.productImage img { @include rounded; @include border-radius(0.25em); margin:0; padding:0; @include grey_glow; }
 
 #logo { margin:0; padding:0; }
 
 .file_input_textbox { width: 400px; float: left; }
 
-.file_input_button {@include fancy-button($buttons, 15px);  margin-bottom: 30px; margin-top: 7px; }
+.file_input_button {@include fancy-button($buttons, 15px); text-shadow: 1px 1px 1px #000; margin-bottom: 30px; margin-top: 7px; }
 
 .file_input_div
 {
@@ -479,10 +487,11 @@ input[type="submit"],input[type="submit"]:visited { color: $visited; }
   border: 1px solid #00c823;
   width:100%;
   max-width:260px; //Chrome hack
-  background-color:#e5fabb;
+  background-color:#90f46e;
   font-size: 100%;
   margin:0 0 20px 0;
   padding: 1px !important;
+  display:inline-block;
 }
 
 #jcart div{
@@ -533,7 +542,7 @@ input[type="submit"],input[type="submit"]:visited { color: $visited; }
   padding:1px;
   width:70%;
 }
-.holiday_button {@include fancy-button($buttons, 17px);
+.holiday_button {@include fancy-button($buttons, 17px); text-shadow: 1px 1px 1px #fff;
   margin-right:auto;
   margin-left:auto;
   margin-top:1px;
@@ -604,6 +613,7 @@ input[type="submit"],input[type="submit"]:visited { color: $visited; }
     li {
       a {
         @include fancy-button($buttons, 14px);
+        text-shadow: 1px 1px 1px #fff;
         height: 2em;
         &:visited {
           color: $visited; }
@@ -644,9 +654,10 @@ input[type="submit"],input[type="submit"]:visited { color: $visited; }
 
 .top_section span {
     color: #FFFFFF;
-    font-size: 1.25em;
+    font-size: 1.5em;
     font-weight: 700;
-    line-height: 2.50em;
+    line-height: 1.5em;
+    text-shadow: 1px 1px 1px #000;
 }
 
 .empty_basket {

@@ -127,12 +127,12 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $('tr').click(function(event) {
-    $(this).effect("highlight", {}, 48000);
+    $(this).effect("highlight", {}, 24000);
   });
 });
 
 $(document).ready(function(){
-  $("#tabnav").click(function () {
+  $("#tabnav li").click(function () {
         $(this).effect("highlight", {}, 12000);
   });
 });
