@@ -1,6 +1,7 @@
 <header>
   <nav id="login_nav">
     <% if customer_signed_in? %>
+      <%= "Welcome back, you last signed in " << time_ago_in_words(current_customer.last_sign_in_at) << " ago ~" unless current_customer.last_sign_in_at.nil? %>
       Signed in as <%= current_customer.email %>. Not you?
       <%= link_to "Sign out", destroy_customer_session_path %>
     <% else %>

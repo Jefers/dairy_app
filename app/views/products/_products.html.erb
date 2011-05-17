@@ -1,10 +1,49 @@
 <%= hidden_field_tag :direction, params[:direction] %>
 <%= hidden_field_tag :sort, params[:sort] %>
 
-
-  <table class="pretty" id="productsTable">
+<% if params[:view].nil? %>
+  <div class="full">
+    <table class="pretty list" id="productsTable">
+      <tr>
+        <th class="productImage"></th>
+        <th>Name</th>
+        <% if customer_signed_in? %>
+        <th>Price</th>
+        <th>&nbsp;</th>
+        <% end %>
+        <% if current_customer.try(:admin?) %>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <% end %>
+      </tr>
+      <% for product in @products %>
+        <tr>
+          <td class="productImage"><%= link_to (image_tag product.picture.url(:tiny)), product  %> </td>
+          <td><%= link_to product.name, product %></td>
+          <% if customer_signed_in? %>
+           <td class="price"><%= quid(product.price) %></td>
+           <td>
+             <%= form_tag url_for(:action => "add_to_cart", :id=>product.id), :id => "cart-form", :remote => true do %>
+               <%= product.out_of_stock? ? 'Out of Stock' : (button_to "Add to Cart") %>
+             <% end %>
+           </td>
+           <td>
+             <%= form_tag url_for(:action => "remove_from_cart", :id=>product.id), :id => "cart-form", :remote => true do %>
+               <%= product.out_of_stock? ? '_' : (button_to "[-]") %>
+             <% end %>
+           </td>
+           <% end %>
+           <% if current_customer.try(:admin?) %>
+           <td><%= link_to_show product %></td>
+           <td><%= link_to_edit(product) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% elsif params[:view] == "list" %>
+  <table class="pretty list" id="productsTable">
     <tr>
-      <th class="productImage"></th>
       <th>Name</th>
       <% if customer_signed_in? %>
       <th>Price</th>
@@ -17,7 +56,6 @@
     </tr>
     <% for product in @products %>
       <tr>
-        <td class="productImage"><%= link_to (image_tag product.picture.url(:tiny)), product  %> </td>
         <td><%= link_to product.name, product %></td>
         <% if customer_signed_in? %>
          <td class="price"><%= quid(product.price) %></td>
@@ -39,6 +77,25 @@
       </tr>
     <% end %>
   </table>
+
+  <% elsif params[:view] == "grid" %>
+    <div class="grid">
+      <% for product in @products %>
+        <div class="item">
+          <div class="screenshot"><%= link_to (image_tag product.picture.url(:thumb)), product %></div>
+          <div class="name">
+            <%= link_to product.name, product %>
+          </div>
+          <div class="add">
+            <%= form_tag url_for(:action => "add_to_cart", :id=>product.id), :id => "cart-form", :remote => true do %>
+              <%= product.out_of_stock? ? 'Out of Stock' : (button_to "Add to Cart") %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <div class="clear"></div>
+    </div>
+  <% end %>
 
 <div class="digg_pagination">
   <%= paginate @products %>

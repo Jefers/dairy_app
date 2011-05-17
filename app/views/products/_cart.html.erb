@@ -8,13 +8,13 @@
     <%= render(:partial => "cart_item", :collection => cart.items) %>
 
     <tr class="total_line">
-      <td></td>
+      <td class="total_cell"></td>
       <td class="total_cell">Total:</td>
       <td class="total_cell"><%= quid(cart.total_price) %></td>
     </tr>
   </table>
 
-  <%= button_to "Checkout", {:action => :checkout}, {:class=>"cart_button"} %>
+  <%= button_to "Checkout", {:action => :checkout}, {:class=>"cart_button_checkout"} %>
 
   <br />
   <%= button_to "Empty cart", {:action => :empty_cart}, {:class=>"cart_button"}  %>

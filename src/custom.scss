@@ -3,7 +3,7 @@
 
 $sitewidth: 950px;    /* Total width = (columns * 40) - 10 */
 $site: #cdffbb; //#c3ff83; //#74D52B;
-$buttons: #26d447;
+$buttons: #19ff00;
 $font-color: #333b33; //$fb-color;
 $font-family: "Helvetica Neue", Arial, Helvetica, sans-serif ;
 $font-size: 120%;
@@ -75,7 +75,7 @@ h1, h2, h3, h4, h5, h6 {font-weight:normal;color:$font-color;}
 h1, h2, h3, h4 {text-shadow: #aaaaaa 1px 1px 1px;}
 header h1 {
   -x-system-font: none;
-  color: white;
+  color: #ffe;
   font-family: "Museo Slab","Helvetica","Arial",sans-serif;
   font-size: 65px;
   font-size-adjust: none;
@@ -102,7 +102,8 @@ section {
   &#navbar {
     height: 4em;
     @include rounded;
-    @include grey_glow; } }
+    @include grey_glow;
+    margin: 5px 0; } }
 
     #flash{
     font-size:150%;
@@ -124,6 +125,8 @@ section {
     }
 
 section#main_content {
+  margin:0px !important;
+  padding:3px !important;
   @include rounded;
   @include grey_glow;
 }
@@ -155,28 +158,35 @@ nav {
 #left_bar {
   @include rounded;
   @include grey_glow;
+  margin:0px !important;
+  padding:3px !important;
   float: right;
   white-space: normal;
   ul {
     margin: 0;
-    padding: 0;
+    padding: 0 20px 0 0;
     li {
       width: 100%;
-      @include border-radius(5px);
-      border-style:solid;
-      border-color:#8bcc46;
-      border-width:0.5px;
+      @include rounded;
       list-style-type: none;
+      font-size: 110% ;
+      padding: 1px ;
        }
-    li:hover {
-      font-color:white;
-      background-color:green;
-      }
-
+    li :hover {
+      font-color:yellow !important;
+      background-color:$buttons;
+      a {
+        color: $visited; text-shadow: 1px 1px 1px #fff; height: 2em;
+        &:visited { color: $visited; }
+        &:hover { color:white !important; text-shadow: 2px 2px 2px #000 !important; }
+        }
+              }
      }
 }
 
 #right_bar {
+  margin:0px !important;
+  padding:1px !important;
   max-width:268px; //Chrome hack
   @include rounded;
   @include grey_glow;
@@ -226,7 +236,7 @@ a.signup_button {
 
 .message {
   background-color: red;
-  color: white;
+  color: #ffe;
   @include border-radius(5px);
   margin-left: 1em;
   padding: 2px 5px;
@@ -310,7 +320,7 @@ div.field_with_errors div.ui-effects-wrapper { display: inline-block !important;
       margin-top: 1px;
       font-weight: bold;
       background: $paginate;
-      color: white;
+      color: #ffe;
       border: 2px solid $paginate; } }
   a {
     text-decoration: none;
@@ -421,6 +431,7 @@ input[type="text"]#search {
 input[type="text"]#per_page { width:20px; }
 .button {@include fancy-button($buttons, 11px); text-shadow: 1px 1px 1px #fff; }
 input[type="submit"]{@include fancy-button($buttons, 11px); text-shadow: 1px 1px 1px #fff; }
+
 button {@include fancy-button($buttons, 11px); }
 input[type="submit"]#go_button {@include fancy-button($buttons, 14px, 1em, 2px); text-shadow: 1px 1px 1px #000;  margin-bottom: -6px; }
 input[type="submit"]#product_submit {@include fancy-button($buttons, 19px, 1em, 1px); text-shadow: 1px 1px 1px #000; }
@@ -428,6 +439,7 @@ input[type="submit"]#save_button {@include fancy-button($buttons, 11px); text-sh
 input[type="submit"]#customer_submit {@include fancy-button($buttons, 17px); text-shadow: 1px 1px 1px #000;  margin-top: 1em; margin-bottom: -6px; }
 
 input[type="submit"],input[type="submit"]:visited { color: $visited; }
+
 
 #customer_terms_of_service { margin-left: 1em; }
 #customer_remember_me {margin-right: 1em; }
@@ -472,15 +484,16 @@ input[type="submit"],input[type="submit"]:visited { color: $visited; }
 .item_price, .total_line { text-align: right; }
 
 .total_line .total_cell {
+  background-color:darken(#90f46e, 20%);
   font-weight: bold;
-  border-top: 1px solid $border;
+  border-top: double darken(#90f46e, 40%);
   text-align: right;
 }
 
 /* START:cartside */
 /* Styles for the cart in the sidebar */
 
-#response { width:100%; }
+#response { width:100%; background-color:lighten(#90f46e, 20%);}
 
 #cart {
   @include rounded;
@@ -510,6 +523,11 @@ input[type="submit"],input[type="submit"]:visited { color: $visited; }
   border-bottom: 1px dotted #595;
   margin-bottom: 10px;
 }
+
+input[type="submit"].cart_button_checkout{float:right; @include fancy-button(#19ff00, 17px); color:#2b2b2b !important; text-shadow: 1px 1px 1px #fff !important;
+ &:visited { text-decoration:none; color: #19ff00; }
+ &:hover { text-decoration:none; color: white !important; text-shadow: 2px 2px 2px black !important; } }
+
 /* END:cartside */
 
 #holiday {
@@ -555,6 +573,9 @@ input[type="submit"],input[type="submit"]:visited { color: $visited; }
 }
 
 #wdtwitter { max-width:268px; //Chrome hack
+  display:inline-block;
+  margin:3px;
+  padding:1px;
 }
 
 #mdtwittershare {
@@ -618,7 +639,7 @@ input[type="submit"],input[type="submit"]:visited { color: $visited; }
         &:visited {
           color: $visited; }
         &:hover {
-          @include fancy-button($buttons, 14px); } } } } }
+          @include fancy-button($buttons, 14px); color:white !important; text-shadow: 2px 2px 2px #000 !important; } } } } }
 
 .highlight_link {
   white-space: normal;
@@ -686,9 +707,80 @@ table.ui-datepicker-calendar thead tr th { background-color:green !important; }
 
 a:link { text-decoration: none !important; color: $visited !important; }
 a:visited { text-decoration: none !important;color: $visited !important; }
-a:hover { text-decoration: none !important; color: white !important; background-color:green !important; }
+a:hover { text-decoration: none !important; color:#095f00 !important; background-color:#19ff00 !important; }
 //a:active { display:inline !important; text-decoration: none !important; color: $active !important; }
 
 #twtr-widget-1 .twtr-tweet a:hover {
-text-decoration: none !important; color: white !important; background-color:green !important;
+text-decoration: none !important; color: red !important; background-color:$buttons !important;
+}
+
+.item_views {
+  padding: 0 6px;
+  margin: 0;
+  font-weight: normal;
+  color: #444;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  border: solid 1px #BBB;
+  background-color: #DDD;
+  background: -webkit-gradient(linear, left top, left bottom, from(#EEE), to(#CCC));
+  background: -moz-linear-gradient(top, #EEE, #CCC);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEE', endColorstr='#CCC');
+  margin-bottom: 14px;
+}
+
+.item_views .view {
+  padding-left: 3px;
+}
+
+.item_views .view img {
+  background-color: #FFF;
+  background: -webkit-gradient(linear, left top, left bottom, from(#EEE), to(#FFF));
+  background: -moz-linear-gradient(top, #EEE, #FFF);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEE', endColorstr='#FFF');
+  padding: 7px;
+  vertical-align: middle;
+  border: solid 1px #BBB;
+  border-top: none;
+  border-bottom: none;
+}
+
+.item_views .view a img {
+  background: none;
+  padding: 2px;
+  border: none;
+}
+
+
+.items .grid {
+  margin-right: -30px;
+}
+
+.grid .item {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+.grid .screenshot img {
+  border: solid 1px #999;
+}
+
+.grid .name {
+  font-size: 10px;
+  position: absolute;
+  top: 105px;
+  left: 0;
+}
+
+.grid .add {
+  position: absolute;
+  top: 135px;
+  left: 0;
+}
+.clear {
+  clear: both;
 }
