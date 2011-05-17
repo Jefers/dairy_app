@@ -14,7 +14,7 @@ DairyApp::Application.routes.draw do
 
     match 'customer_holidays/old' => 'customer_holidays#old', :as => :old_holidays
     resources :customer_holidays
-
+    resources :quicknotes
     # get "autocomplete_searches/Index"
     # resources :autocomplete_searches, :only => [:index], :as => 'autocomplete'
   # match "/foo", :to => proc {|env| [200, {}, ["Hello world"]] }

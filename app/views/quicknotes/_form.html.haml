@@ -1,0 +1,13 @@
+= semantic_form_for @quicknote do |f|
+  -if @quicknote.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@quicknote.errors.count, "error")} prohibited this quicknote from being saved:"
+      %ul
+        - @quicknote.errors.full_messages.each do |msg|
+          %li= msg
+  = f.inputs do
+    = f.input :customer_id, :as => :hidden
+    = f.input :subject
+    = f.input :note
+  .actions
+    = f.submit 'Send email'

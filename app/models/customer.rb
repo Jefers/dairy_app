@@ -2,6 +2,7 @@ class Customer < ActiveRecord::Base
   has_many :customer_holidays, :dependent => :destroy
   has_many :line_items, :through => :orders
   has_many :orders, :dependent => :destroy
+  has_many :quicknotes
   before_update :uppercase_post_code
   validates_acceptance_of :terms_of_service, :accept => "1", :message => "You must accept the terms of service"
   attr_accessor :terms_of_service  # :TODO tos needed

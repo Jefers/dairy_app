@@ -1,7 +1,10 @@
-<div id="jcart" class="ui-widget-content ui-corner-all">
-  <div><h3 class="ui-widget-header ui-corner-all">Cart/Basket</h3></div>
+<div class="top_section">
+   <span><%= render :text => "    Shopping cart" %></span>
+   <div class="full_basket"></div>
+</div>
+<div id="jcart">
   <div id="response">status</div><%= image_tag 'ajax-loader.gif', :id => 'loading', :style => 'display: none' %>
-  <table id="storeListTable">
+  <table id="cartListTable">
     <%= render(:partial => "cart_item", :collection => cart.items) %>
 
     <tr class="total_line">
@@ -11,8 +14,8 @@
     </tr>
   </table>
 
-  <%= button_to "Checkout", {:action => :checkout}, {:class=>"ui-state-default ui-corner-all"} %>
+  <%= button_to "Checkout", {:action => :checkout}, {:class=>"cart_button"} %>
 
   <br />
-  <%= button_to "Empty cart", {:action => :empty_cart}, {:class=>"ui-state-default ui-corner-all"}  %>
+  <%= button_to "Empty cart", {:action => :empty_cart}, {:class=>"cart_button"}  %>
 </div>

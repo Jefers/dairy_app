@@ -1,8 +1,5 @@
 <header>
   <nav id="login_nav">
-    <% if current_customer.try(:admin?) %>
-      <%= link_to "Categories", categories_path %> |
-    <% end %>
     <% if customer_signed_in? %>
       Signed in as <%= current_customer.email %>. Not you?
       <%= link_to "Sign out", destroy_customer_session_path %>

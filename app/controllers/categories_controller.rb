@@ -1,16 +1,12 @@
 class CategoriesController < ApplicationController
+    respond_to :html
     before_filter :authenticate_customer!, :except => [:show, :index]
     load_and_authorize_resource
   # GET /categories
   # GET /categories.xml
   def index
     @categories = Category.all
-
-    respond_to do |format|
-      format.js # index.html.erb
-      format.html # index.html.erb
-      format.xml  { render :xml => @categories }
-    end
+    respond_with(@categories)
   end
 
   # GET /categories/1
@@ -18,11 +14,7 @@ class CategoriesController < ApplicationController
   def show
     @categories = Category.all
     @category = Category.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @category }
-    end
+    respond_with(@category)
   end
 
   # GET /categories/new
@@ -30,11 +22,7 @@ class CategoriesController < ApplicationController
   def new
     @categories = Category.all
     @category = Category.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @category }
-    end
+    respond_with(@category)
   end
 
   # GET /categories/1/edit
@@ -50,11 +38,10 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to(@category, :notice => 'Category was successfully created.') }
-        format.xml  { render :xml => @category, :status => :created, :location => @category }
+        flash[:notice] = 'new Category was successfully created.'
+        format.html { redirect_to(@category) }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @category.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -87,11 +74,9 @@ class CategoriesController < ApplicationController
     end
   end
 
+  # Left_bar menu list
   def list
     @categories = Category.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+    respond_with(@categories)
   end
 end

@@ -1,0 +1,12 @@
+<button id="preferenceButton">Change your preferences</button>
+<div id="preferences">
+  <fieldset id="userPreferences">
+    <legend>Display Preferences</legend>
+  <%= form_tag products_path, :method => 'get' do %>
+    <%= label_tag 'Items per page:' %>
+    <%= text_field_tag 'per_page', cookies[:perPage], :size => '1' %>
+    <%= submit_tag "save", :id => "save_button" %>
+  <% end %>
+  <button id="pictureButton">Toggle Pictures</button>
+  </fieldset>
+</div> 

@@ -23,13 +23,13 @@
          <td class="price"><%= quid(product.price) %></td>
          <td>
            <%= form_tag url_for(:action => "add_to_cart", :id=>product.id), :id => "cart-form", :remote => true do %>
-             <%= button_to "Add to Cart" %>
+             <%= product.out_of_stock? ? 'Out of Stock' : (button_to "Add to Cart") %>
            <% end %>
          </td>
          <td>
            <%= form_tag url_for(:action => "remove_from_cart", :id=>product.id), :id => "cart-form", :remote => true do %>
-           <%= button_to "[-]" %>
-          <% end %>
+             <%= product.out_of_stock? ? '_' : (button_to "[-]") %>
+           <% end %>
          </td>
          <% end %>
          <% if current_customer.try(:admin?) %>

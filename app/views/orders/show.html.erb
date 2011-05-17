@@ -16,6 +16,15 @@
   Paytype:<strong> <%= @order.try(:pay_type) %></strong>
   Repeat:<strong> <%= @order.try(:repeat) %></strong>
 </p>
+
+<p>
+  Instructions:<strong> <%= @order.try(:instructions) %></strong>
+</p>
+
+<p>
+  Complete address:<strong> <%= @order.try(:address) %>, <%= @order.try(:address_2) %>, <%= @order.try(:address_3) %>, <%= @order.try(:town) %>, <%= @order.try(:post_code) %></strong>
+</p>
+
 <%= render :partial => 'line_items', :locals => { :order => @order } %>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |

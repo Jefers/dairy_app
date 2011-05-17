@@ -1,15 +1,15 @@
 <div id="right_bar">
-
   <% if customer_signed_in? %>
     <div id="cart">
       <% if @cart %>
-        <%= hidden_div_if(@cart.items.empty?, :id => "cart") do %>
+        <%= hidden_div_if(@cart.items.empty?, :id => "ocart") do %>
           <%= render(:partial => "cart", :object => @cart) %>
         <% end %>
 
         <% if @cart.items.empty? %>
           <div class="top_section">
-            <span><%= render :text => "Your shopping cart is empty" %></span>
+             <span><%= render :text => "    Shopping cart is empty" %></span>
+             <div class="empty_basket"></div>
           </div>
         <% end %>
       <% end %>
@@ -30,8 +30,8 @@
       </div>
     </div>
 
-    <%= javascript_include_tag "twitterwidget", :cache => true %>
-    <%= render :partial => 'layouts/twitterfeed' %>
+    <%# javascript_include_tag "twitterwidget", :cache => true %>
+    <%# render :partial => 'layouts/twitterfeed' %>
 
   <% end %>
 

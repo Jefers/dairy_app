@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  respond_to :html
   before_filter :authenticate_customer!, :except => [:my_orders]
   load_and_authorize_resource
   skip_authorize_resource :only => :my_orders
@@ -11,14 +12,11 @@ class OrdersController < ApplicationController
   # GET /orders.xml
   def index
     if current_customer.try(:admin?)
-      @orders = Order.find(:all)
+      @orders = Order.find(:all).reverse
     else
       @orders = Order.by_customer(current_customer)
     end
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @orders }
-    end
+    respond_with(@orders)
   end
 
   # GET /orders/1
@@ -29,21 +27,14 @@ class OrdersController < ApplicationController
     else
       @order = Order.by_customer(current_customer).find(params[:id])
     end
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @order }
-    end
+    respond_with(@order)
   end
 
   # GET /orders/new
   # GET /orders/new.xml
   def new
     @order = Order.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @order }
-    end
+    respond_with(@order)
   end
 
   # GET /orders/1/edit

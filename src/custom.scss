@@ -93,8 +93,6 @@ header h1 {
 header { padding-top: 20px; }
 
 section {
-  @include rounded;
-  @include grey_glow;
   font-size: 120%;
   h1 {
     font-size: 200%; }
@@ -102,8 +100,7 @@ section {
     height: 2em;
     @include rounded; }
   &#navbar {
-    height: 4em;
-    @include rounded; } }
+    height: 4em; } }
 
     #flash{
     font-size:150%;
@@ -478,17 +475,27 @@ input[type="submit"],input[type="submit"]:visited { color: $visited; }
 #response { width:100%; }
 
 #cart {
+  @include rounded;
+  border: 1px solid #00c823;
   width:100%;
-  max-width:268px; //Chrome hack
+  max-width:260px; //Chrome hack
+  background-color:#e5fabb;
   font-size: 100%;
-  margin:0 0 10 0;
-  padding: 1px;
+  margin:0 0 20px 0;
+  padding: 1px !important;
 }
 
-#storeListTable tbody tr:nth-child(even) td, tbody tr.even td {background:#007f00;}
+#jcart div{
+}
+
+#ocart div{
+}
+
+#cartListTable tbody tr:nth-child(even) td, tbody tr.even td {background:#BAFFA2;}
 
 #cart table {
-  width:99%;
+  width:100%;
+  padding:0;
   font-size: 100%;
   border-top:    1px dotted #595;
   border-bottom: 1px dotted #595;
@@ -639,7 +646,25 @@ input[type="submit"],input[type="submit"]:visited { color: $visited; }
     color: #FFFFFF;
     font-size: 1.25em;
     font-weight: 700;
-    line-height: 1.25em;
+    line-height: 2.50em;
+}
+
+.empty_basket {
+  background-position:0 -16px; height:16px; width:19px;
+}
+
+.full_basket {
+  background-position:0 0px; height:16px; width:19px;
+}
+
+.empty_basket, .full_basket, .top_basket {
+  display:inline-block;
+  background-image:url('/images/basket.png');
+  background-repeat:no-repeat;
+}
+
+.sprite {
+  display:inline-block;
 }
 
 /* fix for jquery ui */

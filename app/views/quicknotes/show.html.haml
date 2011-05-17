@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Customer:
+  = @quicknote.customer_id
+%p
+  %b Subject:
+  = @quicknote.subject
+%p
+  %b Note:
+  = @quicknote.note
+
+= link_to 'Edit', edit_quicknote_path(@quicknote)
+\|
+= link_to 'Back', quicknotes_path

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110418131358) do
+ActiveRecord::Schema.define(:version => 20110516135623) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -117,6 +117,14 @@ ActiveRecord::Schema.define(:version => 20110418131358) do
     t.text     "description"
     t.string   "product_code",         :limit => 8
     t.integer  "position"
+  end
+
+  create_table "quicknotes", :force => true do |t|
+    t.integer  "customer_id"
+    t.string   "subject"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "sessions", :force => true do |t|

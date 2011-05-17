@@ -1,0 +1,23 @@
+%h1 Listing quicknotes
+
+%table
+  %tr
+    %th Customer
+    %th Subject
+    %th Note
+    %th
+    %th
+    %th
+
+  - @quicknotes.each do |quicknote|
+    %tr
+      %td= quicknote.customer_id
+      %td= quicknote.subject
+      %td= quicknote.note
+      %td= link_to 'Show', quicknote
+      %td= link_to 'Edit', edit_quicknote_path(quicknote)
+      %td= link_to 'Destroy', quicknote, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Quicknote', new_quicknote_path

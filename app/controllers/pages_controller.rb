@@ -48,8 +48,10 @@ class PagesController < ApplicationController
     @title = "Holiday Help"
     render :layout => 'full_page_layout'
   end
+
   def news
     @title = "News"
+    render :layout => 'full_page_layout'
   end
 
 

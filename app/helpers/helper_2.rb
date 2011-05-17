@@ -157,19 +157,19 @@ module ApplicationHelper
   def wd_sprite(image, options = {})
     sprites = {
       :sectionsprites  => { :w => 260, :h => 96, :x => 0  , :y => 0     },
-      :tweetbird_opt   => { :w => 264, :h => 90, :x => 0  , :y => 96    },
-      :i_notice        => { :w => 36,  :h => 32, :x => 0  , :y => 186   },
-      :basket          => { :w => 19,  :h => 32, :x => 36 , :y => 186   },
-      :mag_glass       => { :w => 25,  :h => 25, :x => 55 , :y => 186   },
-      :icon_view       => { :w => 16,  :h => 16, :x => 80 , :y => 186   },
-      :icon_edit       => { :w => 16,  :h => 16, :x => 96 , :y => 186   },
-      :icon_view       => { :w => 16,  :h => 16, :x => 112, :y => 186   },
-      :icon_edit       => { :w => 16,  :h => 16, :x => 128, :y => 186   },
-      :island_beta     => { :w => 80,  :h => 15, :x => 144, :y => 186   },
-      :icon_trash      => { :w => 10,  :h => 12, :x => 224, :y => 186   },
-      :icon_trash      => { :w => 10,  :h => 12, :x => 234, :y => 186   },
-      :del             => { :w => 8 ,  :h => 8,  :x => 244, :y => 186   },
+      :tweetbird_opt   => { :w => 264, :h => 90, :x => 0  , :y => -96    },
+      :i_notice        => { :w => 36,  :h => 32, :x => 0  , :y => -186   },
+      :basket          => { :w => 19,  :h => 32, :x => -36 , :y => -186   },
+      :mag_glass       => { :w => 25,  :h => 25, :x => -55 , :y => -186   },
+      :icon_view       => { :w => 16,  :h => 16, :x => -80 , :y => -186   },
+      :icon_edit       => { :w => 16,  :h => 16, :x => -96 , :y => -186   },
+      :icon_view       => { :w => 16,  :h => 16, :x => -112, :y => -186   },
+      :icon_edit       => { :w => 16,  :h => 16, :x => -128, :y => -186   },
+      :island_beta     => { :w => 80,  :h => 15, :x => -144, :y => -186   },
+      :icon_trash      => { :w => 10,  :h => 12, :x => -224, :y => -186   },
+      :icon_trash      => { :w => 10,  :h => 12, :x => -234, :y => -186   },
+      :del             => { :w => 8 ,  :h => 8,  :x => -244, :y => -186   },
     }
-    %(<span class="sprite #{options[:class]}" style="background: url(#{path_to_image('/images/walden_sprite.png')}) no-repeat -#{sprites[image][:x]}px -#{sprites[image][:y]}px; width: #{sprites[image][:w]}px; padding-top: #{sprites[image][:h]}px; #{options[:style]}; </span>)
+    %(<span class="sprite #{options[:class]}" style="background: url(#{path_to_image('/images/walden_sprite.png')}) no-repeat -#{sprites[image][:x]}px -#{sprites[image][:y]}px; width: #{sprites[image][:w]}px; padding-top: #{sprites[image][:h]}px; #{options[:style]}" title="#{options[:title]}">#{options[:title]}</span>)
   end
 end
