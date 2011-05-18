@@ -86,11 +86,13 @@
           <div class="name">
             <%= link_to product.name, product %>
           </div>
-          <div class="add">
-            <%= form_tag url_for(:action => "add_to_cart", :id=>product.id), :id => "cart-form", :remote => true do %>
-              <%= product.out_of_stock? ? 'Out of Stock' : (button_to "Add to Cart") %>
+            <% if customer_signed_in? %>
+              <div class="add">
+                <%= form_tag url_for(:action => "add_to_cart", :id=>product.id), :id => "cart-form", :remote => true do %>
+                  <%= product.out_of_stock? ? 'Out of Stock' : (button_to "Add to Cart") %>
+                <% end %>
+              </div>
             <% end %>
-          </div>
         </div>
       <% end %>
       <div class="clear"></div>
