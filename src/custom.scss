@@ -18,19 +18,6 @@ $hover: #167f1b; //lighten($font-color, 30%);
 $active: $font-color;
 $visited: $font-color;
 
-@mixin formInputs {
-  @include border-radius(5px);
-  margin-bottom: 1.5em;
-  background: $site;
-  font-size:14px;
-  font-weight:none;
-  font-style:normal;
-  border-style:solid;
-  border-color:$border;
-  border-width:2px;
-  width: 280px;
-  color:$font-color;
-}
 
 @mixin shadow_box {
   background-color:darken($bg, 20%);
@@ -40,10 +27,16 @@ $visited: $font-color;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-@mixin rounded { border: 1px solid rgba(0, 0, 0, 0.2); @include border-radius(0.5em); margin:0.25em; padding: 0.5em; background: $bg; }
+@mixin rounded { border: 1px solid rgba(0, 0, 0, 0.2); @include border-radius(0.5em); margin:0; padding:0; background: $bg; }
 @mixin grey_glow { -moz-box-shadow:0 0 8px rgba(78, 78, 78, 0.5); -webkit-box-shadow: rgba(0, 0, 128, 0.246094) 3px 3px 7px;}
 @mixin red_glow { -moz-box-shadow:0 0 8px rgba(255, 22, 22, 0.5); -webkit-box-shadow: rgba(255, 22, 22, 0.5) 3px 3px 7px;}
 @mixin clearfix { overflow: hidden; clear: both; }
+
+@mixin formInputs {
+  @include rounded;
+  color:$font-color;
+  height:27px;
+}
 
 html, body {
   color:$font-color ;
@@ -171,6 +164,7 @@ nav {
       list-style-type: none;
       font-size: 110% ;
       padding: 1px ;
+      margin-bottom:3px !important;
        }
     li :hover {
       font-color:yellow !important;
@@ -296,7 +290,7 @@ div.field_with_errors div.ui-effects-wrapper { display: inline-block !important;
 }
 
 .pageHeading { width:98%; @include rounded; @include shadow_box; padding:2px; margin-bottom: 1em; }
-
+.pageHeading h3 { margin-bottom: 0; }
 /*Pagination*/
 
 .digg_pagination {
@@ -421,18 +415,11 @@ div#upload, select {
   @include formInputs;
 }
 
-input[type="text"]#search {
-  padding-left:1.5em;
-  height: 1.5em;
-  @include formInputs;
-  background: url(/images/mag_glass.png) 0 -2px no-repeat;
-}
-
 input[type="text"]#per_page { width:20px; }
 .button {@include fancy-button($buttons, 11px); text-shadow: 1px 1px 1px #fff; }
 input[type="submit"]{@include fancy-button($buttons, 11px); text-shadow: 1px 1px 1px #fff; }
 
-button {@include fancy-button($buttons, 11px); }
+//button {@include fancy-button($buttons, 11px); }
 input[type="submit"]#go_button {@include fancy-button($buttons, 14px, 1em, 2px); text-shadow: 1px 1px 1px #000;  margin-bottom: -6px; }
 input[type="submit"]#product_submit {@include fancy-button($buttons, 19px, 1em, 1px); text-shadow: 1px 1px 1px #000; }
 input[type="submit"]#save_button {@include fancy-button($buttons, 11px); text-shadow: 1px 1px 1px #000;  margin-bottom: -6px; }
@@ -570,6 +557,12 @@ input[type="submit"].cart_button_checkout{float:right; @include fancy-button(#19
 .holiday_button, .holiday_button:visited {
   text-decoration:none;
   color: #2f2f2f;
+}
+
+.holiday_button:hover {
+  text-decoration:none;
+  text-shadow: 1px 1px 1px #000;
+  color: #fff !important;
 }
 
 #wdtwitter { max-width:268px; //Chrome hack
@@ -760,27 +753,68 @@ text-decoration: none !important; color: red !important; background-color:$butto
 
 .grid .item {
   float: left;
-  margin-right: 20px;
-  margin-bottom: 70px;
+  margin-bottom: 15px;
+  margin-left:8px;
+  margin-right:8px;
   position: relative;
 }
 
+.item {
+  @include rounded;
+  padding-bottom: 70px !important;
+}
+
 .grid .screenshot img {
-  border: solid 1px #999;
+  margin:3px;
+  border: none;
 }
 
 .grid .name {
   font-size: 10px;
   position: absolute;
   top: 105px;
-  left: 0;
+  left: 5px;
 }
 
 .grid .add {
   position: absolute;
-  top: 135px;
+  top: 152px;
   left: 0;
+  margin-left:7px;
 }
 .clear {
   clear: both;
+}
+
+
+div#product_search  {
+  @include rounded;
+  padding:10px !important;
+  margin-bottom:10px;
+}
+
+input[type="text"]#search {
+  color:#999;
+  font-size:15px;
+  padding:0px !important;
+  margin:0px !important;
+  height:28px !important;
+  width: 370px;
+  padding-left:20px !important;
+  background: url(/images/mag_glass.png) no-repeat;
+}
+
+button#product_search_button {background:url(/images/input_search_button.png) top no-repeat;height:28px;width:27px;border:0; margin:1px 0 0 -28px !important; padding:0px !important; position:absolute}
+button#product_search_button:hover {background-position:bottom;}
+
+.fix300  {
+  display: inline-block;
+  width:300px;
+}
+
+.accordion {
+  @include rounded;
+  @include grey_glow;
+  background-color:darken($bg, 10%);
+  cursor:move;
 }

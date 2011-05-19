@@ -31,6 +31,12 @@ $(document).ready(function() {
   $("div.accordionContent").hide();
 });
 
+$(document).ready(function() {
+  $('div.accordion').click(function(event) {
+    $(this).effect("highlight", {}, 24000);
+  });
+});
+
 /* create an array of days which need to be disabled  :todo ruby program to generate array of days */
 var disabledDays = ["5-30-2011","8-29-2011","12-26-2011","12-27-2011","1-2-2012","4-6-2012"];
 

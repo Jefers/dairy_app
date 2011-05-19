@@ -2,40 +2,29 @@
 <h1>Customers</h1>
 <p>This is the number of customers on-line now:  <strong><%=  @customer_online_count %></strong></p>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>URN/Rnd:</th>
-    <th>Role</th>
-    <th>Address</th>
-    <th>Email</th>
-    <th>Login#</th>
-    <th>Last seen</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-<% @customers.each do |customer| %>
-  <tr>
-    <td><%= customer.name %></td>
-    <td><%= customer.urn %>/<%= customer.round %></td>
-    <td><%= customer.role %></td>
-    <td><%= customer.address %></td>
-    <td><%= customer.email %></td>
-    <td><%= customer.sign_in_count %></td>
-    <td colspan="2"><%= time_ago_in_words(customer.last_seen) << " ago" unless customer.last_seen.nil? %></td>
-    <td><%= link_to_show customer %></td>
-    <td><%= link_to_edit(customer) %></td>
-  </tr>
-  <tr>
-    <td colspan="2"><%= customer.telephone %></td>
-    <td><%= link_to 'email', :controller => "quicknotes", :action => "new", :customer_id => customer.id %></td>
-    <td></td>
-    <td><%= customer.last_sign_in_ip %></td>
-    <td><%= link_to 'New Quicknote', new_quicknote_path %></td>
-    <td colspan="2"><%= format_date_time(customer.last_seen) unless customer.last_seen.nil? %></td>
-  </tr>
-<% end %>
-</table>
+
+  <% @customers.each do |customer| %>
+<div class="accordion">
+    <div class="accordionButton">
+        <span class="fix300"> name:<strong><%= customer.name %></strong></span>
+        <span class="fix300"> urn:<strong><%= customer.urn %>/<%= customer.round %></strong></span>
+        <span class="fix300"> last seen:<strong><%= time_ago_in_words(customer.last_seen) << " ago" unless customer.last_seen.nil? %></strong></span>
+        <span class="fix300"> signed in#:<strong><%= customer.sign_in_count %></strong></span>
+    </div>
+    <div class="accordionContent">
+        <span class="fix300"> telephone:<strong><%= customer.telephone %></strong></span>
+        <span class="fix300"> send an email:<strong><%= link_to 'email customer', :controller => "quicknotes", :action => "new", :customer_id => customer.id %></strong></span>
+        <span class="fix300"> ip:<strong><%= customer.last_sign_in_ip %></strong></span>
+        <span class="fix300"> last seen date:<strong><%= format_date_time(customer.last_seen) unless customer.last_seen.nil? %></strong></span>
+      </br>
+        <span class="fix300"> role:<strong><%= customer.role %></strong></span>
+        <span class="fix300"> address:<strong><%= customer.address %></strong></span>
+        <span class="fix300"> email:<strong><%= customer.email %></strong></span>
+        <span class="fix300"> <strong><%= link_to_show customer %></strong></span>
+        <span class="fix300"> <strong><%= link_to_edit(customer) %></strong></span>
+    </div>
+</div>
+  <% end %>
+
 
 <% end %>
