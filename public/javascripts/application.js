@@ -108,15 +108,14 @@ $(document).ready(function() {
 
   $("#cart-form")
     .bind("ajax:beforeSend",  showLoading)
-    .bind("ajax:complete", hideLoading)
-    .bind("ajax:success", function(s, data, status, xhr) {
+    .bind("ajax:complete", function(event, xhr, status, error) {
       $("#response").html(status);
       var flash = XMLHttpRequest.getResponseHeader("X-Flash");
       $("#flash").html(flash);
-      alert(s);
+      alert(event);
       alert(xhr);
       alert(status);
-      alert(data);
+      alert(error);
     });
 });
 

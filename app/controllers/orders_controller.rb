@@ -11,22 +11,14 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.xml
   def index
-    if current_customer.try(:admin?)
-      @orders = Order.find(:all).reverse
-    else
-      @orders = Order.by_customer(current_customer)
-    end
+    @orders = index_resources
     respond_with(@orders)
   end
 
   # GET /orders/1
   # GET /orders/1.xml
   def show
-    if current_customer.try(:admin?)
-      @order = Order.find(params[:id])
-    else
-      @order = Order.by_customer(current_customer).find(params[:id])
-    end
+    @order = resource
     respond_with(@order)
   end
 
@@ -39,11 +31,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
-    if current_customer.try(:admin?)
-      @order = Order.find(params[:id])
-    else
-      @order = Order.by_customer(current_customer).find(params[:id])
-    end
+    @order = resource
   end
 
   # POST /orders
@@ -66,12 +54,7 @@ class OrdersController < ApplicationController
   # PUT /orders/1
   # PUT /orders/1.xml
   def update
-    if current_customer.try(:admin?)
-      @order = Order.find(params[:id])
-    else
-      @order = Order.by_customer(current_customer).find(params[:id])
-    end
-
+    @order = resource
     respond_to do |format|
       if @order.update_attributes(params[:order])
         flash[:notice] = 'Order was successfully updated.'
@@ -87,11 +70,7 @@ class OrdersController < ApplicationController
   # DELETE /orders/1
   # DELETE /orders/1.xml
   def destroy
-    if current_customer.try(:admin?)
-      @order = Order.find(params[:id])
-    else
-      @order = Order.by_customer(current_customer).find(params[:id])
-    end
+    @order = resource
     @order.destroy
 
     respond_to do |format|
@@ -130,4 +109,19 @@ class OrdersController < ApplicationController
       format.xml  { render :xml => @orders }
     end
   end
+
+  private
+
+  def index_resources
+    if params[:customer_id]
+      current_customer.try(:admin?) ? Order.by_customer(params[:customer_id]) : Order.by_customer(current_customer)
+    else
+      current_customer.try(:admin?) ? Order.find(:all).reverse : Order.by_customer(current_customer)
+    end
+  end
+
+  def resource
+    current_customer.try(:admin?) ? Order.find(params[:id]) : Order.by_customer(current_customer).find(params[:id])
+  end
+
 end

@@ -21,13 +21,23 @@ form.formtastic fieldset ol li p.inline-hints {
 }
 
 /* line 18, ../../../src/formtastic_changes.scss */
+form.formtastic fieldset ol li.string input, li.password input, li.numeric input, li.email input, li.url input, li.phone input, li.search input, li.text textarea {
+  background-color: #BAFFA2;
+}
+
+/* line 20, ../../../src/formtastic_changes.scss */
+form.formtastic select {
+  background-color: #BAFFA2;
+}
+
+/* line 22, ../../../src/formtastic_changes.scss */
 form.formtastic input[type="submit"] {
   font-size: 1.1em;
   padding: 5px;
   vertical-align: middle;
 }
 
-/* line 20, ../../../src/formtastic_changes.scss */
+/* line 24, ../../../src/formtastic_changes.scss */
 form.formtastic li {
   list-style: none;
   margin-bottom: 0.5em;

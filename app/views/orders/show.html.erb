@@ -27,5 +27,7 @@
 
 <%= render :partial => 'line_items', :locals => { :order => @order } %>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<% if current_customer.try(:admin?) %>
+  <%= link_to 'Edit', edit_order_path(@order) %> |
+  <%= link_to 'Back', orders_path %>
+<% end %>

@@ -3,7 +3,7 @@
    <div class="full_basket"></div>
 </div>
 <div id="jcart">
-  <div id="response">status</div><%= image_tag 'ajax-loader.gif', :id => 'loading', :style => 'display: none' %>
+  <div id="response">status:</div><%= image_tag 'ajax-loader.gif', :id => 'loading', :style => 'display: none' %>
   <table id="cartListTable">
     <%= render(:partial => "cart_item", :collection => cart.items) %>
 

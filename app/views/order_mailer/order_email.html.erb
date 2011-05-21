@@ -10,6 +10,7 @@
     <p>
       You have successfully ordered from waldendairy.com,
       your order number is: <%= @order.id %>.<br/>
+      <%= link_to "View your order here", ("https://waldendairy.com/orders/" + (@order.id).to_s), :target => "_blank"  %>
     </p>
     <p>
       Your instructions: <%= @order.instructions %>.<br/>

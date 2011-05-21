@@ -33,6 +33,7 @@ $visited: $font-color;
 @mixin clearfix { overflow: hidden; clear: both; }
 
 @mixin formInputs {
+  background-color:#BAFFA2;
   @include rounded;
   color:$font-color;
   height:27px;
