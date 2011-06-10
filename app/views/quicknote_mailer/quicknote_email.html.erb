@@ -10,7 +10,7 @@
       You last signed in to waldendairy.com <%= time_ago_in_words(@quicknote.customer.last_seen) << " ago" unless @quicknote.customer.last_seen.nil? %>
     </p>
     <p>
-      Here is a quick note from us:
+      Here is a quick note from us:<br/><br/>
       <%= @quicknote.try(:note) %> <br/>
     </p>
     <p>

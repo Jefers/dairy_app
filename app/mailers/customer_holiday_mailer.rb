@@ -8,7 +8,7 @@ class CustomerHolidayMailer < ActionMailer::Base
     attachments.inline['small_sh_banner.png'] = data2
 
     @customer_holiday  = customer_holiday
-    @url  = "https://waldendairy.com/sign_in"
+    @url  = "https://waldendairy.com/customers/sign_in"
     mail(:to => "#{customer_holiday.name} <#{customer_holiday.email_address}>",
          :cc => "milkman@waldendairy.com",
          :reply_to => "problem@waldendairy.com",

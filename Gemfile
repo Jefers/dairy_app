@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
-gem 'mysql2'
+gem 'mysql2', '0.2.7'
 # gem 'sqlite3-ruby', '1.3.2', :require => 'sqlite3'
 gem "haml-rails"
 gem "haml", '3.0.25' #:TODO is this really necessary? really?
@@ -11,8 +11,8 @@ gem "paperclip", "~> 2.3"
 gem 'kaminari'
 gem 'jquery-rails'
 gem 'rails3-jquery-autocomplete'
-gem 'compass'
-gem 'fancy-buttons'
+gem 'compass', '0.10.6'
+gem 'fancy-buttons', '1.0.6'
 gem 'hpricot'
 gem 'ruby_parser'
 gem 'pdfkit'

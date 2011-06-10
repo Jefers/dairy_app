@@ -50,5 +50,9 @@
       <%- end -%>
     </div>
 
+  <% if params[:controller] == "products" %>
+    <%= render :partial => 'search' %>
+  <% end %>
+
 </header>
 

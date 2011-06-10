@@ -27,20 +27,14 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
-    if params[:per_page]
-      cookies.permanent[:perPage] = params[:per_page]
-    else
-      cookies[:perPage] ||= 20
-    end
-
     @categories = Category.all
     if params[:search]
-      @products = Product.search(params[:search]).available.page(params[:page]).per(cookies[:perPage])
+      @products = Product.search(params[:search]).available.page(params[:page])
     else
       if current_customer.try(:admin?)
-        @products = Product.order_by_category_and_position.page(params[:page]).per(cookies[:perPage])
+        @products = Product.order_by_category_and_position.page(params[:page])
       else
-        @products = Product.available.order_by_category_and_position.page(params[:page]).per(cookies[:perPage])
+        @products = Product.available.order_by_category_and_position.page(params[:page])
       end
     end
 
@@ -53,16 +47,10 @@ class ProductsController < ApplicationController
   end
 
   def for_category
-    if params[:per_page]
-      cookies.permanent[:perPage] = params[:per_page]
-    else
-      cookies[:perPage] ||= 20
-    end
-
     @categories = Category.all
     @category = Category.find(params[:category_id])
     @cat = params[:category_id]
-    @products = Product.search(params[:search]).where(:category_id => @cat).order(sort_column + " " + sort_direction).page(params[:page]).per(cookies[:perPage])
+    @products = Product.search(params[:search]).where(:category_id => @cat).order(sort_column + " " + sort_direction).page(params[:page])
     # @products = @products.select{ |product| product.category == @category }
 
     respond_with(@products)

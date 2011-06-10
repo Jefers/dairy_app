@@ -7,7 +7,7 @@ class OrderMailer < ActionMailer::Base
     attachments.inline['small_wd_banner.png'] = data
     attachments.inline['small_sh_banner.png'] = data2
     @order = order
-    @url  = "https://waldendairy.com/sign_in"
+    @url  = "https://waldendairy.com/customers/sign_in"
     mail(:to => order.email,
          :cc => "milkman@waldendairy.com",
          :reply_to => "problem@waldendairy.com",
