@@ -1,0 +1,28 @@
+%h1 Our Suppliers
+
+%table
+  %tr
+    -if current_customer.try(:admin?)
+      %th Name
+      %th Contact telephone
+      %th Email address
+      %th Active
+      %th
+      %th
+      %th
+
+  - @suppliers.each do |supplier|
+    %tr
+      %td= supplier.name
+      %td= supplier.contact_telephone
+      %td= supplier.email_address
+
+      -if current_customer.try(:admin?)
+        %td= supplier.active
+        %td= link_to 'Show', supplier
+        %td= link_to 'Edit', edit_supplier_path(supplier)
+        %td= link_to 'Destroy', supplier, :confirm => 'Are you sure?', :method => :delete
+
+%br
+-if current_customer.try(:admin?)
+  = link_to 'New Supplier', new_supplier_path

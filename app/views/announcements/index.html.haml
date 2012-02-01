@@ -1,0 +1,31 @@
+%h1 Latest News
+
+%table
+  -if current_customer.try(:admin?)
+    %tr
+      %th Title
+      %th News
+      %th Published from
+      %th Published to
+      %th Active
+      %th
+      %th
+      %th
+
+  - @announcements.each do |announcement|
+    %tr
+      %td= announcement.title
+      %td=format_very_long_date(announcement.published_from)
+    %br
+      %td= announcement.news
+      -if current_customer.try(:admin?)
+        %td= announcement.published_from
+        %td= announcement.published_to
+        %td= announcement.active
+        %td= link_to 'Show', announcement
+        %td= link_to 'Edit', edit_announcement_path(announcement)
+        %td= link_to 'Destroy', announcement, :confirm => 'Are you sure?', :method => :delete
+
+%br
+-if current_customer.try(:admin?)
+  = link_to 'New Announcement', new_announcement_path

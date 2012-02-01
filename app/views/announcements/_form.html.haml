@@ -1,0 +1,18 @@
+= semantic_form_for @announcement do |f|
+  -if @announcement.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@announcement.errors.count, "error")} prohibited this announcement from being saved:"
+      %ul
+        - @announcement.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.inputs do
+    = f.input :title, :input_html => {:size => 100}
+    = f.input :news, :input_html => {:size => 100}
+    -if current_customer.try(:admin?)
+      = f.input :published_from
+      = f.input :published_to
+      = f.input :active
+
+  .actions
+    = f.submit 'Save', :class => 'file_input_button'

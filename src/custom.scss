@@ -3,9 +3,10 @@
 
 $sitewidth: 950px;    /* Total width = (columns * 40) - 10 */
 $site: #cdffbb; //#c3ff83; //#74D52B;
-$buttons: #19ff00;
+$buttons: #006302; //#19ff00;
 $font-color: #333b33; //$fb-color;
-$font-family: "Helvetica Neue", Arial, Helvetica, sans-serif ;
+//$font-family: "Helvetica Neue", Arial, Helvetica, sans-serif ;
+$font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
 $font-size: 120%;
 $background: lighten($site, 20%);
 $bg: $background;
@@ -17,7 +18,6 @@ $linkcolor: $font-color;
 $hover: #167f1b; //lighten($font-color, 30%);
 $active: $font-color;
 $visited: $font-color;
-
 
 @mixin shadow_box {
   background-color:darken($bg, 20%);
@@ -41,7 +41,7 @@ $visited: $font-color;
 
 html, body {
   color:$font-color ;
-  font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: $font-family ;
   height: 100%;
 }
 
@@ -65,12 +65,18 @@ footer {
   width:99.5%; // :TODO hack for footer
 }
 
+/* Links */
+a:link {color: $linkcolor;}    /* unvisited link */
+a:visited {color: $linkcolor;} /* visited link */
+a:hover {color:$hover;}   /* mouse over link */
+a:active {color:#0000FF;}  /* selected link */
+
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:$font-color;}
 h1, h2, h3, h4 {text-shadow: #aaaaaa 1px 1px 1px;}
 header h1 {
   -x-system-font: none;
   color: #ffe;
-  font-family: "Museo Slab","Helvetica","Arial",sans-serif;
+  font-family: $font-family;
   font-size: 65px;
   font-size-adjust: none;
   font-stretch: normal;
@@ -86,6 +92,56 @@ header h1 {
 
 header { padding-top: 20px; }
 
+#top_menu a:hover {
+    color: #F31B00;
+}
+#top_menu input {
+    font-size: 12px;
+}
+
+#search_site {
+    color: #434E52;
+    float: right;
+    height: 15px;
+    margin-right: -1px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+    padding-right: 1px;
+    padding-top: 2px;
+    width: 250px;
+}
+
+#go {
+    float: right;
+    height: 22px;
+    width: 31px;
+}
+
+/* Begin Navigation Bar Styling */
+#nav {
+   width: 100%;
+   float: left;
+   margin: 0 0 0 0;
+   padding: 0;
+   list-style: none;
+   background-color: #f2f2f2;
+   border-bottom: 1px solid #ccc;
+   border-top: 1px solid #ccc; }
+#nav li {
+   float: left; }
+#nav li a {
+   display: block;
+   padding: 8px 15px;
+   text-decoration: none;
+   font-weight: bold;
+   color: $buttons;
+   border-right: 1px solid #ccc; }
+#nav li a:hover {
+   color: $hover;
+   background-color: #ddd; }
+/* End navigation bar styling. */
+
+
 section {
   font-size: 120%;
   h1 {
@@ -95,8 +151,6 @@ section {
     @include rounded; }
   &#navbar {
     height: 4em;
-    @include rounded;
-    @include grey_glow;
     margin: 5px 0; } }
 
     #flash{
@@ -146,7 +200,7 @@ nav {
         &:visited {
           color: $visited; }
         &:hover {
-          text-decoration: underline; } } } } }
+          text-decoration: none; } } } } }
 
 
 #left_bar {
@@ -169,12 +223,13 @@ nav {
       margin-bottom:3px !important;
        }
     li :hover {
+      @include rounded;
+      margin:0px !important;
+      padding:3px !important;
       background-color:$buttons;
-      a {
-        color: $visited; text-shadow: 1px 1px 1px #fff; height: 2em;
-        &:visited { color: $visited; }
-        &:hover { text-decoration: none !important; color:white !important; text-shadow: 2px 2px 2px #000 !important; }
-        }
+      color: white;
+
+
               }
      }
 }
@@ -189,6 +244,27 @@ nav {
   background-color: $bg;
   white-space: normal;
   @include clearfix;
+}
+
+#pantry div {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 130px;
+  @include rounded;
+  @include grey_glow;
+}
+
+#pantry_logo {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+#social {
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 130px;
 }
 
 #login_nav { padding:2px; margin-top: -2em; }
@@ -430,16 +506,16 @@ div#upload, select {
 }
 
 input[type="text"]#per_page { width:20px; }
-.button {@include fancy-button($buttons, 11px); text-shadow: 1px 1px 1px #fff; }
-input[type="submit"]{@include fancy-button($buttons, 11px); text-shadow: 1px 1px 1px #fff; }
+.button {@include fancy-button($buttons, 11px);}
+input[type="submit"]{@include fancy-button($buttons, 11px); }
 
 //button {@include fancy-button($buttons, 11px); }
-input[type="submit"]#go_button {@include fancy-button($buttons, 14px, 1em, 2px); text-shadow: 1px 1px 1px #000;  margin-bottom: -6px; }
-input[type="submit"]#product_submit {@include fancy-button($buttons, 19px, 1em, 1px); text-shadow: 1px 1px 1px #000; }
-input[type="submit"]#save_button {@include fancy-button($buttons, 11px); text-shadow: 1px 1px 1px #000;  margin-bottom: -6px; }
-input[type="submit"]#customer_submit {@include fancy-button($buttons, 17px); text-shadow: 1px 1px 1px #000;  margin-top: 1em; margin-bottom: -6px; }
+input[type="submit"]#go_button {@include fancy-button($buttons, 14px, 1em, 2px); margin-bottom: -6px; }
+input[type="submit"]#product_submit {@include fancy-button($buttons, 19px, 1em, 1px); }
+input[type="submit"]#save_button {@include fancy-button($buttons, 11px); margin-bottom: -6px; }
+input[type="submit"]#customer_submit {@include fancy-button($buttons, 17px); margin-top: 1em; margin-bottom: -6px; }
 
-input[type="submit"],input[type="submit"]:visited { color: $visited; }
+
 
 
 #customer_terms_of_service { margin-left: 1em; }
@@ -450,7 +526,7 @@ input[type="submit"],input[type="submit"]:visited { color: $visited; }
 
 .file_input_textbox { width: 400px; float: left; }
 
-.file_input_button {@include fancy-button($buttons, 15px); text-shadow: 1px 1px 1px #000; margin-bottom: 30px; margin-top: 7px; }
+.file_input_button {@include fancy-button($buttons, 15px); margin-bottom: 30px; margin-top: 7px; }
 
 .file_input_div
 {
@@ -525,9 +601,7 @@ input[type="submit"],input[type="submit"]:visited { color: $visited; }
   margin-bottom: 10px;
 }
 
-input[type="submit"].cart_button_checkout{float:right; @include fancy-button(#19ff00, 17px); color:#2b2b2b !important; text-shadow: 1px 1px 1px #fff !important;
- &:visited { text-decoration:none; color: #19ff00; }
- &:hover { text-decoration:none; color: white !important; text-shadow: 2px 2px 2px black !important; } }
+input[type="submit"].cart_button_checkout{float:right; @include fancy-button($buttons, 17px);}
 
 /* END:cartside */
 
@@ -561,23 +635,7 @@ input[type="submit"].cart_button_checkout{float:right; @include fancy-button(#19
   padding:1px;
   width:70%;
 }
-.holiday_button {@include fancy-button($buttons, 17px); text-shadow: 1px 1px 1px #fff;
-  margin-right:auto;
-  margin-left:auto;
-  margin-top:1px;
-  margin-bottom:1px;
-}
-
-.holiday_button, .holiday_button:visited {
-  text-decoration:none;
-  color: #2f2f2f;
-}
-
-.holiday_button:hover {
-  text-decoration:none;
-  text-shadow: 1px 1px 1px #000;
-  color: #fff !important;
-}
+.holiday_button {@include fancy-button($buttons, 17px);}
 
 #wdtwitter { max-width:268px; //Chrome hack
   display:inline-block;
@@ -641,12 +699,7 @@ input[type="submit"].cart_button_checkout{float:right; @include fancy-button(#19
     li {
       a {
         @include fancy-button($buttons, 14px);
-        text-shadow: 1px 1px 1px #fff;
-        height: 2em;
-        &:visited {
-          color: $visited; }
-        &:hover {
-          @include fancy-button($buttons, 14px); color:white !important; text-shadow: 2px 2px 2px #000 !important; } } } } }
+        } } } }
 
 .highlight_link {
   white-space: normal;
@@ -708,14 +761,6 @@ input[type="submit"].cart_button_checkout{float:right; @include fancy-button(#19
 
 /* fix for jquery ui */
 table.ui-datepicker-calendar thead tr th { background-color:green !important; }
-
-
-/* Links */
-
-a:link { text-decoration: none !important; color: $visited !important; }
-a:visited { text-decoration: none !important;color: $visited !important; }
-a:hover { text-decoration: none !important; color:#095f00 !important; background-color:#19ff00 !important; }
-//a:active { display:inline !important; text-decoration: none !important; color: $active !important; }
 
 #twtr-widget-1 .twtr-tweet a:hover {
 text-decoration: none !important; color: red !important; background-color:$buttons !important;
@@ -803,12 +848,13 @@ text-decoration: none !important; color: red !important; background-color:$butto
 
 
 div#product_search  {
-  @include rounded;
+  float: right;
   padding:10px !important;
   margin-bottom:10px;
 }
 
 input[type="text"]#search {
+
   color:#999;
   font-size:15px;
   padding:0px !important;

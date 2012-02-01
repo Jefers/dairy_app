@@ -1,4 +1,7 @@
 DairyApp::Application.routes.draw do
+
+  resources :announcements
+
   SSL_PROTO__ = 'https' unless defined?(SSL_PROTO__)
   scope :constraints => { :protocol => SSL_PROTO__ } do
     # All your SSL routes.
@@ -36,6 +39,8 @@ DairyApp::Application.routes.draw do
       end
     end
 
+    resources :suppliers
+
     # resources :store
     scope 'products' do
       match '/checkout'         => 'products#checkout'
@@ -59,6 +64,8 @@ DairyApp::Application.routes.draw do
 
     # get "users/new"
     # match '/signup',     :to => 'users#new'
+    match '/merchant',     :to => 'pages#merchant'
+    match '/pantry',       :to => 'pages#pantry'
     match '/help_holiday', :to => 'pages#help_holiday'
     match '/help_order',   :to => 'pages#help_order'
     match '/contact',      :to => 'pages#contact'
@@ -69,9 +76,10 @@ DairyApp::Application.routes.draw do
     match '/security',     :to => 'pages#security'
     match '/news',         :to => 'pages#news'
     match '/fun',          :to => 'pages#fun'
+    match '/home',         :to => 'pages#home'
     match '/quick_list',   :to => 'products#quick_list'
 
-    root :to => "products#index"
+    root :to => "pages#home"
 
 
   # The priority is based upon order of creation:

@@ -1,0 +1,22 @@
+= semantic_form_for @supplier do |f|
+  -if @supplier.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@supplier.errors.count, "error")} prohibited this supplier from being saved:"
+      %ul
+        - @supplier.errors.full_messages.each do |msg|
+          %li= msg
+  = f.inputs do
+    = f.input :name, :input_html => {:size => 50}
+    = f.input :address, :input_html => {:size => 50}
+    = f.input :address_2, :label => "&nbsp;", :input_html => { :size => 50 }
+    = f.input :address_3, :label => "&nbsp;", :input_html => { :size => 50 }
+    = f.input :town, :input_html => {:size => 50}
+    = f.input :post_code, :input_html => {:size => 10}
+    = f.input :contact_telephone, :input_html => {:size => 20}
+    = f.input :email_address, :input_html => {:size => 30}
+    = f.input :information, :input_html => {:size => 60}
+    -if current_customer.try(:admin?)
+      = f.input :active
+
+    .actions
+      = f.submit 'Send the form', :class => 'file_input_button'

@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 
   def home
     @title = "Home"
+    render :layout => 'full_page_layout'
   end
 
   def contact
@@ -54,6 +55,15 @@ class PagesController < ApplicationController
     render :layout => 'full_page_layout'
   end
 
+  def merchant
+    @title = "Suppliers"
+    render :layout => 'full_page_layout'
+  end
+
+  def pantry
+    @title = "Suppliers"
+    render :layout => 'c1_c2_layout'
+  end
 
 end
 

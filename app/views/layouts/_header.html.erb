@@ -5,44 +5,48 @@
       Signed in as <%= current_customer.email %>. Not you?
       <%= link_to "Sign out", destroy_customer_session_path %>
     <% else %>
-      <%= link_to "Sign up", new_customer_registration_path %> or <%= link_to "sign in", new_customer_session_path %>
+      <%= link_to "Sign up", new_customer_registration_path %> or <%= link_to_unless_current "sign in", new_customer_session_path %>
     <% end %>
   </nav>
 
   <%= link_to logo, root_path %>
 
-    <section id="navbar">
-
-      <nav id="tabnav">
-        <ul>
-          <li><%= link_to "Home", root_path %></li>
+    <div id="navbar">
+        <ul class="nav horizontal">
+          <li><%= link_to_unless_current "Home", root_path %></li>
   <% if customer_signed_in? %>
           <% if current_customer.try(:admin?) %>
-            <li><%= link_to "Custs", customers_path %></li>
-            <li><%= link_to "Prods", products_path %></li>
-            <li><%= link_to "Qlist", quick_list_path %></li>
-            <li><%= link_to "Catz", categories_path %></li>
-            <li><%= link_to "New Orders", my_orders_path %></li>
-            <li><%= link_to "All Orders", orders_path %></li>
-            <li><%= link_to "New Hols", customer_holidays_path %></li>
-            <li><%= link_to "Old Hols", old_holidays_path %></li>
+            <li><%= link_to_unless_current "News", announcements_path %></li>
+            <li><%= link_to_unless_current "Custs", customers_path %></li>
+            <li><%= link_to_unless_current "Prods", products_path %></li>
+            <li><%= link_to_unless_current "Supps", suppliers_path %></li>
+            <li><%= link_to_unless_current "Qlist", quick_list_path %></li>
+            <li><%= link_to_unless_current "Catz", categories_path %></li>
+            <li><%= link_to_unless_current "New Ords", my_orders_path %></li>
+            <li><%= link_to_unless_current "All Ords", orders_path %></li>
+            <li><%= link_to_unless_current "New Hols", customer_holidays_path %></li>
+            <li><%= link_to_unless_current "Old Hols", old_holidays_path %></li>
           <% else %>
-            <li><%= link_to "Shop", products_path %></li>
-            <li><%= link_to "Orders", my_orders_path %></li>
-            <li><%= link_to "Holidays", customer_holidays_path %></li>
+            <li><%= link_to_unless_current "Shop", products_path %></li>
+            <li><%= link_to_unless_current "Orders", my_orders_path %></li>
+            <li><%= link_to_unless_current "Holidays", customer_holidays_path %></li>
+            <li><%= link_to_unless_current "The Pantry", pantry_path %></li>
+            <li><%= link_to_unless_current "Our Suppliers", merchant_path %></li>
+            <li><%= link_to_unless_current "News", announcements_path %></li>
           <% end %>
   <% else %>
-            <li><%= link_to "Sign Up Here", new_customer_registration_path, :protocol => "https" %></li>
-            <li><%= link_to "Customer Sign_in", new_customer_session_path, :protocol => "https" %></li>
+            <li><%= link_to_unless_current "Shop", products_path %></li>
+            <li><%= link_to_unless_current "Sign Up Here", new_customer_registration_path, :protocol => "https" %></li>
+            <li><%= link_to_unless_current "Sign in", new_customer_session_path, :protocol => "https" %></li>
   <% end %>
           <% unless current_customer.try(:admin?) %>
-            <li><%= link_to "About", about_path %></li>
-            <li><%= link_to "Contact", contact_path %></li>
-            <li><%= link_to "Help", help_path %></li>
+            <li><%= link_to_unless_current "About", about_path %></li>
+            <li><%= link_to_unless_current "Contact", contact_path %></li>
+            <li><%= link_to_unless_current "Help", help_path %></li>
           <% end %>
         </ul>
-      </nav>
-    </section>
+
+    </div>
 
     <div id="flash" class="flash_html">
       <%- flash.each do |name, msg| -%>
@@ -51,7 +55,7 @@
     </div>
 
   <% if params[:controller] == "products" %>
-    <%= render :partial => 'search' %>
+    <%# render :partial => 'search' %>
   <% end %>
 
 </header>

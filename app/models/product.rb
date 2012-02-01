@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
 #  attr_accessible :name, :price   this broke paperclip ofcourse!!!
   belongs_to :category
+  belongs_to :supplier
   # belongs_to :customer # :todo really. this must be a mistake
   has_many :line_items
   has_many :orders, :through => :line_items

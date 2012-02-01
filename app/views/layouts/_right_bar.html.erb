@@ -1,4 +1,5 @@
 <div id="right_bar">
+
   <% if customer_signed_in? %>
     <div id="cart">
       <% if @cart %>
@@ -14,24 +15,28 @@
         <% end %>
       <% end %>
     </div>
+  <% else %>
+    <div id="pics">
+      <%= image_tag("image01.png", :alt => "", :class => "pic1") %>
+      <%= image_tag("image02.png", :alt => "", :class => "pic1") %>
+      <%= image_tag("image03.png", :alt => "", :class => "pic1") %>
+      <%= image_tag("image04.png", :alt => "", :class => "pic1") %>
+    </div>
   <% end %>
-<hr />
-  <%= render :partial => 'layouts/twitterfollow' %>
-<hr />
+
+
   <% if customer_signed_in? %>
+  <hr />
     <div id="holiday">
       <h3>Going on holiday?</h3>
       <div id="holiday_inner">
       <h4>Please let us know. Click the button.</h4>
         <div id="holiday_button">
-          <%= link_to "Holidays?", new_customer_holiday_path, :class=>"holiday_button" %>
+          <%= link_to "Holidays?", new_customer_holiday_path, :class=>"pretty_button" %>
           <p>you can suspend your order.</p>
         </div>
       </div>
     </div>
-
-    <%# javascript_include_tag "twitterwidget", :cache => true %>
-    <%# render :partial => 'layouts/twitterfeed' %>
 
   <% end %>
 

@@ -30,6 +30,19 @@
   <b>Description:</b>
   <%= @product.description %>
 </p>
+<% unless @product.supplier.nil? %>
+<p>
+  <b>Supplier:</b>
+  <%# link_to h(@product.category.name), @product.category %>
+  <%= link_to h(@product.supplier.name), supplier_path(@product.supplier_id) %>
+</p>
+  <% unless @product.supplier.information.blank? %>
+  <p>
+    <b>Supplier information:</b>
+    <%= @product.supplier.information %>
+  </p>
+  <% end %>
+<% end %>
 <p>
   <b>In Stock:</b>
 <%= @product.out_of_stock? ? 'NO' : 'YES' %>

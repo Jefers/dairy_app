@@ -45,7 +45,7 @@ module ApplicationHelper
   end
 
   def logo
-    logo = image_tag("wd_banner_opt.png", :alt => "Walden Dairy", :id => "logo")
+    logo = image_tag("wdbanner.png", :alt => "Walden Dairy", :id => "logo")
   end
 
   def hols

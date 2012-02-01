@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110516135623) do
+ActiveRecord::Schema.define(:version => 20110926062412) do
+
+  create_table "announcements", :force => true do |t|
+    t.string   "title"
+    t.text     "news"
+    t.date     "published_from"
+    t.date     "published_to"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -117,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20110516135623) do
     t.text     "description"
     t.string   "product_code",         :limit => 8
     t.integer  "position"
+    t.integer  "supplier_id"
   end
 
   create_table "quicknotes", :force => true do |t|
@@ -136,5 +147,20 @@ ActiveRecord::Schema.define(:version => 20110516135623) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "suppliers", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "address_2"
+    t.string   "address_3"
+    t.string   "town"
+    t.string   "post_code"
+    t.string   "contact_telephone"
+    t.string   "email_address"
+    t.text     "information"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

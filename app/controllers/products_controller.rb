@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
   # GET /products.xml
   def index
     @categories = Category.all
+    @suppliers = Supplier.all
     if params[:search]
       @products = Product.search(params[:search]).available.page(params[:page])
     else
@@ -80,6 +81,7 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
     @categories = Category.all
+    @suppliers = Supplier.all
     @product = Product.find(params[:id])
     authorize! :update, @product
   end
@@ -204,7 +206,7 @@ class ProductsController < ApplicationController
 
   def redirect_to_index(msg = nil)
     flash[:notice] = msg if msg
-    redirect_to(root_path)
+    redirect_to(products_path)
   end
 
   def find_cart

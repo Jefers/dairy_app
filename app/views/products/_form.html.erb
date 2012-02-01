@@ -54,6 +54,10 @@
     <%= f.label :category_id %><br />
     <%= f.collection_select(:category_id, Category.all, :id, :name, :include_blank => true) %>
   </div>
+  <div class="field">
+    <%= f.label :supplier_id %><br />
+    <%= f.collection_select(:supplier_id, Supplier.all, :id, :name, :include_blank => true) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

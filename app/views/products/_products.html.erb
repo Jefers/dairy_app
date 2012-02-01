@@ -28,12 +28,12 @@
            <td class="price"><%= quid(product.price) %></td>
            <td>
              <%= form_tag url_for(:action => "add_to_cart", :id=>product.id), :id => "cart-form", :remote => true do %>
-               <%= product.out_of_stock? ? 'Out of Stock' : (button_to "Add to Cart") %>
+               <%= product.out_of_stock? ? 'Out of Stock' : (button_to "Add to Cart",{}, {:class => "small_pretty_button"}) %>
              <% end %>
            </td>
            <td>
              <%= form_tag url_for(:action => "remove_from_cart", :id=>product.id), :id => "cart-form", :remote => true do %>
-               <%= product.out_of_stock? ? '_' : (button_to "[-]") %>
+               <%= product.out_of_stock? ? '_' : (button_to "[-]",{}, {:class => "small_pretty_button"}) %>
              <% end %>
            </td>
            <% end %>
@@ -90,7 +90,11 @@
           <div class="name">
             <%= link_to product.name, product %>
           </div>
+
             <% if customer_signed_in? %>
+              <div class="price">
+                <%= quid(product.price) %>
+              </div>
               <div class="add">
                 <%= form_tag url_for(:action => "add_to_cart", :id=>product.id), :id => "cart-form", :remote => true do %>
                   <%= product.out_of_stock? ? 'Out of Stock' : (button_to "Add to Cart") %>

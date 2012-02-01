@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @announcement.title
+%p
+  %b News:
+  = @announcement.news
+%p
+  %b Published from:
+  = @announcement.published_from
+%p
+  %b Published to:
+  = @announcement.published_to
+%p
+  %b Active:
+  = @announcement.active
+
+= link_to 'Edit', edit_announcement_path(@announcement)
+\|
+= link_to 'Back', announcements_path

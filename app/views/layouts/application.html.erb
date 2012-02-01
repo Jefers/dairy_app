@@ -5,6 +5,7 @@
     <%= render :partial => 'layouts/head' %>
   </head>
   <body>
+      <%= render :partial => 'layouts/facebook_code' %>
     <div class="wrapper container">               <!-- START: container -->
       <div class="span-24 header">                <!-- START: header -->
       <%= render 'layouts/header' %>
@@ -20,11 +21,6 @@
       <div class="span-7 last">                   <!-- START: right_bar -->
         <%= render 'layouts/right_bar' %>
       </div>                                      <!-- END: right_bar -->
-      <div class="push"></div>
-    </div>                                        <!-- END: container -->
-    <div class="span-24 footer">                  <!-- START: footer -->
-      <%= render 'layouts/noscript' %>
-      <%= render 'layouts/footer' %>
-    </div>                                        <!-- END: footer -->
+      <%= render :partial => 'layouts/bottom' %>
   </body>
 </html>

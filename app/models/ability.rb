@@ -10,15 +10,17 @@ class CustomerAbility
     def initialize(customer)
       # Guest User
       unless customer
-        can :read, [Product,Category]
+        can :read, [Product,Category,Announcement]
       else
          cannot :manage, CustomerHoliday
          can :create, CustomerHoliday
          # can :update, CustomerHoliday
          cannot :manage, Product
          cannot :manage, Customer
+         cannot :manage, Supplier
          cannot :manage, Order
          cannot :manage, Category
+         cannot :manage, Announcement
          can :my_orders, @orders
 
         # Admins

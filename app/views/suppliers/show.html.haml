@@ -1,0 +1,41 @@
+%p#notice= notice
+%h3 Supplier
+
+%p
+  %b Name:
+  = @supplier.name
+%p
+  %b Information:
+  = @supplier.information
+
+  -if current_customer.try(:admin?)
+    %p
+      %b Address:
+      = @supplier.address
+    %p
+      %b Address 2:
+      = @supplier.address_2
+    %p
+      %b Address 3:
+      = @supplier.address_3
+    %p
+      %b Town:
+      = @supplier.town
+    %p
+      %b Post code:
+      = @supplier.post_code
+    %p
+      %b Contact telephone:
+      = @supplier.contact_telephone
+    %p
+      %b Email address:
+      = @supplier.email_address
+
+    -if current_customer.try(:admin?)
+      %p
+        %b Active:
+        = @supplier.active
+
+        = link_to 'Edit', edit_supplier_path(@supplier)
+        \|
+        = link_to 'Back', suppliers_path
