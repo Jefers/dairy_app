@@ -5,44 +5,44 @@
       Signed in as <%= current_customer.email %>. Not you?
       <%= link_to "Sign out", destroy_customer_session_path %>
     <% else %>
-      <%= link_to "Sign up", new_customer_registration_path %> or <%= link_to_unless_current "sign in", new_customer_session_path %>
+      <%= link_to "Sign up", new_customer_registration_path %> or <%= nav_link "sign in", new_customer_session_path %>
     <% end %>
   </nav>
 
   <%= link_to logo, root_path %>
 
-    <div id="navbar">
-        <ul class="nav horizontal">
-          <li><%= link_to_unless_current "Home", root_path %></li>
+    <div>
+        <ul id="nav-bar">
+          <li><%= nav_link "Home", root_path %></li>
   <% if customer_signed_in? %>
           <% if current_customer.try(:admin?) %>
-            <li><%= link_to_unless_current "News", announcements_path %></li>
-            <li><%= link_to_unless_current "Custs", customers_path %></li>
-            <li><%= link_to_unless_current "Prods", products_path %></li>
-            <li><%= link_to_unless_current "Supps", suppliers_path %></li>
-            <li><%= link_to_unless_current "Qlist", quick_list_path %></li>
-            <li><%= link_to_unless_current "Catz", categories_path %></li>
-            <li><%= link_to_unless_current "New Ords", my_orders_path %></li>
-            <li><%= link_to_unless_current "All Ords", orders_path %></li>
-            <li><%= link_to_unless_current "New Hols", customer_holidays_path %></li>
-            <li><%= link_to_unless_current "Old Hols", old_holidays_path %></li>
+            <li><%= nav_link "News", announcements_path %></li>
+            <li><%= nav_link "Custs", customers_path %></li>
+            <li><%= nav_link "Prods", products_path %></li>
+            <li><%= nav_link "Supps", suppliers_path %></li>
+            <li><%= nav_link "Qlist", quick_list_path %></li>
+            <li><%= nav_link "Catz", categories_path %></li>
+            <li><%= nav_link "New Ords", my_orders_path %></li>
+            <li><%= nav_link "All Ords", orders_path %></li>
+            <li><%= nav_link "New Hols", customer_holidays_path %></li>
+            <li><%= nav_link "Old Hols", old_holidays_path %></li>
           <% else %>
-            <li><%= link_to_unless_current "Shop", products_path %></li>
-            <li><%= link_to_unless_current "Orders", my_orders_path %></li>
-            <li><%= link_to_unless_current "Holidays", customer_holidays_path %></li>
-            <li><%= link_to_unless_current "The Pantry", pantry_path %></li>
-            <li><%= link_to_unless_current "Our Suppliers", merchant_path %></li>
-            <li><%= link_to_unless_current "News", announcements_path %></li>
+            <li><%= nav_link "Shop", products_path %></li>
+            <li><%= nav_link "Orders", my_orders_path %></li>
+            <li><%= nav_link "Holidays", customer_holidays_path %></li>
+            <li><%= nav_link "The Pantry", pantry_path %></li>
+            <li><%= nav_link "Our Suppliers", merchant_path %></li>
+            <li><%= nav_link "News", announcements_path %></li>
           <% end %>
   <% else %>
-            <li><%= link_to_unless_current "Shop", products_path %></li>
-            <li><%= link_to_unless_current "Sign Up Here", new_customer_registration_path, :protocol => "https" %></li>
-            <li><%= link_to_unless_current "Sign in", new_customer_session_path, :protocol => "https" %></li>
+            <li><%= nav_link "Shop", products_path %></li>
+            <li><%= nav_link "Sign Up Here", new_customer_registration_path %></li>
+            <li><%= nav_link "Sign in", new_customer_session_path %></li>
   <% end %>
           <% unless current_customer.try(:admin?) %>
-            <li><%= link_to_unless_current "About", about_path %></li>
-            <li><%= link_to_unless_current "Contact", contact_path %></li>
-            <li><%= link_to_unless_current "Help", help_path %></li>
+            <li><%= nav_link "About", about_path %></li>
+            <li><%= nav_link "Contact", contact_path %></li>
+            <li><%= nav_link "Help", help_path %></li>
           <% end %>
         </ul>
 
@@ -55,7 +55,7 @@
     </div>
 
   <% if params[:controller] == "products" %>
-    <%# render :partial => 'search' %>
+    <%= render :partial => 'search' %>
   <% end %>
 
 </header>

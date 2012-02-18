@@ -1,6 +1,6 @@
-<div class="pageHeading"><h1>Products ~ <%= @category.name %></h1></div>
+<div class="pageHeading"><h1>Products for~ <%= @category.name %></h1></div>
   <%= render :partial => 'item_views' %>
-  <div id="products"><%= render 'products' %></div>
+  <div id="products"><%= render :partial => 'products' %></div>
 <br />
 
 <% if current_customer.try(:admin?) %>

@@ -1,8 +1,7 @@
 <div id="product_search">
   <%= form_tag products_path, :method => 'get' do %>
-      Product search:
       <%= autocomplete_field_tag :search, params[:search], products_autocomplete_product_name_path, :onblur=>"this.value=(this.value=='')?'Search for Product':this.value;", :onfocus=>"this.value=(this.value=='Search for Product')?'':this.value;", :value=>"Search for Product"  %>
-      <button id="product_search_button" type="submit">
+      <button id="product_search_button" type="submit"></button>
   <% end %>
 </div>
 

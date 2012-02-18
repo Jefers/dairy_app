@@ -169,7 +169,22 @@ module ApplicationHelper
       :icon_trash      => { :w => 10,  :h => 12, :x => 224, :y => 186   },
       :icon_trash      => { :w => 10,  :h => 12, :x => 234, :y => 186   },
       :del             => { :w => 8 ,  :h => 8,  :x => 244, :y => 186   },
+      :arrow           => { :w => 6 ,  :h => 6,  :x => 254, :y => 186   },
     }
     %(<span class="sprite #{options[:class]}" style="background: url(#{path_to_image('/images/walden_sprite.png')}) no-repeat -#{sprites[image][:x]}px -#{sprites[image][:y]}px; width: #{sprites[image][:w]}px; padding-top: #{sprites[image][:h]}px; #{options[:style]}; </span>)
   end
+
+
+  def nav_link(name, path)
+   link_to_unless_current(name, path) do
+     content_tag(:span, name, :class => 'current')
+   end
+  end
+
+  def stay_active_link(name, path)
+    link_to_unless_current(name, path) do
+      link_to name, path, :class => 'current'
+    end
+  end
+
 end

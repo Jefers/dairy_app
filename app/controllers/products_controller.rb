@@ -40,7 +40,8 @@ class ProductsController < ApplicationController
     end
 
     if params[:category_id]
-      @products = @products.where(:category_id => (params[:category_id] == "1"))
+      @products = @products.where(:category_id => (params[:category_id] == "2"))
+      puts "hello"
     end
 
     respond_with(@products)
@@ -219,5 +220,14 @@ class ProductsController < ApplicationController
 
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+  private
+
+  def episodes_per_page
+    case params[:view]
+    when "list" then 40
+    when "grid" then 24
+    else 10
+    end
   end
 end

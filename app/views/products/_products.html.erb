@@ -1,9 +1,10 @@
-<div class="digg_pagination">
+<div class="pagination">
   <%= paginate @products %>
 </div>
 
 <%= hidden_field_tag :direction, params[:direction] %>
 <%= hidden_field_tag :sort, params[:sort] %>
+
 
 <% if params[:view].nil? %>
   <div class="full">
@@ -107,6 +108,6 @@
     </div>
   <% end %>
 
-<div class="digg_pagination">
+<div class="pagination">
   <%= paginate @products %>
 </div>

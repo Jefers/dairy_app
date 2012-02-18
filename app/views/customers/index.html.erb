@@ -6,6 +6,7 @@
   <% @customers.each do |customer| %>
 <div class="accordion">
     <div class="accordionButton">
+      <hr />
         <span class="fix300"> Name:<strong><%= customer.name %></strong></span>
         <span class="fix300"> URN:<strong><%= customer.urn %>/<%= customer.round %></strong></span>
         <span class="fix300"> Last seen:<strong><%= time_ago_in_words(customer.last_seen) << " ago" unless customer.last_seen.nil? %></strong></span>
@@ -17,7 +18,7 @@
         <span class="fix300"> Send an email:<strong><%= link_to 'email customer', :controller => "quicknotes", :action => "new", :customer_id => customer.id %></strong></span>
         <span class="fix300"> ip:<strong><%= customer.last_sign_in_ip %></strong></span>
         <span class="fix300"> Last seen date:<strong><%= format_date_time(customer.last_seen) unless customer.last_seen.nil? %></strong></span>
-      </br>
+      <br />
         <span class="fix300"> Role:<strong><%= customer.role %></strong></span>
         <span class="fix300"> Address:<strong><%= customer.address %></strong></span>
         <span class="fix300"> <strong><%= link_to "See customer's orders", :controller => "orders", :action => "index", :customer_id => customer.id  %></strong></span>
@@ -25,7 +26,9 @@
         <span class="fix300"> <strong><%= link_to_edit(customer) %></strong></span>
         <span class="fix300"> Number of customer orders:<strong><%= customer.orders.count %></strong></span>
     </div>
+
 </div>
+
   <% end %>
 
 

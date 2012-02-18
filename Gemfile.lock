@@ -198,7 +198,7 @@ DEPENDENCIES
   haml-rails
   hpricot
   jquery-rails
-  kaminari
+  kaminari (~> 0.12.4)
   launchy
   mysql2 (= 0.2.7)
   paperclip (~> 2.3)

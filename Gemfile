@@ -8,7 +8,7 @@ gem "haml", '3.0.25' #:TODO is this really necessary? really?
 gem 'devise',  '~>1.1.5'
 gem 'cancan'
 gem "paperclip", "~> 2.3"
-gem 'kaminari'
+gem "kaminari", "~> 0.12.4"
 gem 'jquery-rails'
 gem 'rails3-jquery-autocomplete'
 gem 'compass', '0.10.6'
