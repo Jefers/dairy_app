@@ -2,7 +2,7 @@ DairyApp::Application.routes.draw do
 
   resources :announcements
 
-  SSL_PROTO__ = 'https' unless defined?(SSL_PROTO__)
+  SSL_PROTO__ = 'http' unless defined?(SSL_PROTO__)
   scope :constraints => { :protocol => SSL_PROTO__ } do
     # All your SSL routes.
     devise_for :customers #, :controllers => { :registrations => "my_registrations" }
@@ -11,7 +11,7 @@ DairyApp::Application.routes.draw do
 
   match "customers(/*path)",
         :to => redirect { |params, request|
-                          "https://" + request.host_with_port +
+                          "http://" + request.host_with_port +
                                        request.fullpath
                         }
 

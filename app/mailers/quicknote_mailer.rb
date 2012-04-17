@@ -8,8 +8,8 @@ class QuicknoteMailer < ActionMailer::Base
     attachments.inline['small_sh_banner.png'] = data2
 
     @quicknote  = quicknote
-    @url  = "https://waldendairy.com/customers/sign_in"
-    @forgot_url = "https://waldendairy.com/customers/password/new"
+    @url  = "http://waldendairy.com/customers/sign_in"
+    @forgot_url = "http://waldendairy.com/customers/password/new"
 
 
     mail(:to => "#{quicknote.customer.name} <#{quicknote.customer.email}>",
